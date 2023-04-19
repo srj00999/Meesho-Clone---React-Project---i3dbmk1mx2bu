@@ -1,0 +1,67 @@
+.flightdatacontainer{
+    position: relative;
+    height: 100vh;
+    margin-bottom:200px ;
+
+}
+
+.checkoutcontainer{
+    display: flex;
+    justify-content:center; 
+       
+    
+}
+.paymentbox{
+    border: 2px solid black;
+    width: 500px;
+    margin: 20px;
+    padding: 20px;
+    width: 100;
+}
+
+span h1{
+    margin-left: 1px;
+    margin-top: 1px;
+     padding-bottom: 15px;
+    padding-top: 0px;}
+
+.line-1{
+    border-top: 1px solid black;
+    padding: 4px;
+    margin: 2px;
+
+}
+.inputbox{
+    width: 450px;
+    margin-top: 10px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+.paymentbtn{
+    width: 100px;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 3px;
+}
+.faresummary{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20;
+    margin-bottom: 20px;
+}
+.errormsg{
+    margin-right: 280px;
+}
+.paymentsuccesful{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentsuccesful{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

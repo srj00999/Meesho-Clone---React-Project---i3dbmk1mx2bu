@@ -1,0 +1,40 @@
+.footerpage{
+    position: relative;
+    left: 0;
+    bottom: 0; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    color: rgb(102, 102, 102);
+    background-color: whitesmoke;
+
+}
+.footercontainer{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 300px;
+    justify-content:center; 
+    margin: 0px;
+}
+.heading{
+    color:black;
+    font-weight: bold;
+}
+.divcontainer{
+    width: 20%;
+    padding: 3px;
+}
+
+.divcontainer h3{
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.divcontainer1{
+    width: 40%;
+}
+.weigth{
+    font-size: 35px;
+}
