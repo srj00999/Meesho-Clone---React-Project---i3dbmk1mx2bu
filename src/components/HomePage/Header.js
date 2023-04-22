@@ -29,7 +29,7 @@ export default function Header() {
     return (
         <>
             <div className="headercontainer">
-                <div className='navbarcontainer'>
+                <div className='navbarcontainer' style={{justifyContent:"space-between"}}>
                     <div className='logoandsearchcontainer'>
                         <div className="logocontainer" >
                             <span>
@@ -63,7 +63,7 @@ export default function Header() {
                                     <div className="logoutlogincontainer">
                                         
                                         {
-                                            loginStatus ? <><div className="loginstyle"><span className="namestyle">Hi {name} !  </span> <Link className="loginstyle" onClick={logoutFn}> Logout</Link> </div></> : <Link to='/login'>Profile</Link>
+                                            loginStatus ? <><div className="loginstyle"><span className="namestyle">Hi {name} !  </span> <Link style={{padding:"0px 5px"}} onClick={logoutFn}> Logout</Link> </div></> : <Link to='/login'>Profile</Link>
                                         }
                                     </div>
                                 </div>
