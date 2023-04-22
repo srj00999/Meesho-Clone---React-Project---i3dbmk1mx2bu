@@ -5,7 +5,7 @@ import "./Cart.css"
 import { Link } from 'react-router-dom';
 import { DataAppContext } from '../AppData';
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+
 
 const Cart = () => {
 
@@ -17,7 +17,7 @@ const Cart = () => {
   const [cart, setCart] = useState([]);
   // const [previous, setPrevious] = useState(0);
 
-  const refr = useRef("");
+
 
 
 
@@ -33,7 +33,7 @@ const Cart = () => {
     else {
       console.log("hello users");
     }
-    console.log("reference", refr.current.innerHTML);
+  
   }, []);
 
   // Function to update the cart information in local storage
@@ -80,10 +80,6 @@ const Cart = () => {
 
 
 
-
-
-
-
   return (
     <div className='cartpage'>
 
@@ -95,8 +91,8 @@ const Cart = () => {
               <div className="cart_image">
                 <img src={item.image} />
                 <h3 >{item.title}</h3>
-                { }
-                <p ref={refr} className='price'>{item.price}</p>
+                
+                <p className='price'>{item.price}</p>
               </div>
               <div className='items'>
                 <input

@@ -1,20 +1,64 @@
-.header{
+.headercontainer{
     width: 100%;
     height: 90px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
 }
-.headercontainer{
+.navbarcontainer{
     width: 80%;
     height: 50px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 0px;
+}
+.logoandsearchcontainer{    
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.navlinkcontainer{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.logocontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.linkcontainer{
+    display: flex;
+    justify-content: center;
+    padding: 0px 10px;
+ 
+}
+.downloadcontainer{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.becomesupplier{
+    display: flex;
+    border-left:2px solid black;
+    border-right:2px solid black;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: flex-end;
 
 }
+
 .navbar{
     border: 1px solid lightgray;
     width: 100%;
@@ -26,6 +70,7 @@
 .navbarcontainer{
     width: 80%;
     height: 60px;
+    height: 50px;
     display: flex;
     justify-content:space-evenly;
     align-items: center;
@@ -37,21 +82,17 @@ a{
     font-size: 20px;
 }
 .active{
-    font-size: 23px;
+    font-size: 23px; 
     font-weight: bold;
 }
 .navlink{
     display: flex;
     flex-direction: row;
+    height: 50px;
     flex-wrap: wrap;
     
 }
-.linkcontainer{
-    padding: 10px;
-    padding-left:10px ;
-    padding-right: 30px;
-  
-}
+
 .searchitemcontainer{
     width: 350px;
     height: 50px;
@@ -62,22 +103,44 @@ a{
 .supliercontainer{
     border-left: 1px solid grey;
     border-right: 1px solid grey;
-}
-.logoandsearch{
-    
     height: 50px;
-    display: flex;
-    align-items: center;
-
 }
+
 .logoutcontainer{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* height: 50px; */
 }
 
 a:hover{
     color: rgb(244, 51, 151);
 }
+
+.logincartcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logoutcontainer{
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoutlogincontainer{
+    display: flex;
+    flex-direction: row;
+}
+.namestyle{
+    color: rgb(244, 51, 151);
+    font-size: 25px;
+}
+.loginstyle{
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: flex-end;
+}
+

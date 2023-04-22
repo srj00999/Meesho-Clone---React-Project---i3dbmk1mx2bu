@@ -28,52 +28,56 @@ export default function Header() {
 
     return (
         <>
-            <div className="header">
-                <div className='headercontainer'>
-                    <div className='logoandsearch'>
-                        <div>
+            <div className="headercontainer">
+                <div className='navbarcontainer'>
+                    <div className='logoandsearchcontainer'>
+                        <div className="logocontainer" >
                             <span>
                                 <Link to='/'><img src={meeshologo} width="280px" height="200" /></Link>
                             </span>
                         </div>
-                        <div>
+                        <div className="searchcontainer">
                             <span>
                                 <input className="searchitemcontainer" placeholder=" Try Saree,Kurthi or Search by Product Code" type="text" /><br></br>
                             </span>
                         </div>
                     </div>
-                    <div>
-                        <div className="navlink">
-                            <div >
-                                <span className="linkcontainer" >
-                                    <FontAwesomeIcon icon={faMobileScreenButton} style={{ fontSize: "23px", marginRight: "5px" }} />
-                                    <Link to='/'>Download App </Link>
-                                </span>
-                            </div>
-                            <div >
-                                <span className="linkcontainer supliercontainer " >
-                                    <Link to='/'>Become a supplier</Link>
-                                </span>
-                            </div>
-                            <div>
-                                <div className="logoutcontainer">
-                                    <span><FontAwesomeIcon icon={faUser} />
-                                       {
-                                            loginStatus ? <> {loginStatus && <span><h4>Hi {name} </h4><Link onClick={logoutFn}>Logout</Link></span>}</> : <Link to='/login'>Profile</Link>
-                                        }
-                                    </span>
 
-                                        <span>
-                                            <FontAwesomeIcon icon={faCartShopping} />
-                                            <Link to='/cart'>Cart</Link>
-                                        </span>
+                    <div className="navlinkcontainer">
+                        <div className="linkcontainer" >
+                            <div className="downloadcontainer" >
+                                <span><FontAwesomeIcon icon={faMobileScreenButton} style={{ fontSize: "23px", marginRight: "5px" }} /> </span>
+                                <span><Link to='/'>Download App </Link></span>
+                            </div>
+                        </div>
+                        <div className="linkcontainer " >
+                            <span className="becomesupplier" >
+                                <Link to='/'>Become a supplier</Link>
+                            </span>
+                        </div>
+                        <div className="linkcontainer ">
+                            <div className="logincartcontainer">
+
+                                <div className="logoutcontainer">
+                                <FontAwesomeIcon icon={faUser} />
+                                    <div className="logoutlogincontainer">
+                                        
+                                        {
+                                            loginStatus ? <><div className="loginstyle"><span className="namestyle">Hi {name} !  </span> <Link className="loginstyle" onClick={logoutFn}> Logout</Link> </div></> : <Link to='/login'>Profile</Link>
+                                        }
+                                    </div>
                                 </div>
 
+                                <div className="downloadcontainer">
+                                    <span><FontAwesomeIcon icon={faCartShopping} /></span>
+                                    <span><Link to='/cart'>Cart</Link></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div className="navbar">
                 <div className='navbarcontainer'>
                     <Link to="">View All</Link>
