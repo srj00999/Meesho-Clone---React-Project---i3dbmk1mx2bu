@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react'
-
+// import { useRef } from 'react';
 import "./Cart.css"
 import { Link } from 'react-router-dom';
 import { DataAppContext } from '../AppData';
@@ -15,10 +15,15 @@ const Cart = () => {
   const { appState, setAppState } = localcontext;
   const { loginStatus } = appState;
   const [cart, setCart] = useState([]);
+
+  const {temdata , settempData} = useState();
+  
   // const [previous, setPrevious] = useState(0);
 
-
-
+  // const newRef = useRef();
+  // useEffect(()=>{
+  //   console.log("Reference", newRef.current.outerText);
+  // });
 
 
   useEffect(() => {
@@ -27,14 +32,17 @@ const Cart = () => {
     setCart(cartData);
 
 
+
+
     if (!loginStatus) {
       navigate("/login")
     }
     else {
       console.log("hello users");
     }
-  
+
   }, []);
+
 
   // Function to update the cart information in local storage
   const updateCart = (cart) => {
@@ -78,7 +86,7 @@ const Cart = () => {
 
   }, [handleRemoveClick]);
 
-
+console.log("temporary data ", typeof(temdata))
 
   return (
     <div className='cartpage'>
@@ -86,13 +94,13 @@ const Cart = () => {
       <div className="cart1">
         <h1>Your Cart</h1>
         <div className="cart2">
-          {cart.map((item, index ) => (
+          {cart.map((item, index) => (
             <div key={item.id} className="cart_id">
               <div className="cart_image">
                 <img src={item.image} />
                 <h3 >{item.title}</h3>
-                
-                <p className='price'>{item.price}</p>
+
+                <p className='price'>settempData({item.price})</p>
               </div>
               <div className='items'>
                 <input
