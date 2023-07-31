@@ -1,0 +1,32 @@
+.downloadapp{
+        top : 72px;
+        right: 41rem;
+        position: absolute;
+        z-index: +1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border: 2px solid rgb(232, 232, 235);
+        border-top: none;
+        width: 21rem;
+        height: 22rem;
+        border-radius: 8px;
+    }
+    .dwncontainer{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+    }
+    .playstore{
+        padding: 2rem 0rem;
+    }
+    .applestore{
+        
+    }
+    .downloadForm{
+        font-size: 18px;
+        color: rgb(109, 105, 105);
+        
+    }

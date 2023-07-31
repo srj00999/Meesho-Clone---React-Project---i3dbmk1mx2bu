@@ -1,0 +1,125 @@
+.subProfile_container{
+    top : 72px;
+    right: 90px;
+    position: absolute;
+    z-index: +1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid rgb(232, 232, 235);
+    border-top: none;
+    width: 25rem;
+    height: 22rem;
+    border-radius: 8px;
+}
+.profile_users_container{
+    margin-top: 20px;
+    width: 22rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom:1px solid rgb(105, 105, 110); 
+    padding-bottom: 2rem ;
+}
+.helloUser h1{
+    margin: 0px;
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+.helloUser p{
+    margin: 0px;
+    font-weight: 500;
+    padding-bottom: 2rem;
+}
+.signup_containerr button{
+    width: 100%;
+    height: 4.5rem;
+    color: white;
+    background-color: rgb(159, 32, 137);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.6rem;
+}
+.myorder_container{
+    font-size: 17px;
+    color: rgb(56, 52, 52);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.myorder_container span{
+    padding: 1rem;
+}
+.loginsubcontainer{
+    width: 22rem;
+    height: 22rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    flex-direction: column;
+}
+.namebox{
+    width: 22rem;
+    border-bottom:1px solid rgb(208, 208, 212); 
+    padding-bottom: 3rem;
+    
+}
+.namebox span{
+    font-size: 15px;
+    color: rgb(36, 34, 34);
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+.namecontainr{
+    letter-spacing: 1px;
+    margin-left: 1rem;
+}
+.myordrcontainer span{
+    font-size: 17px;
+    color: rgb(97, 93, 93);
+    
+}
+.myordrcontainer{
+    margin-left: 1rem;
+}
+.logoutcontainer button{
+    font-size: 17px;
+    letter-spacing: 1px;
+    color:  rgb(97, 93, 93);
+    border: none;
+    background-color: white;
+}
+.logoutcontainer{
+    margin-left: 1rem;
+
+}
+.paratag{
+    font-size: 17px;
+    margin: 0px;
+    font-weight: 550;
+}
+.paratagg{
+    font-size: 18px;
+    margin: 0px;
+    font-weight: 550; 
+}
+.myordersection{
+    display: flex;
+    flex-direction: row;
+    border-bottom:1px solid rgb(208, 208, 212); 
+    width: 100%;
+}
+.myordersection span{
+    font-size: 17px;
+    margin-right: 1rem;
+}
+.nameboxx{
+    border-bottom: none;
+}
+.userContainerbox{
+    padding: 1rem;
+    border-radius: 5rem;
+    background-color: rgb(230, 105, 209) ;
+    box-shadow: 3px 3px 3px 3px rgb(206, 61, 182);
+}

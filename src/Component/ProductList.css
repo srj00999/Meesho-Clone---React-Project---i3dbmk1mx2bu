@@ -1,0 +1,193 @@
+.row1
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.each_product{
+    
+    width: 25rem;
+    /* margin: 0 10px; */
+    margin-bottom: 5rem;
+    box-shadow: 1px 1px 6px 1px #e3e3e3;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 0.4rem;
+    background-color: #f9f9f9;
+}
+
+.img{
+    width: 25rem;
+    height: 25rem;
+}
+
+.title1{
+    font-size: 1.6rem;
+    font-weight: 40rem;
+    margin: 0 12px 9px;
+    opacity: 0.6;
+}
+
+.price1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0  12px 9px;
+    display: flex;
+   
+}
+
+.rating1{
+    display: flex;
+    margin: 0  12px 9px;
+}
+
+.rate{
+    background-color: rgb(19, 114, 77);
+    padding: 1.0rem;
+    width: 4.5rem;
+    height: 15px;
+    border-radius: 50px;
+    color: #f9f9f9;
+    font-weight: 600;
+    margin: 0  5px 9px;
+}
+
+.ratecc{
+    padding: 1.0rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.view_product{
+    
+    text-decoration: none;
+    color: #111;
+}
+.productpage{
+    width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 10rem;
+}
+.productcontainer{
+  width: 80%;
+  display: flex;
+    align-items: center;
+    margin: 0px;
+    padding-top: 5rem;
+}
+
+
+
+.addcontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addcontentitem{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 5rem;
+    background-color:rgb(248, 248, 255);;
+    box-sizing: border-box;
+    height: 34.4rem;
+    
+}
+.addtitlecontainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+}
+.addheading h1{
+    font-size: 35px;
+    letter-spacing: 1px;
+}
+.addheading{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+.iconsContainer{ 
+    width: 80%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    font-size: 12px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 0.5rem;
+    
+}
+.iconsname{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+.btndownloadmessho{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 14.8rem; 
+ 
+}
+.btndownloadmessho button{
+    width: 30rem;
+    height: 4rem;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    background-color: rgb(159, 32, 137);
+    
+}
+.topcatContainer{
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 7rem 0rem;
+}
+.topcatsubContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.topcatsubContainer hr{
+    width: 20%;
+}
+.topheading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+.topheading h1{
+    font-size: 30px;
+    font-weight: 500;
+}
+.iconscolom{
+    font-size: 20px;
+    padding-right: 0.4rem;
+}
+.row3container{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+.row2container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
