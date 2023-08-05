@@ -1,0 +1,33 @@
+.summarypage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.summarypageh1{
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.summarypageh1 h2
+{
+ font-size: 30px;
+ font-weight: 100;
+ font-weight: 400;
+ color: purple;
+
+}
+.summarypageh1 h1
+{
+ font-size: 30px;
+ font-weight: 100;
+ font-weight: 400;
+ color: purple;
+
+}
+.similee{
+    font-size: 170px;
+    color: purple;
+
+}

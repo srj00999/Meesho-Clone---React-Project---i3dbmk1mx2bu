@@ -3,11 +3,12 @@ export const DataAppContext = React.createContext();
 
 const AppData = (props) => {
   const initialState = {
-    loginStatus: '',
+    loginStatus: 'true',
     name:'',
     pquantity:'',
     totalprice:'',
-    emptyCartStatus:''
+    emptyCartStatus:'',
+    search:''
   };
 
   const [appState, setAppState] = useState(initialState);

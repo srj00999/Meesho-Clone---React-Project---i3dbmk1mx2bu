@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import "./SubProfile.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -34,23 +34,25 @@ const SubProfile = () => {
             <div className="loginsubcontainer">
               <div className="namebox">
                 <span className="userContainerbox">
-                  <FontAwesomeIcon icon={faUser} />
+                <FontAwesomeIcon icon={faCircleUser} className="iconsize"/>
                 </span>
                 <span className="namecontainr"> Hi { name} ! </span>
               </div>
               <div className="myordersection ">
                 <span>
-                  <FontAwesomeIcon icon={faBagShopping} />
+                  <FontAwesomeIcon icon={faBagShopping} className="changeiconColor"/>
                 </span>
                 <span className="myordrcontainer">
-                  <span>
+                 <Link to='myorder'>
+                 <span>
                     <p className="paratag">My Orders</p>
                   </span>
+                 </Link>
                 </span>
               </div>
               <div className="nameboxx">
                 <span className="paratagg">
-                  <FontAwesomeIcon icon={faRightFromBracket} />
+                  <FontAwesomeIcon icon={faRightFromBracket} className="changeiconColor" />
                 </span>
                 <span className="logoutcontainer">
                   <button onClick={()=>{logoutFn()}}>

@@ -68,7 +68,7 @@
     font-size: 15px;
     color: rgb(36, 34, 34);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     
 }
 .namecontainr{
@@ -117,9 +117,14 @@
 .nameboxx{
     border-bottom: none;
 }
-.userContainerbox{
-    padding: 1rem;
-    border-radius: 5rem;
-    background-color: rgb(230, 105, 209) ;
-    box-shadow: 3px 3px 3px 3px rgb(206, 61, 182);
+.iconsize{
+    font-size: 36px;
+    color: rgb(172, 174, 175);       
 }
+.changeiconColor{
+    color: rgb(36, 34, 34);
+}
+.userContainerbox{
+
+}
+    

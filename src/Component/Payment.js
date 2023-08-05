@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
+import './Payment.css';
 
 const Payment = () => {
   return (
-    <div>Payment</div>
+   <div>
+    <div className='surajbody'>hello suraj</div>
+    <div className='maincontainer'>
+    <div className='btncontainer'><button>Click Me</button></div>
+    <div className='slidecontainer'>
+
+    </div>
+    </div>
+   </div>
   )
 }
 

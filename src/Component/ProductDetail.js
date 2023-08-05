@@ -2,6 +2,12 @@ import React, { useEffect, useState,useContext } from "react";
 import { DataAppContext } from "./AppData";
 import { useParams, useNavigate, json } from "react-router-dom";
 import './ProdDetails.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+
+
 
 
 const ProductDetail = () => {
@@ -48,55 +54,53 @@ const ProductDetail = () => {
     navigate('/cart');
   }
 
+  const buynowFn =()=>{
+    navigate('/address');
+  }
+ 
   return (
-    <div className="prodetailpage">
-      <div className="prodetailcontainer">
-        <section className="main_product">
-          <div className="imagecontainer">
-            <div className="image1">
-              <img src={product.image} />
+    <div className="prodDetailPage">
+      <div className="prodSubContainer">
+
+        <div className="imgAndbtnContainer">
+          <div className="smallImage">
+          <img src={product.image} alt="image"/>
+          </div>
+          <div className="mainimageContainer">
+            <div className="imageContainer">
+            <img src={product.image} alt="image"/>
             </div>
-            <div className="image2">
-              <div>
-                <img src={product.image} />
-              </div>
-              <br></br>
-              <br></br>
-              <div>
-                <button onClick={addCartFn}>Add to Cart</button>
-              </div>
+            <div className="buyAndcartContainer">
+              <button onClick={addCartFn} className="addcrtbtn"><FontAwesomeIcon icon={faCartShopping} /> Add to Cart</button>
+              <button className="buybtn" onClick={buynowFn} ><FontAwesomeIcon icon={faAnglesRight} /> Buy Now</button>
             </div>
           </div>
-
-          <div className="detailcontainer">
-            <div className="prod_details">
-              <p className="pp">{product.title}</p>
-              <h3> ₹ {product.price}</h3>
-              <h3 className="rtt_h3">
-                {" "}
-                {product.rating && product.rating.rate}
-              </h3>
-              <p className="rtt_p">
-                {" "}
-                {product.rating && product.rating.count} Reviews
-              </p>
-            </div>
-
-            <div className="prod_details">
-              <h3>Select Size</h3>
-              <button>Free Size</button>
-              <button>S</button>
-              <button>M</button>
-              <button>L</button>
-              <button>XL</button>
-            </div>
-            <div className="prod_details ">
-              <h3> Product Details</h3>
-              <p className="pp">Name : {product.title}</p>
-              <p className="pp">{product.description}</p>
-            </div>
+        </div>
+        <div className="pdDetailContainer">
+          <div className="dtalbox">
+          <div className="pdTitleContainer">{product.title}</div>
+                <div className="priceContainer">₹{product.price}</div>
+                <div className="freeContainer">
+                  <span>Free Delivery</span>
+                </div>
+                <div className="reivewContainer">
+                  <span className="ratingconainer">
+                    {product.rating && product.rating.rate}
+                    <FontAwesomeIcon icon={faStar} className="star" />
+                    </span>
+                  <span className="leftItmeconainer">
+                    Left Item {product.rating && product.rating.count}
+                  </span>
+                </div>
           </div>
-        </section>
+          <div className="detailsSection">
+            <div className="prdheading">Product Details</div>
+            <div className="prdDescription">
+            {product.title}<br/>
+            {product.description}</div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

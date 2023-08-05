@@ -14,6 +14,10 @@ import Login from "./Component/Login";
 import Register from "./Component/Register";
 import DownloadApp from "./Component/DownloadApp";
 import MyOrder from "./Component/MyOrder";
+import Address from "./Component/Address";
+import Summary from "./Component/Summary";
+import SearchItem from "./Component/SearchItem";
+
 
 const App = () => {
   return (
@@ -32,6 +36,10 @@ const App = () => {
             <Route path="register" element={<Register />} />
             <Route path="downloadapp" element={<DownloadApp />} />
             <Route path="myorder" element={<MyOrder />} />
+            <Route path="checkout" element={<CheckOut />} />
+            <Route path="address" element={<Address />} />
+            <Route path="/checkout/summary" element={<Summary />} />
+            <Route path="searchitem" element={<SearchItem />} />
           </Route>
         </Routes>
       </AppData>

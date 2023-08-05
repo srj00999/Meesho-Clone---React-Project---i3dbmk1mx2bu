@@ -1,120 +1,169 @@
-.prodetailpage{
-    width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-bottom: 100px;
-}
-.prodetailcontainer{
-    width: 80%;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    margin: 0px;
-}
 
-.main_product{
-    width: 80%;
+.prodDetailPage{
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    margin-top: 50px;
-}
-.imagecontainer{
-    display: flex;
-    width: 50%;
-    flex-direction: row;
-}
-.detailcontainer{
-    display: flex;
-    width: 50%;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 30px;
+}
+.prodSubContainer{
+   width: 80%;
+   display: flex;
+   justify-content: center;
+   padding-top: 2.5rem;
 
 }
-.image{
+.imgAndbtnContainer{
     display: flex;
-    flex-direction: row;
-}
-.image1{
+    width: 50rem;
+    height: 58rem;
+    margin-bottom: 5rem;
 
-    margin-top: 35px;
-    margin-right: 10px;
-    width: 100px;
-    height: 85px;
+}
+.smallImage{
+    border: 1px solid rgb(223, 220, 220);
+    margin: 1.8rem ;
+    width: 5rem;
+    height: 6rem;
     overflow: hidden;
-}
-.image1 img{
-    width: 100%;
-    height: 100%;
-}
-
-.image2 img{
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-}
 
-.prod_details{
-    padding: 15px;
-    box-shadow: 1px 1px 6px 1px #cfcfcf;
-    margin:  0 12px 25px  ;
-    /* height: 80px; */
-    width: 80%;
 }
-.pp {
-    font-size: x-large;
-    opacity: 0.5;
-}
-
-.rtt_p
-{
-    margin: 0 10px;
-    opacity: 0.7px;
-}
-.rtt_h3
-{
-    background-color: green;
-    color: #fff;
-    padding: 0 10px;
-    border-radius: 5px;
-    width: 25px;
+.smallImage img{
+    width: 95%;
+    height: 95%;
     
 }
-.prod_details h3{
-    font-size: 25px;
-
+.imageContainer img{
+    width: 75%;
+    height: 85%;
+    padding: 1rem ;
 }
-
-.addcart button{
-    color: rgb(159, 32, 137);
-    background-color: rgb(159, 32, 137);
-    border: 1px solid rgb(159, 32, 137);
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 10px;
-    font-weight: bold;
-    margin: 10px;
-}
-.image2 button {
-    padding: 10px;
+.mainimageContainer{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 50px;
-    background-color: rgb(159, 32, 137);
-    color: #fff;
-    border-style: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-bottom: 1px solid rgb(179, 173, 173);
 }
-
-.prod_details button{
-    color: rgb(159, 32, 137);
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(223, 220, 220);
+    height: 60rem;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+.buyAndcartContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 16rem;
+}
+.buyAndcartContainer button{
+    width: 20rem;
+    height: 5rem;
+    font-size: 17px;
+    border-radius: 4px;
+   
+}
+.addcrtbtn{
+    background-color: white;
+    font-weight: 700;
     border: 1px solid rgb(159, 32, 137);
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 10px;
-    font-weight: bold;
-    margin: 10px;
+    color: rgb(159, 32, 137);
 }
+.buybtn{
+    border: none;
+    color: white;
+    background-color: rgb(159, 32, 137);
+}
+.pdDetailContainer{
+    width: 55rem;
+    height: 60rem;
+    margin-left: 3.5rem;
+}
+.pdTitleContainer{
+    width: 100%;
+    font-size: 18px;
+    padding: 1.2rem 2rem;
+    color:  rgb(139, 139, 163);
+    width: 21.4rem; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+  }
+  .priceContainer{
+      width: 100%;
+      font-size: 23px;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      color: rgb(49, 48, 48);   
+     
+  }
+  .freeContainer{
+      display: flex;
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-weight: 500; 
+      padding: 1rem 0.5rem 0rem 2rem;    
+  }
+  .freeContainer span{
+      background-color: rgb(245, 245, 245); 
+      color:  rgb(103, 103, 121);
+  }
+  .reivewContainer{
+   
+      font-size: 16px;
+      padding: 1rem 2rem; 
+      color: rgb(49, 48, 48);
+      color: white;  
+  }
+  
+  .leftItmeconainer{
+      font-size: 12px;
+      color:  rgb(139, 139, 163); 
+  }
+  
+  .prdmainConainer{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .ratingconainer{
+      background-color: rgb(35, 187, 117);
+      padding: 0.1rem 1rem;
+      border-radius: 4rem;
+      margin-right: 1rem;
+      
+  } 
+  .star{
+      font-size: 10px;
+      padding-left: 0.2rem;
+      margin-bottom: 0.3rem;
+  }
+  .detailsSection{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(223, 220, 220);
+    border-radius: 5px;
+    width: 100%;
+    
+  }
+  .prdheading{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 2rem ;
+    letter-spacing: 1px;
+  }
+  .prdDescription{
+    font-size: 15px;
+    padding: 0rem 2rem  2rem 2rem;
+  }
+  .dtalbox{
+    border: 1px solid rgb(223, 220, 220);
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+    border-radius: 5px;
+  }

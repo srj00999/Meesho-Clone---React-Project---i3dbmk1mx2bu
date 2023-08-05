@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import { Link } from "react-router-dom";
 import home from "../images/home.png";
 import "./ProductList.css";
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductList = () => {
   const [data, setData] = useState([]);
@@ -24,7 +25,8 @@ const ProductList = () => {
   }, []);
 
   return (
-    <>
+    <div className="homepagemaincontainer">
+      <div className="homepagesubmainContainer"></div>
       <div className="addcontent">
         <div className="addcontentitem">
           <div className="addtitlecontainer">
@@ -87,28 +89,44 @@ const ProductList = () => {
           <hr />
         </div>
       </div>
-
-      <div className="productpage">
-        <div className="productcontainer">
-          <div className="row1">
+      <div className="productlistcontainer">
+        <div className="productlistSubcontainer">
+        <div className="filtercontainer">
+                <div className="sortcontainer sortitm">Sort Items</div>
+                <div className="Categorycontainer">
+                  <div className="sortitemscontainers"><button>Price (High to Low)</button></div>
+                  <div className="sortitemscontainers"><button>Price (Low to High)</button></div>
+                  <div  className="sortitemscontainers"><button>Rating</button></div>
+                  <div  className="sortitemscontainers"><button>More Items..</button></div>
+                </div>
+              </div>
+          <div className="prdmainConainer">
             {data.map((item) => (
-              <div className="each_product">
-                <Link to={`/pdetails/${item.id}`} className="view_product">
-                  <img src={item.image} className="img" />
-
-                  <p className="title1">{item.title}</p>
-                  <p className="price1"> ₹ {item.price} </p>
-                  <div className="rating1">
-                    <p className="rate">{item.rating.rate}</p>
-                    <p className="ratecc">{item.rating.count} Reviews </p>
-                  </div>
-                </Link>
+              <div className="prdBox">
+                <Link to={`/pdetails/${item.id}`}>
+                <div className="imgContainer">
+                  <img src={item.image} alt="image" className="imgg" />
+                </div></Link>
+                <div className="pdTitleContainer">{item.title}</div>
+                <div className="priceContainer">₹{item.price}</div>
+                <div className="freeContainer">
+                  <span>Free Delivery</span>
+                </div>
+                <div className="reivewContainer">
+                  <span className="ratingconainer">
+                    {item.rating.rate}
+                    <FontAwesomeIcon icon={faStar} className="star" />
+                    </span>
+                  <span className="leftItmeconainer">
+                    Left Item {item.rating.count}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

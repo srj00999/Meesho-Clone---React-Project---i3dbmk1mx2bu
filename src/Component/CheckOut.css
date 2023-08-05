@@ -1,0 +1,341 @@
+.checkout_page{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 5rem;
+}
+.checkoutmaincont{
+    display: flex;
+    justify-content: center;
+    
+}
+.paymentContainer{
+    display: flex;
+    flex-direction: column;
+    width: 55rem;
+    padding: 2rem;
+    border: 1px solid rgb(234, 234, 242);
+
+}
+.prcedetailpage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px;
+}
+.pricesubcontainer{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    
+}
+.paymentmethod{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 6rem;
+    padding-bottom: 1rem;
+}
+.selcectmethod{
+    font-size: 19px;
+    font-weight: 600;
+    padding-bottom: 2rem;
+    
+}
+.selcectmethod_payment{
+    color: rgb(137, 138, 141);
+}
+.payincash{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+.payincash div{
+    font-size: 10px;
+    font-weight: 500;
+}
+.horizontalline{
+    width: 45rem;
+    height: 0px;
+    margin-left: 1rem;
+    border: 1px solid rgb(150, 147, 147);
+}
+.formcontainer{
+    width: 55rem;
+    height: 4rem;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+.formcontainer option{
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: rgb(211, 244, 234);
+}
+.formcontainer{
+    background-color: rgb(211, 244, 234);
+ 
+}
+.formcontainer{
+    font-size: 18px;
+    letter-spacing: 1px;
+   
+}
+.reselling_order span{
+  font-size: 15px;
+  
+}
+.resellingbtn button{
+    width: 5rem;
+    height: 3rem;
+    font-size: 18px;
+    margin-left: 2rem;
+    border: 1px solid rgb(159, 32, 137);
+    background-color: rgb(233, 184, 240);
+    border-radius: 20px;
+    padding: 6px;
+}
+.reselling_container{
+    width: 55rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+.clickon p{
+    margin: 0px;
+font-size: 12px;
+font-weight: 500;
+color: rgb(143, 136, 136);
+    
+}
+.reselling_order h2{
+    margin: 0px;
+    font-size: 23px;
+    font-weight: 550;
+}
+.prcedetailpage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid rgb(214, 214, 216); 
+    padding: 2rem;
+    margin-left: 2rem;
+}
+.pricesubcontainer{
+    width: 30rem;
+    height: 25rem;
+    justify-content: space-between;
+}
+.pricedetailcontainerbox{
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+}
+.priceProductContainer{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: 0.6rem 0rem;
+}
+.discountcontainer{
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(211, 244, 234);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discountcontainer span{
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    font-weight: 500;
+    color:rgb(2, 77, 54) ;
+    margin-right: 1rem;
+}
+.placedordercontainer button{
+    border: none;
+    width: 32rem;
+    height: 4rem;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(159, 32, 137);
+}
+.moneydeduct div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+.moneydeduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+.anymoney{
+    font-weight: 500;
+    width: 29.5rem;
+    background-color: rgb(243, 243, 243);
+}
+.totalprdprice{
+    border-bottom: 1px dashed black;
+}
+.totldiscount{
+    border-bottom: 1px dashed rgb(4, 58, 42)  ;
+    color:rgb(4, 58, 42)  ;
+}
+.totldiscountprice{
+    color: rgb(4, 58, 42) ;
+    font-size: 18px;
+}
+.pricetagfont{
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+}
+.hrlinepricecontainer{
+    border: 1px solid rgb(224, 221, 221);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.orderttl{
+    padding-bottom: 1rem;
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+}
+.cashtobeContainer{
+ display: flex;
+ flex-direction: column;
+}
+.cashtobecollected{
+    border-top: 1px solid rgb(214, 211, 211);
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(58, 56, 56);
+    height: 4rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+.inputboxcontnr{
+ width: 100%;
+ height: 4rem;
+ border: none;
+ border-bottom: 1px solid rgb(159, 32, 137) ;
+ color: rgb(159, 32, 137);
+}
+input::placeholder{
+    color: rgb(159, 32, 137);
+  
+}
+.marginbox{
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    padding-top: 1rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(159, 32, 137);;
+
+}
+input:focus{
+    outline: none;
+}
+.address_container{
+    background-color:rgba(187, 189, 192, 0.5);
+    padding: 1.5rem 3rem;
+    margin-bottom: 1rem;
+}
+.nameconatiner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+}
+.nameconatiner h2{
+    margin: 0px;
+    padding: 0px;
+    font-size: 2rem;
+    font-weight: 550;
+}
+.main_address_container{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+.main_address_container p{
+    margin: 0px;
+    font-size: 12px;
+}
+.deliver_btn_container button{
+    width: 100%;
+    height: 4rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 1.7rem;
+    color: white;
+    background-color: rgb(159, 32, 137);
+
+}
+.addnewContaienr button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-weight: 700;
+    background-color: white;
+    color:rgb(159, 32, 137) ;
+    letter-spacing: 1px;
+}
+.editbtncntainer{
+    border: none;
+     background-color: transparent;
+     font-size: 17px;
+     letter-spacing: 1px;
+     color:rgb(159, 32, 137) ;
+     font-weight: 550;
+
+}
+
+
+
+
+.addCont{
+    
+}
+.slideEditContainer{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    background-color: rgba(35, 35, 36, 0.5);
+}
+.slideEdit{
+    width: 0%;
+    height: 100vh;
+    background-color: white;
+    transition: width 3s;
+}
+
+.slideEdit{
+    width: 30%;
+}
+

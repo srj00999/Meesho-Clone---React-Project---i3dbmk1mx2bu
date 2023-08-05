@@ -1,0 +1,40 @@
+.sliding-component {
+    position: fixed;
+    top: 0;
+    left: -50%; /* Starts outside the left side of the screen */
+    width: 50%; /* Covers half of the screen width */
+    height: 100vh; /* Covers the full height of the screen */
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out; /* Sliding animation duration and easing */
+  }
+  
+  .sliding-component.open {
+    left: 0; /* Moves to the left side of the screen */
+  }
+.surajbody{
+    position: relative;
+}
+  .maincontainer{
+    position: absolute;
+    top: 130px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(146, 130, 130 , 20%);
+  }
+  .btncontainer{
+
+  }
+  .slidecontainer{
+    width: 0%;
+    height: 100vh;
+    background-color: pink;
+    transition: width 3s;
+  }
+
+  .slidecontainer{
+    width: 30%;
+  }
+

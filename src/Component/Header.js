@@ -1,22 +1,60 @@
-import React,{useContext} from "react";
+import React,{useContext, useState} from "react";
 import { DataAppContext } from "./AppData";
 import Messhologo from "../images/Meeshologo.png";
 import SubProfile from "./SubProfile";
 import DownloadApp from "./DownloadApp";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faMobileScreen } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 
 const Header = () => {
-  
+
+  const initialData = {
+    search:''
+  };
+
+  const navigate = useNavigate();
   const localContext = useContext(DataAppContext);
-  const{appState}= localContext;
-  const{pquantity , loginStatus} = appState;
+  const{appState,setAppState}= localContext;
+  const{pquantity , loginStatus, search } = appState;
 
+ 
+  const [formdata, setFormData] = useState(initialData);
 
+  const updateData = (e) => {
+    e.preventDefault()
+    let tempObj = {};
+    tempObj[e.target.id] = e.target.value.trim();
+    setFormData({
+      ...formdata,
+      ...tempObj,
+    });
+    // setAppState({
+    //   ...appState,
+    //   ...formdata
+
+    // });
+    // navigate("/searchitem");
+  };
+
+  const searchFn = (e) => {
+    e.preventDefault();
+    setAppState({
+      ...appState,
+      ...formdata
+
+    });
+    if(search){
+      navigate("/searchitem");
+    }
+    
+  }
+  
   return (
     <>
       <div className="header_nav_container">
@@ -29,17 +67,19 @@ const Header = () => {
                 </Link>
               </div>
               <div className="input_container">
-                <input
-                  className="searchitemcontainer"
-                  placeholder="    Try Saree,Kurthi or Search by Product Code"
-                  type="text"
-                />
-              </div>
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon"/>
+                <form onSubmit={searchFn}>
+                <input className="searchitemcontainer"
+                  placeholder="Try Saree,Kurthi or Search by Product Code"
+                  type="text" id="search" onChange={updateData} value={formdata.search}>
+                  </input>
+                </form>
+                </div>
             </div>
             <div className="links_container">
               <div className=" links downloadappcontainer">
                 <span className="links_download">
-                  <Link >Download App </Link>
+                  <Link ><FontAwesomeIcon icon={faMobileScreen} className="mobileIcon"/> Download App </Link>
                 </span>
               </div>
               <div className="hide"><DownloadApp/></div>
@@ -50,7 +90,7 @@ const Header = () => {
               </div>
               <div className="profile_line">
                 <div className="profile_container">
-                  <FontAwesomeIcon icon={faUser} fontSize="20px" />
+                  <FontAwesomeIcon icon={faUser} fontSize="20px" className="profileIcon" />
                   <span className="profile">Profile</span>
                 </div>
                 <div className="hide"><SubProfile/></div>
@@ -59,7 +99,7 @@ const Header = () => {
                 <Link to='/cart'>
                 <div className="profile_container">
                   {loginStatus && <span className="prdquantitycontainer"><p>{pquantity}</p></span>}
-                  <FontAwesomeIcon icon={faCartShopping} fontSize="20px" />
+                  <FontAwesomeIcon icon={faCartShopping} fontSize="20px" className="cartIcon" />
                   <span className="profile">Cart</span>
                 </div>
                 </Link>
