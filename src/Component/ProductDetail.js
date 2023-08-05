@@ -16,10 +16,10 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const localContext = useContext(DataAppContext);
   const{appState, setAppState} = localContext;
-  const{pquantity, totalprice,emptyCartStatus} = appState;
+  const{pquantity, totalprice,emptyCartStatus,buyNow} = appState;
   const [product, setProduct] = useState({});
   
-
+  console.log(product.id,product.price, 'product details')
   const fetchApi = async (pID) => {
     const res = await fetch(
       `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${pID}`
@@ -55,6 +55,11 @@ const ProductDetail = () => {
   }
 
   const buynowFn =()=>{
+    setAppState({
+      ...appState,
+      id:product.id,
+      price:product.price
+    })
     navigate('/address');
   }
  

@@ -15,7 +15,7 @@ const Cart = () => {
   // const [cartstatus , setcartStatus] = useState(true);
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
-  const { loginStatus, pquantity, totalprice, emptyCartStatus } = appState;
+  const { loginStatus, pquantity, totalprice, emptyCartStatus , price } = appState;
 
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
@@ -53,6 +53,13 @@ const Cart = () => {
     newCart.splice(index, 1);
     updateCart(newCart);
   };
+
+  const updatePaymentfn =()=>{
+    setAppState({
+      ...appState,price:'', id:''
+    })
+    navigate('/address')
+  }
   return (
     <>
     <div className="cart_page">
@@ -143,7 +150,7 @@ const Cart = () => {
                       </span>
                     </div>
                     <div className="continue_button">
-                      <Link to='/address'><button>Continue</button></Link>
+                      <button onClick={updatePaymentfn}>Continue</button>
                     </div>
                   </div>
                   <div>
