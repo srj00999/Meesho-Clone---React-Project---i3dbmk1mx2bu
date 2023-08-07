@@ -204,13 +204,11 @@ margin: 7rem 0rem;
     justify-content: space-between;
     align-items: center;
     margin-top: 5rem;
-
 }
 .productlistcontainer{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 .productlistSubcontainer{
     width: 85%;

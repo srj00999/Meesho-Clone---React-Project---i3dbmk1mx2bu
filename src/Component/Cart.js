@@ -13,9 +13,12 @@ const Cart = () => {
 
   const [cart, setCart] = useState();
   // const [cartstatus , setcartStatus] = useState(true);
+  const [edit, setEdit] = useState();
+  const [editQuantity, setQuatity] = useState();
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
-  const { loginStatus, pquantity, totalprice, emptyCartStatus , price } = appState;
+  const { loginStatus, pquantity, totalprice, emptyCartStatus, price } =
+    appState;
 
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
@@ -54,135 +57,212 @@ const Cart = () => {
     updateCart(newCart);
   };
 
-  const updatePaymentfn =()=>{
+  const editItem = (index) => {
+    setEdit(true);
+    setQuatity(cart[index]);
+  };
+
+  const updatePaymentfn = () => {
     setAppState({
-      ...appState,price:'', id:''
-    })
-    navigate('/address')
-  }
+      ...appState,
+      price: "",
+      id: "",
+    });
+    navigate("/address");
+  };
   return (
-    <>
-    <div className="cart_page">
-      {emptyCartStatus  ? (
-        <div className="cart_main_container">
-          <div className="product_side_container">
-            <div className="cart_item_container">
-              <div className="item_container">
-                <span className="h3_container">
-                  <h3 className="h3element">Cart</h3>
-                </span>
-                <span className="count_item">Item</span>
+    <div className="cartPage_Main_Container">
+      <div className="cart_page">
+        {emptyCartStatus ? (
+          <>
+            (
+            <div className="cart_main_container">
+              <div className="product_side_container">
+                <div className="cart_item_container">
+                  <div className="item_container">
+                    <span className="h3_container">
+                      <h3 className="h3element">Cart</h3>
+                    </span>
+                    <span className="count_item">Item</span>
+                  </div>
+                </div>
+                <div className="cart_main_contner">
+                  <div className="prd">
+                    {cart &&
+                      cart.map((item, index) => (
+                        <div key={index} className="product_container">
+                          <div className="product_img_des_cont">
+                            <div className="product_image_container">
+                              <Link to={`/pdetails/${item.id}`}>
+                                <span className="cartImageContainer">
+                                  <img
+                                    src={item.image}
+                                    width="60px"
+                                    height="60"
+                                  />
+                                </span>
+                              </Link>
+                            </div>
+                            <div className="product_description_cont">
+                              <div className="descrp_remove_cont">
+                                <div className="descrp_container">
+                                  <div className="ovrflowhide">
+                                    <h4 className="title_para">{item.title}</h4>
+                                  </div>
+                                  <span>{item.price}</span>
+                                  <span>All Return</span>
+                                  <span>{item.rating.rate}</span>
+                                </div>
+                                <div className=" remove_container">
+                                  <button
+                                    className="remove_button"
+                                    onClick={(event) => {
+                                      removItemFn(index, event);
+                                    }}
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faX}
+                                      className="removeicon"
+                                    />
+                                    <h4>REMOVE</h4>
+                                  </button>
+                                </div>
+                              </div>
+                              <div className="edit_container">
+                                <button
+                                  className="edit_button"
+                                  onClick={() => editItem(index)}
+                                >
+                                  Edit
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="free_delivery_container">
+                            <span className="paraContainer">
+                              <p className="paraStyle">Free Delivery</p>
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  <div>
+                    <div className="total_price_container">
+                      <div>
+                        <div>
+                          <span>
+                            <p className="price_detail">Price Details</p>
+                          </span>
+                        </div>
+                        <div>
+                          <div className="total_prce">
+                            <span>
+                              <p>Total Product Price</p>
+                            </span>
+                            <span>+{totalprice}</span>
+                          </div>
+                          <div className="order_total">
+                            <span>Order Total</span>
+                            <span> Rs {totalprice}</span>
+                          </div>
+                        </div>
+                        <div className="clicking_on">
+                          <span>
+                            clicking on 'Continue' will not deduct any money
+                          </span>
+                        </div>
+                        <div className="continue_button">
+                          <button onClick={updatePaymentfn}>Continue</button>
+                        </div>
+                      </div>
+                      <div>
+                        <img src={cartprice} width="350rem" height="150rem" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="cart_main_contner">
-              <div className="prd">
-                {cart &&
-                  cart.map((item, index) => (
-                    <div key={index} className="product_container">
+            {edit && (
+              <div className="editContainer">
+                <div className="editsubcontainer">
+                  <div className="quantityContainer">
+                    <div className="editQuantityHeader">
+                      <span>EDIT ITEM</span>
+                      <span>
+                        <button onClick={() => setEdit(false)}>X</button>
+                      </span>
+                    </div>
+                    <div className="prodQuantCont">
                       <div className="product_img_des_cont">
                         <div className="product_image_container">
-                          <Link to={`/pdetails/${item.id}`}>
-                          <span  className="cartImageContainer">
-                            <img src={item.image} width="60px" height="60" />
-                          </span></Link>
+                          <span className="cartImageContainer">
+                            <img
+                              src={editQuantity.image}
+                              width="50px"
+                              height="50px"
+                            />
+                          </span>
                         </div>
                         <div className="product_description_cont">
                           <div className="descrp_remove_cont">
                             <div className="descrp_container">
                               <div className="ovrflowhide">
-                                <h4 className="title_para">{item.title}</h4>
+                                <h4 className="title_para">
+                                  {editQuantity.title}
+                                </h4>
                               </div>
-                              <span>{item.price}</span>
-                              <span>All Return</span>
-                              <span>{item.rating.rate}</span>
+                              <span className="QuantpriceC">
+                                Rs {editQuantity.price}
+                              </span>
                             </div>
-                            <div className=" remove_container">
-                              <button
-                                className="remove_button"
-                                onClick={(event) => {
-                                  removItemFn(index, event);
-                                }}
-                              >
-                                <FontAwesomeIcon
-                                  icon={faX}
-                                  className="removeicon"
-                                />
-                                <h4>REMOVE</h4>
-                              </button>
+                            <div className="increDecCon">
+                              Qty
+                              <span>
+                                <span className="icremenSubcontainer">
+                                  <button> -</button>
+                                  <span > 1</span>
+                                  <button>+</button>
+                                </span>
+                              </span>
                             </div>
-                          </div>
-                          <div className="edit_container">
-                            <button className="edit_button">Edit</button>
                           </div>
                         </div>
                       </div>
-                      <div className="free_delivery_container">
-                        <span className="paraContainer">
-                          <p className="paraStyle">Free Delivery</p>
-                        </span>
-                      </div>
                     </div>
-                  ))}
+
+                    <div className="totPricecon">
+                      <span>Total Price</span>
+                      <span>Rs268</span>
+                    </div>
+                    <div className="editbtncontainr">
+                      <button>Continue</button>
+                    </div>
+                  </div>
+                </div>
               </div>
+            )}
+            )
+          </>
+        ) : (
+          <div>
+            <div className="cartImage_container">
               <div>
-                <div className="total_price_container">
-                  <div>
-                    <div>
-                      <span>
-                        <p className="price_detail">Price Details</p>
-                      </span>
-                    </div>
-                    <div>
-                      <div className="total_prce">
-                        <span>
-                          <p>Total Product Price</p>
-                        </span>
-                        <span>+{totalprice}</span>
-                      </div>
-                      <div className="order_total">
-                        <span>Order Total</span>
-                        <span> Rs {totalprice}</span>
-                      </div>
-                    </div>
-                    <div className="clicking_on">
-                      <span>
-                        clicking on 'Continue' will not deduct any money
-                      </span>
-                    </div>
-                    <div className="continue_button">
-                      <button onClick={updatePaymentfn}>Continue</button>
-                    </div>
-                  </div>
-                  <div>
-                    <img src={cartprice} width="350rem" height="150rem" />
-                  </div>
+                <img src={cartImage} />
+              </div>
+              <div className="empty_cart_button">
+                <div className="empty_cart_button">
+                  <h5>Your cart is empty</h5>
+                  <Link to="/">
+                    <button>View Products</button>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div>
-          <div className="cartImage_container">
-            <div>
-              <img src={cartImage} />
-            </div>
-            <div className="empty_cart_button">
-              <div className="empty_cart_button">
-                <h5>Your cart is empty</h5>
-                <Link to="/">
-                  <button>View Products</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
-    {/* <div className="editContainer">
-        <div className="editsubcontainer"></div>
-    </div> */}
-    </>
   );
 };
 

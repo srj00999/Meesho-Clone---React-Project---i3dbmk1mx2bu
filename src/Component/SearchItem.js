@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./ProductList.css";
 import "./SearchItem.css";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -131,6 +132,7 @@ const SearchItem = () => {
           </div>
         )}
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -6,31 +6,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px;
-    color: rgb(102, 102, 102);
-    background-color: whitesmoke;
+    margin-top: 15rem;
+    color: rgb(112, 111, 111);
+    background-color: rgb(248, 248, 255);
 
 }
 .footercontainer{
     display: flex;
     flex-direction: row;
     width: 80%;
-    height: 300px;
+    height: 30rem;
     justify-content:center; 
     margin: 0px;
+    overflow: hidden;
 }
 .heading{
     color:black;
-    font-weight: bold;
+    font-weight: 500;
+    
 }
 .divcontainer{
     width: 20%;
-    padding: 3px;
+    padding: 0.3rem;
+    margin-top: 2rem;
 }
 
 .divcontainer h3{
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 14px;
+    
 }
 .divcontainer1{
     width: 40%;

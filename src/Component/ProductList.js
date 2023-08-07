@@ -2,6 +2,7 @@ import React, { useEffect, useState, } from "react";
 import { Link } from "react-router-dom";
 import home from "../images/home.png";
 import "./ProductList.css";
+import Footer from './Footer';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
@@ -126,6 +127,7 @@ const ProductList = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

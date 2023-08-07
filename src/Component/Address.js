@@ -4,6 +4,8 @@ import "./CheckOut.css";
 import "./Address.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
 const Address = () => {
@@ -11,23 +13,22 @@ const Address = () => {
 
   const [clss, setClass] = useState();
   const [paycart, setPaycart] = useState({
-    totalPayprice:'',
-    id:''
+    totalPayprice: "",
+    id: "",
   });
 
   const localContext = useContext(DataAppContext);
   const { appState } = localContext;
   const { loginStatus, id, price, totalprice } = appState;
   const totalProductPrice = paycart.totalPayprice;
-  const totaldiscount = (totalProductPrice/100)*18;
-  
+  const totaldiscount = (totalProductPrice / 100) * 18;
 
   useEffect(() => {
     setPaycart({
       ...paycart,
-      totalPayprice:appState.price ||appState.totalprice,
-      id:appState.id
-    })
+      totalPayprice: appState.price || appState.totalprice,
+      id: appState.id,
+    });
     if (!loginStatus) {
       navigate("/login");
     } else {
@@ -35,7 +36,7 @@ const Address = () => {
     }
   }, []);
 
-  console.log('final payment',paycart);
+  console.log("final payment", paycart);
 
   const callClass = () => {
     setClass(true);
@@ -83,24 +84,30 @@ const Address = () => {
                   <div className="pricedetailcontainerbox">Price Details</div>
                   <div className="priceProductContainer">
                     <span className="totalprdprice">Total Product Price</span>
-                    <span className="pricetagfont">+{Number(totalProductPrice).toFixed(2)}</span>
+                    <span className="pricetagfont">
+                      +{Number(totalProductPrice).toFixed(2)}
+                    </span>
                   </div>
                   <div className="priceProductContainer ">
                     <span className="totldiscount">Total Discounts</span>
-                    <span className="totldiscountprice">-₹{Number(totaldiscount).toFixed(2)}</span>
+                    <span className="totldiscountprice">
+                      -₹{Number(totaldiscount).toFixed(2)}
+                    </span>
                   </div>
                   <div className="hrlinepricecontainer"></div>
                   <div className="priceProductContainer">
                     <span className="orderttl">Order Total</span>
-                    <span className="pricetagfont">₹{Number(totalProductPrice-totaldiscount).toFixed(2)}</span>
+                    <span className="pricetagfont">
+                      ₹{Number(totalProductPrice - totaldiscount).toFixed(2)}
+                    </span>
                   </div>
                   <div className="discountcontainer">
                     <span>
                       <FontAwesomeIcon icon={faPercent} />
                     </span>
                     <span className="pricetagfont">
-                      
-                      Yah! Your total discount is ₹{Number(totaldiscount).toFixed(2)}
+                      Yah! Your total discount is ₹
+                      {Number(totaldiscount).toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -115,36 +122,31 @@ const Address = () => {
             <div className="AddrsContainer">
               <div className="add_address_cont">
                 <span>ADD ADDRESS</span>
+                <span ><button onClick={()=>setClass(false)}>X</button></span>
               </div>
               <form className="addAddressForm">
                 <div className="contact_details_container">
+                  <FontAwesomeIcon icon={faPhone} className="slideIcons" />
                   <lablel>Contact Details</lablel>
                 </div>
-                <div>
-                  <div>
-                    <div className="frminput">
-                      <label>
-                        <span>Name</span>
-                      </label>
-
-                      <input />
-                    </div>
+                <div className="frminput">
+                  <input className="formName" placeholder="Name" />
+                  <input placeholder="Contact Number" />
+                  <span >
+                    <FontAwesomeIcon icon={faLocationDot} className="slideIcons" />
+                    <label className="addressbox">Address</label>
+                  </span>
+                  <input placeholder="House no /Building Name" />
+                  <input placeholder="Road Name / Area / Colony" />
+                  <input placeholder="Pincode" />
+                  <div className="cityStatebox">
+                    <input placeholder="City" /> <input placeholder="state" />
                   </div>
+                  <input placeholder="Nearby Famous Place/Shop/School,etc (optional)" />
                 </div>
-                {/* 
-
-
-
-              <label>Name</label>
-              <input className="formName" placeholder="Name"/>
-              <input className="formcontact" placeholder="Contact Number"/>
-              <label>Address</label>
-              <input placeholder="House no /Building Name"/>
-              <input placeholder="Road Name / Area / Colony"/>
-              <input placeholder="Pincode"/>
-              <div><input placeholder="City" /> <input placeholder="state"/></div>
-              <input placeholder="Nearby Famous Place/Shop/School,etc (optional)"/>
-              <button>Save Address and Continue</button> */}
+                <button className="saveAddandContbtn">
+                  Save Address and Continue
+                </button>
               </form>
             </div>
           </div>

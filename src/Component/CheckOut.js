@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CheckOut.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const CheckOut = () => {
+  const [reselling, setReselling] = useState();
   return (
     <div className="checkout_page">
       <div className="checkoutmaincont">
@@ -42,17 +43,24 @@ const CheckOut = () => {
             </div>
             <div>
               <span className="resellingbtn">
-                <button>No</button>
-                <button>Yes</button>
+                <button onClick={() => setReselling(false)}>No</button>
+                <button onClick={() => setReselling(true)}>Yes</button>
               </span>
               <span></span>
             </div>
           </div>
-          <div className="cashtobeContainer">
-              <div className="cashtobecollected" >Cash to Collected</div>
-              <div><input placeholder="Order Total (₹1053) + Your Margin" className="inputboxcontnr"/></div>
+          {reselling && (
+            <div className="cashtobeContainer">
+              <div className="cashtobecollected">Cash to Collected</div>
+              <div>
+                <input
+                  placeholder="Order Total (₹1053) + Your Margin"
+                  className="inputboxcontnr"
+                />
+              </div>
               <div className="marginbox">Your Margin: ₹0</div>
             </div>
+          )}
         </div>
         <div>
           <div className="prcedetailpage">
@@ -73,10 +81,13 @@ const CheckOut = () => {
                   <span className="pricetagfont">₹311</span>
                 </div>
                 <div className="discountcontainer">
-                <span>
+                  <span>
                     <FontAwesomeIcon icon={faPercent} />
                   </span>
-                  <span className="pricetagfont"> Yah! Your total discount is ₹18</span>
+                  <span className="pricetagfont">
+                    {" "}
+                    Yah! Your total discount is ₹18
+                  </span>
                 </div>
               </div>
               <div className="moneydeduct">
@@ -84,7 +95,9 @@ const CheckOut = () => {
                   clicking on 'Continue' will not deduct any money
                 </div>
                 <div className="placedordercontainer">
-                  <Link to='summary'><button>Placed order</button></Link>
+                  <Link to="summary">
+                    <button>Placed order</button>
+                  </Link>
                 </div>
               </div>
             </div>
