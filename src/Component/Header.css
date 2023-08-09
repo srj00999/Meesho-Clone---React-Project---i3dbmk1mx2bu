@@ -32,8 +32,9 @@
     align-items: center;
     border-radius: 4px;
 }
-input::placeholder{
+.searchitemcontainer::placeholder{
     color: grey;
+    font-size: 15px;
 }
 .searchIcon{
     font-size: 23px;
@@ -49,6 +50,9 @@ input::placeholder{
     color: rgb(59, 57, 57);
     font-weight: 500;
     
+  }
+  .searchitemcontainer:focus{
+    border: none;
   }
 
   input[type=text]:focus {

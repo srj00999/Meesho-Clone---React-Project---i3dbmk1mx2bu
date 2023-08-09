@@ -9,9 +9,25 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
 const Address = () => {
+  const initialData = {
+    name: "",
+    contactno: "",
+    house: "",
+    area: "",
+    pincode: "",
+    city: "",
+    state: "",
+    optional: "",
+  };
+
   const navigate = useNavigate();
 
   const [clss, setClass] = useState();
+  const [address, setAddress] = useState([]);
+  const [saveindex, setSaveindex] = useState();
+  const [showedit, setShowedit] = useState(false);
+  const [formData, setFormData] = useState(initialData);
+  const [editAddData, seteditAddData] = useState();
   const [paycart, setPaycart] = useState({
     totalPayprice: "",
     id: "",
@@ -23,6 +39,46 @@ const Address = () => {
   const totalProductPrice = paycart.totalPayprice;
   const totaldiscount = (totalProductPrice / 100) * 18;
 
+  
+
+  const updateData = (e) => {
+    let tempObj = {};
+    tempObj[e.target.id] = e.target.value;
+    setFormData({
+      ...formData,
+      ...tempObj,
+    });
+  };
+
+  const saveAddressFn = (e) => {
+    e.preventDefault();
+    let temp = JSON.parse(localStorage.getItem("address")) || [];
+    localStorage.setItem("address", JSON.stringify([...temp, formData]));
+    setFormData(initialData);
+    setClass(false);
+  };
+
+
+  const editData = (e) => {
+    let tempObj = {};
+    tempObj[e.target.id] = e.target.value;
+    seteditAddData({
+      ...editAddData,
+      ...tempObj,
+    });
+  };
+
+  const saveEditAdd = (e) => {
+    e.preventDefault();
+    let temp = JSON.parse(localStorage.getItem("address")) || [];
+    temp[saveindex] = editAddData;
+    
+    localStorage.setItem("address", JSON.stringify([...temp, temp[saveindex] = editAddData]));
+    setFormData(initialData);
+    setShowedit(false);
+  };
+
+
   useEffect(() => {
     setPaycart({
       ...paycart,
@@ -32,12 +88,17 @@ const Address = () => {
     if (!loginStatus) {
       navigate("/login");
     } else {
-      console.log("Hello User");
+      let temp = JSON.parse(localStorage.getItem("address")) || [];
+      setAddress(temp);
     }
-  }, []);
+  }, [formData,editAddData]);
 
-  console.log("final payment", paycart);
+  const editAdress = (index) => {
+    setShowedit(true);
+    setSaveindex(index);
+    seteditAddData(address[index]);
 
+  };
   const callClass = () => {
     setClass(true);
   };
@@ -56,26 +117,37 @@ const Address = () => {
                 <button onClick={callClass}> + ADD NEW ADDRESS</button>
               </span>
             </div>
-            <div>
-              <div className="address_container">
-                <div className="nameconatiner">
-                  <h2>Suraj Yadav</h2>
-                  <button className="editbtncntainer">Edit</button>
-                </div>
-                <div className="main_address_container">
-                  <p>114/60 Vidhi Aashram</p>
-                  <p>vinayakpur</p>
-                  <p>Kanpur </p>
-                  <p>Uttar Pradesh 208025</p>
-                  <p>+919125300999</p>
-                </div>
-                <div className="deliver_btn_container">
-                  <Link to="/checkout">
-                    <button>Deliver to this Address</button>
-                  </Link>
+            { address && address.length>0 && address != undefined ? address.map((item,index) => (
+              <div>
+                <div className="address_container">
+                  <div className="nameconatiner">
+                    <h2 >{item.name}</h2>
+                    <button
+                      className="editbtncntainer" key={index}
+                      onClick={() => editAdress(index)}
+                    >
+                      Edit
+                    </button>
+                  </div>
+                  <div className="main_address_container">
+                    <p>{item.house}</p>
+                    <p>{item.area}</p>
+                    <p>{item.optional}</p>
+                    <p>{item.city}</p>
+                    <p>
+                      {item.state} {item.pincode}
+                    </p>
+                    <p>{item.contactno}</p>
+                  </div>
+                  <div className="deliver_btn_container">
+                    <Link to="/checkout">
+                      <button>Deliver to this Address</button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
+            )):<h1>No Address Found!</h1>}
+
           </div>
           <div>
             <div className="prcedetailpage">
@@ -115,39 +187,195 @@ const Address = () => {
             </div>
           </div>
         </div>
-      </div>{" "}
+      </div>
       {clss && (
         <div className="slideEditContainer">
           <div className="slideEdit">
             <div className="AddrsContainer">
               <div className="add_address_cont">
                 <span>ADD ADDRESS</span>
-                <span ><button onClick={()=>setClass(false)}>X</button></span>
+                <span>
+                  <button onClick={() => setClass(false)}>X</button>
+                </span>
               </div>
-              <form className="addAddressForm">
+              <form className="addAddressForm" onSubmit={saveAddressFn}>
                 <div className="contact_details_container">
                   <FontAwesomeIcon icon={faPhone} className="slideIcons" />
-                  <lablel>Contact Details</lablel>
+                  <span>Contact Details</span>
                 </div>
                 <div className="frminput">
-                  <input className="formName" placeholder="Name" />
-                  <input placeholder="Contact Number" />
-                  <span >
-                    <FontAwesomeIcon icon={faLocationDot} className="slideIcons" />
-                    <label className="addressbox">Address</label>
+                  <input
+                    className="formName"
+                    placeholder="Name"
+                    type="text"
+                    id="name"
+                    onChange={updateData}
+                    value={formData.name}
+                  />
+                  <input
+                    placeholder="Contact Number"
+                    type="number"
+                    id="contactno"
+                    onChange={updateData}
+                    value={formData.contactno}
+                  />
+                  <span>
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className="slideIcons"
+                    />
+                    <span className="addressbox">Address</span>
                   </span>
-                  <input placeholder="House no /Building Name" />
-                  <input placeholder="Road Name / Area / Colony" />
-                  <input placeholder="Pincode" />
+                  <input
+                    placeholder="House no /Building Name"
+                    type="text"
+                    id="house"
+                    onChange={updateData}
+                    value={formData.house}
+                  />
+                  <input
+                    placeholder="Road Name / Area / Colony"
+                    type="text"
+                    id="area"
+                    onChange={updateData}
+                    value={formData.area}
+                  />
+                  <input
+                    placeholder="Pincode"
+                    type="number"
+                    id="pincode"
+                    onChange={updateData}
+                    value={formData.pincode}
+                  />
                   <div className="cityStatebox">
-                    <input placeholder="City" /> <input placeholder="state" />
+                    <input
+                      placeholder="City"
+                      type="text"
+                      id="city"
+                      onChange={updateData}
+                      value={formData.city}
+                    />{" "}
+                    <input
+                      placeholder="state"
+                      type="text"
+                      id="state"
+                      onChange={updateData}
+                      value={formData.state}
+                    />
                   </div>
-                  <input placeholder="Nearby Famous Place/Shop/School,etc (optional)" />
+                  <input
+                    placeholder="Nearby Famous Place/Shop/School,etc (optional)"
+                    type="text"
+                    id="optional"
+                    onChange={updateData}
+                    value={formData.optional}
+                  />
                 </div>
-                <button className="saveAddandContbtn">
+                <button className="saveAddandContbtn" type="submit">
                   Save Address and Continue
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+      {showedit && (
+        <div className="slideEditContainer">
+          <div className="slideEdit">
+            <div className="AddrsContainer">
+              <div className="add_address_cont">
+                <span>EDIT ADDRESS</span>
+                <span>
+                  <button onClick={() => setShowedit(false)}>X</button>
+                </span>
+              </div>
+              { (
+                <form className="addAddressForm" onSubmit={saveEditAdd}>
+                  <div></div>
+                  <div className="contact_details_container">
+                    <FontAwesomeIcon icon={faPhone} className="slideIcons" />
+                    <span>Contact Details</span>
+                  </div>
+                  <div className="frminput">
+                    <input
+                      className="formName"
+                      placeholder="Name"
+                      type="text"
+                      id="name"
+                      onChange={editData}
+                      value={editAddData && editAddData.name}
+                    />
+                     <input
+                      placeholder="Contact Number"
+                      type="number"
+                      id="contactno"
+                      onChange={editData}
+                       value={editAddData && editAddData.contactno}
+                    />
+                    <span>
+                      <FontAwesomeIcon
+                        icon={faLocationDot}
+                        className="slideIcons"
+                      />
+                      <span className="addressbox">Address</span>
+                    </span>
+                    <input
+                      placeholder="House no /Building Name"
+                      type="text"
+                      id="house"
+                      onChange={editData}
+                      value={editAddData && editAddData.house}
+                    />
+                    <input
+                      placeholder="Road Name / Area / Colony"
+                      type="text"
+                      id="area"
+                      onChange={editData}
+                      value={editAddData && editAddData.area}
+                    />
+                    <input
+                      placeholder="Pincode"
+                      type="number"
+                      id="pincode"
+                      onChange={editData}
+                      value={editAddData && editAddData.pincode}
+                    />
+                    <input
+                      placeholder="Pincode"
+                      type="number"
+                      id="contactno"
+                      onChange={editData}
+                      value={editAddData && editAddData.contactno}
+                    />
+                    <div className="cityStatebox">
+                      <input
+                        placeholder="City"
+                        type="text"
+                        id="city"
+                        onChange={editData}
+                      value={editAddData && editAddData.contactno}
+                      />
+                      <input
+                        placeholder="state"
+                        type="text"
+                        id="state"
+                        onChange={editData}
+                        value={editAddData && editAddData.state }
+                       />
+                    </div>
+                    <input
+                      placeholder="Nearby Famous Place/Shop/School,etc (optional)"
+                      type="text"
+                      id="optional"
+                      onChange={editData}
+                      value={editAddData && editAddData.optional}
+                    /> 
+                  </div>
+                  <button className="saveAddandContbtn" type="submit">
+                    Save Address and Continue
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

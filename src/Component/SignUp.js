@@ -87,9 +87,7 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-        <div>
+            <div>
           <div className="condition_container">
             <div className="privacy_container">
               <p>
@@ -100,6 +98,8 @@ const SignUp = () => {
             </div>
           </div>
         </div>
+          </div>
+        </form>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const [cart, setCart] = useState();
-  // const [cartstatus , setcartStatus] = useState(true);
+  const [qty , setQty] = useState(1);
   const [edit, setEdit] = useState();
   const [editQuantity, setQuatity] = useState();
   const localContext = useContext(DataAppContext);
@@ -70,6 +70,7 @@ const Cart = () => {
     });
     navigate("/address");
   };
+
   return (
     <div className="cartPage_Main_Container">
       <div className="cart_page">
@@ -102,6 +103,10 @@ const Cart = () => {
                                   />
                                 </span>
                               </Link>
+
+
+
+                              
                             </div>
                             <div className="product_description_cont">
                               <div className="descrp_remove_cont">
@@ -109,9 +114,10 @@ const Cart = () => {
                                   <div className="ovrflowhide">
                                     <h4 className="title_para">{item.title}</h4>
                                   </div>
-                                  <span>{item.price}</span>
+                                  <span>₹{item.price}</span>
                                   <span>All Return</span>
-                                  <span>{item.rating.rate}</span>
+                                  <div className="showQuantity"><span>{item.rating.rate}</span>
+                                  <span><span>Qty:</span><span>{qty}</span></span></div>
                                 </div>
                                 <div className=" remove_container">
                                   <button
@@ -213,16 +219,16 @@ const Cart = () => {
                                 </h4>
                               </div>
                               <span className="QuantpriceC">
-                                Rs {editQuantity.price}
+                              ₹ {editQuantity.price}
                               </span>
                             </div>
                             <div className="increDecCon">
                               Qty
                               <span>
                                 <span className="icremenSubcontainer">
-                                  <button> -</button>
-                                  <span > 1</span>
-                                  <button>+</button>
+                                  <button onClick={()=>setQty(qty-1)}> -</button>
+                                  <span >{qty}</span>
+                                  <button onClick={()=>setQty(qty+1)}>+</button>
                                 </span>
                               </span>
                             </div>
@@ -233,7 +239,7 @@ const Cart = () => {
 
                     <div className="totPricecon">
                       <span>Total Price</span>
-                      <span>Rs268</span>
+                      <span>₹{qty*editQuantity.price}</span>
                     </div>
                     <div className="editbtncontainr">
                       <button>Continue</button>
