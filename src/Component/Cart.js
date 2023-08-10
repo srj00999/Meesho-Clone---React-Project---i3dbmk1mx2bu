@@ -73,6 +73,7 @@ const Cart = () => {
   };
 
 const editSavePrd = ()=>{
+
  cart.map((item)=>{
   if(item.id===editQuantity.id){
     
