@@ -13,6 +13,7 @@ const Cart = () => {
 
   const [cart, setCart] = useState();
   const [qty , setQty] = useState(1);
+  const [tprice , setTprice] = useState();
   const [edit, setEdit] = useState();
   const [editQuantity, setQuatity] = useState();
   const localContext = useContext(DataAppContext);
@@ -71,6 +72,16 @@ const Cart = () => {
     navigate("/address");
   };
 
+const editSavePrd = ()=>{
+ cart.map((item)=>{
+  if(item.id===editQuantity.id){
+    
+  }
+ })
+}
+
+
+
   return (
     <div className="cartPage_Main_Container">
       <div className="cart_page">
@@ -104,9 +115,6 @@ const Cart = () => {
                                 </span>
                               </Link>
 
-
-
-                              
                             </div>
                             <div className="product_description_cont">
                               <div className="descrp_remove_cont">
@@ -117,7 +125,7 @@ const Cart = () => {
                                   <span>₹{item.price}</span>
                                   <span>All Return</span>
                                   <div className="showQuantity"><span>{item.rating.rate}</span>
-                                  <span><span>Qty:</span><span>{qty}</span></span></div>
+                                  <span><span>Qty:</span><span>{item.qty}</span></span></div>
                                 </div>
                                 <div className=" remove_container">
                                   <button
@@ -239,10 +247,10 @@ const Cart = () => {
 
                     <div className="totPricecon">
                       <span>Total Price</span>
-                      <span>₹{qty*editQuantity.price}</span>
+                      <span>₹{Number(qty*editQuantity.price)}</span>
                     </div>
                     <div className="editbtncontainr">
-                      <button>Continue</button>
+                      <button onClick={editSavePrd}>Continue</button>
                     </div>
                   </div>
                 </div>

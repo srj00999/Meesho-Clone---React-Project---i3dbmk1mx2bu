@@ -17,14 +17,14 @@ const ProductDetail = () => {
   const { pquantity, totalprice, emptyCartStatus, buyNow } = appState;
   const [product, setProduct] = useState({});
 
-  console.log(product.id, product.price, "product details");
+  console.log(product, "product details");
   const fetchApi = async (pID) => {
     const res = await fetch(
       `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${pID}`
     );
     const resdata = await res.json();
 
-    setProduct(resdata);
+    setProduct({...resdata, qty:1});
   };
 
   useEffect(() => {
