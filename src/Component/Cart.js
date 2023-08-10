@@ -76,12 +76,12 @@ const editSavePrd = ()=>{
 
  cart.map((item)=>{
   if(item.id===editQuantity.id){
-    
+    item.qty = 4;
+    const temp = JSON.parse(localStorage.getItem("cart")) || [];
+    localStorage.setItem("cart", JSON.stringify(...temp, item));
   }
  })
 }
-
-
 
   return (
     <div className="cartPage_Main_Container">
