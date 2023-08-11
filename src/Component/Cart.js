@@ -13,7 +13,7 @@ const Cart = () => {
 
   const [cart, setCart] = useState();
   const [qty , setQty] = useState(1);
-  const [tprice , setTprice] = useState();
+  const [editTPrice , setEditTPrice] = useState();
   const [edit, setEdit] = useState();
   const [editQuantity, setQuatity] = useState();
   const localContext = useContext(DataAppContext);
@@ -73,22 +73,24 @@ const Cart = () => {
   };
 
 const editSavePrd = ()=>{
-
- cart.map((item)=>{
-  if(item.id===editQuantity.id){
-    item.qty = 4;
-    const temp = JSON.parse(localStorage.getItem("cart")) || [];
-    localStorage.setItem("cart", JSON.stringify(...temp, item));
-  }
- })
+setQuatity(
+  editQuantity.qty = qty,
+  editQuantity.price = editTPrice,
+  setEdit(false),
+  setQty(1)
+)
+const tempdata = JSON.parse(localStorage.getItem("cart")) || [];
+localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
 }
+
+
 
   return (
     <div className="cartPage_Main_Container">
       <div className="cart_page">
-        {emptyCartStatus ? (
+        {emptyCartStatus ? 
           <>
-            (
+            
             <div className="cart_main_container">
               <div className="product_side_container">
                 <div className="cart_item_container">
@@ -198,7 +200,7 @@ const editSavePrd = ()=>{
                 </div>
               </div>
             </div>
-            {edit && (
+            {edit && 
               <div className="editContainer">
                 <div className="editsubcontainer">
                   <div className="quantityContainer">
@@ -235,9 +237,9 @@ const editSavePrd = ()=>{
                               Qty
                               <span>
                                 <span className="icremenSubcontainer">
-                                  <button onClick={()=>setQty(qty-1)}> -</button>
+                                  <button onClick={()=>{setQty(qty-1),setEditTPrice(Number((qty-1)*editQuantity.price))}}>-</button>
                                   <span >{qty}</span>
-                                  <button onClick={()=>setQty(qty+1)}>+</button>
+                                  <button onClick={()=>{setQty(qty+1),setEditTPrice(Number((qty+1)*editQuantity.price))}}>+</button>
                                 </span>
                               </span>
                             </div>
@@ -248,7 +250,7 @@ const editSavePrd = ()=>{
 
                     <div className="totPricecon">
                       <span>Total Price</span>
-                      <span>₹{Number(qty*editQuantity.price)}</span>
+                      <span>₹{editTPrice}</span>
                     </div>
                     <div className="editbtncontainr">
                       <button onClick={editSavePrd}>Continue</button>
@@ -256,10 +258,10 @@ const editSavePrd = ()=>{
                   </div>
                 </div>
               </div>
-            )}
-            )
+            }
+            
           </>
-        ) : (
+         : 
           <div>
             <div className="cartImage_container">
               <div>
@@ -275,7 +277,7 @@ const editSavePrd = ()=>{
               </div>
             </div>
           </div>
-        )}
+        }
       </div>
     </div>
   );

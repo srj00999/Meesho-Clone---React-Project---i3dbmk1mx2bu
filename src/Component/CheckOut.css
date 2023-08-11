@@ -18,6 +18,8 @@
     width: 55rem;
     padding: 2rem;
     border: 1px solid rgb(234, 234, 242);
+    height: 50rem;
+    overflow-y: auto;
 
 }
 .prcedetailpage{

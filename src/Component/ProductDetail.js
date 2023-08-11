@@ -29,6 +29,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     fetchApi(temp.id);
+  
   }, [temp.id]);
 
   const addCartFn = () => {
