@@ -63,6 +63,7 @@ const Cart = () => {
   };
 
 
+
   //Remove item from cart
   const removItemFn = (index, e) => {
     e.preventDefault();
@@ -79,7 +80,7 @@ const Cart = () => {
       price: "",
       id: "",
     });
-    navigate("/address");
+    // navigate("/address");
   };
 
 
@@ -88,6 +89,9 @@ const Cart = () => {
     setEdit(true);
     setSaveindex(Number(index))
     setQuatity(cart[index]);
+    let tempQty = editQuantity.qty;
+    console.log("editQty", tempQty);
+    setQty(tempQty);
   };
 
 
@@ -224,7 +228,6 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-
 
             {edit && (
               <div className="editContainer">
