@@ -8,30 +8,41 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
+
+
 const Cart = () => {
   const navigate = useNavigate();
-
   const [cart, setCart] = useState();
-  const [qty , setQty] = useState(1);
-  const [editTPrice , setEditTPrice] = useState();
+  const [qty, setQty] = useState(1);
+  const [editTPrice, setEditTPrice] = useState();
   const [edit, setEdit] = useState();
   const [editQuantity, setQuatity] = useState();
+  const [saveindex, setSaveindex] = useState();
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
-  const { loginStatus, pquantity, totalprice, emptyCartStatus, price } =
-    appState;
+  
+  const {
+     loginStatus,
+     pquantity,
+     totalprice, 
+     emptyCartStatus, 
+     price 
+    } = appState;
 
+
+
+  //before rendering page check login status and fetch cart data from localStorage.
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(cartData);
-
     if (!loginStatus) {
       navigate("/login");
-    } else {
-      console.log("Hello User");
     }
   }, []);
 
+
+
+  //updateCart items with price
   const updateCart = (cart) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     setCart(cart);
@@ -51,6 +62,8 @@ const Cart = () => {
     });
   };
 
+
+  //Remove item from cart
   const removItemFn = (index, e) => {
     e.preventDefault();
     const newCart = [...cart];
@@ -58,12 +71,9 @@ const Cart = () => {
     updateCart(newCart);
   };
 
-  const editItem = (index) => {
-    setEdit(true);
-    setQuatity(cart[index]);
-  };
 
-  const updatePaymentfn = () => {
+   //update specific product with price and set into global state
+   const updatePaymentfn = () => {
     setAppState({
       ...appState,
       price: "",
@@ -72,25 +82,35 @@ const Cart = () => {
     navigate("/address");
   };
 
-const editSavePrd = ()=>{
-setQuatity(
-  editQuantity.qty = qty,
-  editQuantity.price = editTPrice,
-  setEdit(false),
-  setQty(1)
-)
-const tempdata = JSON.parse(localStorage.getItem("cart")) || [];
-localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
-}
+
+  //call edit side bar passing through index value
+  const editItem = (index) => {
+    setEdit(true);
+    setSaveindex(Number(index))
+    setQuatity(cart[index]);
+  };
+
+
+  //update edit product with price and qty in cart
+  const editSavePrd = () => {
+    setQuatity(
+      (editQuantity.qty = qty),
+      (editQuantity.price = editTPrice),
+      setEdit(false),
+      setQty(1)
+    );
+    const newCart = [...cart];
+    newCart.splice(saveindex, 1 , editQuantity);
+    updateCart(newCart);
+  };
 
 
 
   return (
     <div className="cartPage_Main_Container">
       <div className="cart_page">
-        {emptyCartStatus ? 
+        {emptyCartStatus ? (
           <>
-            
             <div className="cart_main_container">
               <div className="product_side_container">
                 <div className="cart_item_container">
@@ -117,7 +137,6 @@ localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
                                   />
                                 </span>
                               </Link>
-
                             </div>
                             <div className="product_description_cont">
                               <div className="descrp_remove_cont">
@@ -127,8 +146,13 @@ localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
                                   </div>
                                   <span>₹{item.price}</span>
                                   <span>All Return</span>
-                                  <div className="showQuantity"><span>{item.rating.rate}</span>
-                                  <span><span>Qty:</span><span>{item.qty}</span></span></div>
+                                  <div className="showQuantity">
+                                    <span>{item.rating.rate}</span>
+                                    <span>
+                                      <span>Qty:</span>
+                                      <span>{item.qty}</span>
+                                    </span>
+                                  </div>
                                 </div>
                                 <div className=" remove_container">
                                   <button
@@ -200,7 +224,9 @@ localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
                 </div>
               </div>
             </div>
-            {edit && 
+
+
+            {edit && (
               <div className="editContainer">
                 <div className="editsubcontainer">
                   <div className="quantityContainer">
@@ -230,16 +256,34 @@ localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
                                 </h4>
                               </div>
                               <span className="QuantpriceC">
-                              ₹ {editQuantity.price}
+                                ₹ {editQuantity.price}
                               </span>
                             </div>
                             <div className="increDecCon">
                               Qty
                               <span>
                                 <span className="icremenSubcontainer">
-                                  <button onClick={()=>{setQty(qty-1),setEditTPrice(Number((qty-1)*editQuantity.price))}}>-</button>
-                                  <span >{qty}</span>
-                                  <button onClick={()=>{setQty(qty+1),setEditTPrice(Number((qty+1)*editQuantity.price))}}>+</button>
+                                  <button
+                                    onClick={() => {
+                                      setQty(qty - 1),
+                                        setEditTPrice(
+                                          Number((qty - 1) * editQuantity.price)
+                                        );
+                                    }}
+                                  >
+                                    -
+                                  </button>
+                                  <span>{qty}</span>
+                                  <button
+                                    onClick={() => {
+                                      setQty(qty + 1),
+                                        setEditTPrice(
+                                          Number((qty + 1) * editQuantity.price)
+                                        );
+                                    }}
+                                  >
+                                    +
+                                  </button>
                                 </span>
                               </span>
                             </div>
@@ -258,10 +302,11 @@ localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
                   </div>
                 </div>
               </div>
-            }
-            
+            )}
+
+
           </>
-         : 
+        ) : (
           <div>
             <div className="cartImage_container">
               <div>
@@ -277,7 +322,7 @@ localStorage.setItem("cart", JSON.stringify([...tempdata, editQuantity]));
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
     </div>
   );

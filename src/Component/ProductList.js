@@ -8,7 +8,6 @@ import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
 const ProductList = () => {
   const [data, setData] = useState([]);
 
@@ -92,6 +91,7 @@ const ProductList = () => {
       </div>
       <div className="productlistcontainer">
         <div className="productlistSubcontainer">
+         
         <div className="filtercontainer">
                 <div className="sortcontainer sortitm">Sort Items</div>
                 <div className="Categorycontainer">

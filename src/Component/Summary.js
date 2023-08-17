@@ -7,15 +7,12 @@ import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
 const Summary = () => {
     const navigate = useNavigate();
 
-  useEffect( ()=>{
-    callhomepage();
-  },[]);
-
- const callhomepage =(()=>{
-  setInterval(()=>{
+    useEffect(()=>{
+      setTimeout(()=>{
+        navigate('/');
+      },[2000])
+    })
     
-  },5000)
- })
   return (
     <div className='summarypage'>
         <div className='summarypageh1'>

@@ -59,6 +59,12 @@ const Address = () => {
   };
 
 
+  const updateAdd = (address) => {
+    localStorage.setItem("address", JSON.stringify(address));
+    setAddress(address);
+  };
+
+
   const editData = (e) => {
     let tempObj = {};
     tempObj[e.target.id] = e.target.value;
@@ -70,10 +76,10 @@ const Address = () => {
 
   const saveEditAdd = (e) => {
     e.preventDefault();
-    let temp = JSON.parse(localStorage.getItem("address")) || [];
-    temp[saveindex] = editAddData;
-    
-    localStorage.setItem("address", JSON.stringify([...temp, temp[saveindex] = editAddData]));
+    address[saveindex] = editAddData;
+    const newAdd = [...address];
+    newAdd.splice(saveindex, 1 , editAddData);
+    updateAdd(newAdd);
     setFormData(initialData);
     setShowedit(false);
   };
