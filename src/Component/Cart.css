@@ -339,3 +339,64 @@
 }
 
 
+
+.removeCont{
+    position: absolute;
+    z-index: 1;
+    top: -13rem;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(17, 12, 26, 0.8);
+    box-sizing: border-box;
+    overflow: hidden;
+   
+}
+.removeSubCon{
+    background-color: white;
+    width: 60%;
+    height: 20rem;
+    border-radius: 1rem;
+}
+.removitemcontainer{
+    padding: 2rem;
+}
+.RbtnContainer{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height:4rem ;
+}
+.RbtnContainer button{
+    background-color: white;
+    border: none;
+    color: rgb(159, 32, 137);
+    margin-left: 0.8rem;
+    font-weight: 550;
+    letter-spacing: 1px;
+}
+.removeheading{
+    height: 4rem;  
+}
+.removeheading h2{
+    padding: 0px;
+    margin: 0px;
+    color: rgb(88, 86, 86);
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.removetitle{
+    height: 7rem;
+}
+.removetitle p{
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+    color: rgb(80, 76, 76);
+    font-weight: 500;
+
+}
+
+

@@ -242,7 +242,7 @@ color: rgb(143, 136, 136);
  border-bottom: 1px solid rgb(159, 32, 137) ;
  color: rgb(159, 32, 137);
 }
-input::placeholder{
+.orderTotalMarin input::placeholder{
     color: rgb(159, 32, 137);
   
 }
@@ -257,7 +257,8 @@ input::placeholder{
     color: rgb(159, 32, 137);;
 
 }
-input:focus{
+
+.orderTotalMarin input:focus{
     outline: none;
 }
 .address_container{
@@ -429,4 +430,49 @@ input:focus{
 }
 .cityStatebox input{
     width: 23rem;
+}
+.cardPayCon{
+    
+}
+.paymentbox{
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+}
+.inputbox{ 
+    width: 100%;
+    padding: 1rem 1rem;
+    border: none;
+    border-bottom:1px solid black;
+    font-size: 15px;
+}
+.inputContainers input:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(159, 32, 137); ;
+}
+.paymentcardheader h1{
+    margin: 0px;
+    padding: 0px;
+    color: rgb(51, 50, 50);
+}
+.paymentcardheader{
+    display: flex;
+    justify-content: space-between;
+}
+.cardicon{
+    height: 30px;
+    color: rgb(107, 103, 103);
+}
+.inputContainers{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 30rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 1rem 1rem;
+}
+.errormessg{
+    color: red;
+    font-size: 11px;
 }

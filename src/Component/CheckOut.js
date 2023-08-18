@@ -1,17 +1,116 @@
-import React, { useState } from "react";
+import React, { useState,useEffect, useContext } from "react";
+import { DataAppContext } from "./AppData";
 import "./CheckOut.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
+import { faCreditCard} from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 
 const CheckOut = () => {
+
+  const initialData = {
+    cardname: '',
+    cardnumber: '',
+    date: '',
+    cvv: '',
+}
+
   const [reselling, setReselling] = useState();
+  const [formdata, setFormdata] = useState(initialData);
+  const [paymentStatus, setPaymentStatus] = useState(false);
+  const [showCard, setShowCard] = useState();
+  const [showReselling, setShowReselling] = useState(true);
+  const [formerror, setFormerror] = useState({});
+  const localContext = useContext(DataAppContext);
+  const { appState } = localContext;
+  const {  totalprice,discount, loginStatus } = appState;
+  const finalPrice = (totalprice - discount).toFixed(2);
+
+  const updateData = (e) => {
+
+    let tempObj = {};
+    tempObj[e.target.id] = e.target.value.trim();
+    setFormdata({
+        ...formdata, ...tempObj
+    });
+}
+
+useEffect(() => {
+  if (!loginStatus) {
+
+      navigate('/login');
+  }
+  else {
+  }
+}, []);
+
+if (paymentStatus) {
+  setTimeout(() => {
+      navigate('/summary');
+  }
+      , 2000);
+}
+
+const payFn = () => {
+
+
+  const ret = validationFn();
+
+  if (ret) {
+
+      setPaymentStatus(true);
+  }
+}
+
+
+
+const validationFn = () => {
+
+  let errorObj = {};
+
+  if (formdata.cardname === '') {
+      errorObj.cardname = 'Card Number is empty'
+  }
+
+  if (formdata.cardnumber === '') {
+      errorObj.cardnumber = 'Card Number is empty'
+  }
+  if (formdata.date === '') {
+      errorObj.date = 'Date is empty'
+  }
+  if (formdata.cvv === '') {
+      errorObj.cvv = 'CVV is empty'
+  }
+
+  setFormerror(errorObj);
+
+  if (Object.keys(errorObj).length > 0) {
+      return false
+  }
+  else {
+      return true
+  }
+
+}
+const selectPayment=(e)=>{
+  e.preventDefault();
+  if(e.target.value==="COD"){
+    setShowCard(false);
+    setShowReselling(true);
+  }else if(e.target.value=== "CardPayment"){
+    setShowCard(true);
+    setShowReselling(false);
+  }
+
+}
+
   return (
     <div className="checkout_page">
       <div className="checkoutmaincont">
         <div className="paymentContainer">
-          <div className="paymentmethod">
+          
+           { true && <div> <div className="paymentmethod">
             <span className="selcectmethod">Select Payment Method</span>
             <span className="selcectmethod_payment">
               100% SAFE
@@ -25,14 +124,36 @@ const CheckOut = () => {
           </div>
           <div className="paymentmethod">
             <form>
-              <select className="formcontainer">
-                <option>Cash on Delivery</option>
-                <option>Pay cash on delivery</option>
+              <select className="formcontainer" onChange={selectPayment}>
+                <option value='COD' >Cash on Delivery</option>
+                <option value='CardPayment'>Pay with Credit/Debit Card</option>
                 <FontAwesomeIcon icon={faCircleCheck} />
-              </select>
+              </select> 
             </form>
           </div>
-          <div className="reselling_container">
+          { showCard && <div className="paymentbox">
+                        <div className="cardPayCon">
+                          <div className="paymentcardheader">
+                            <h1>Secure Payment Info</h1>
+                            <FontAwesomeIcon icon={faCreditCard} className="cardicon" />
+                            </div>
+
+                            <div className="inputContainers">
+                            <input className="inputbox " type="text" placeholder="Name on card" id="cardname" onChange={updateData} value={formdata.cardname} />
+                            <div className="errormessg">{formerror.cardname}</div>
+
+                            <input className="inputbox" type="number" placeholder="Card Number" id="cardnumber" onChange={updateData} value={formdata.cardnumber} />
+                            <div className="errormessg ">{formerror.cardnumber}</div>
+
+                            <input className="inputbox" type="date" placeholder="Expiry Date" id="date" onChange={updateData} value={formdata.date} />
+                            <div className="errormessg ">{formerror.date}</div>
+
+                            <input className="inputbox" type="number" placeholder="CVV" id="cvv" onChange={updateData} value={formdata.cvv} />
+                            <div className="errormessg ">{formerror.cvv}</div>
+                            </div>
+                        </div>
+                    </div>}
+         {showReselling && <div className="reselling_container">
             <div className="reselling_order">
               <span>
                 <h2>Reselling the Order?</h2>
@@ -48,11 +169,11 @@ const CheckOut = () => {
               </span>
               <span></span>
             </div>
-          </div>
+          </div>}
           {reselling && (
             <div className="cashtobeContainer">
               <div className="cashtobecollected">Cash to Collected</div>
-              <div>
+              <div className="orderTotalMarin">
                 <input
                   placeholder="Order Total (₹1053) + Your Margin"
                   className="inputboxcontnr"
@@ -60,7 +181,8 @@ const CheckOut = () => {
               </div>
               <div className="marginbox">Your Margin: ₹0</div>
             </div>
-          )}
+          )}</div>}
+
         </div>
         <div>
           <div className="prcedetailpage">
@@ -69,24 +191,24 @@ const CheckOut = () => {
                 <div className="pricedetailcontainerbox">Price Details</div>
                 <div className="priceProductContainer">
                   <span className="totalprdprice">Total Product Price</span>
-                  <span className="pricetagfont">+₹311</span>
+                  <span className="pricetagfont">+₹{totalprice}</span>
                 </div>
                 <div className="priceProductContainer ">
                   <span className="totldiscount">Total Discounts</span>
-                  <span className="totldiscountprice">-₹18</span>
+                  <span className="totldiscountprice">-₹{discount}</span>
                 </div>
                 <div className="hrlinepricecontainer"></div>
                 <div className="priceProductContainer">
                   <span className="orderttl">Order Total</span>
-                  <span className="pricetagfont">₹311</span>
+                  <span className="pricetagfont">₹{finalPrice}</span>
                 </div>
                 <div className="discountcontainer">
                   <span>
                     <FontAwesomeIcon icon={faPercent} />
                   </span>
                   <span className="pricetagfont">
-                    {" "}
-                    Yah! Your total discount is ₹18
+                    
+                    Yah! Your total discount is ₹{discount}
                   </span>
                 </div>
               </div>
@@ -95,9 +217,7 @@ const CheckOut = () => {
                   clicking on 'Continue' will not deduct any money
                 </div>
                 <div className="placedordercontainer">
-                  <Link to="summary">
-                    <button>Placed order</button>
-                  </Link>
+                    <button onClick={payFn}>Placed order</button>
                 </div>
               </div>
             </div>

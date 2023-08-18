@@ -41,7 +41,7 @@
     color: grey;
     padding: 0rem 0.4rem 0rem 1rem;
 }
-  input[type=text] {
+.input_container input[type=text] {
     border: none;
     width: 36rem;
     height: 3.7rem;
@@ -55,7 +55,7 @@
     border: none;
   }
 
-  input[type=text]:focus {
+  .input_container input[type=text]:focus {
     outline: none;
     height: 3.7rem;
   }

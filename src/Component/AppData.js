@@ -6,11 +6,13 @@ const AppData = (props) => {
     loginStatus: "true",
     name: "",
     pquantity: "",
-    totalprice: "",
     emptyCartStatus: "",
     search: "",
     id: "",
     price: "",
+    totalprice: "",
+    discount: "",
+    deliveryAdd:""
   };
 
   const [appState, setAppState] = useState(initialState);

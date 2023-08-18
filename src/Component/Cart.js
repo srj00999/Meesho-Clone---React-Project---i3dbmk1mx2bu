@@ -16,6 +16,7 @@ const Cart = () => {
   const [qty, setQty] = useState(1);
   const [editTPrice, setEditTPrice] = useState();
   const [edit, setEdit] = useState();
+  const [showRemove, setShowRemove] = useState();
   const [editQuantity, setQuatity] = useState();
   const [saveindex, setSaveindex] = useState();
   const localContext = useContext(DataAppContext);
@@ -57,16 +58,15 @@ const Cart = () => {
     setAppState({
       ...appState,
       pquantity: cart.length,
-      totalprice: tempPrice,
+      totalprice: tempPrice.toFixed(2),
       emptyCartStatus: crtstatuss,
     });
   };
 
 
-
   //Remove item from cart
-  const removItemFn = (index, e) => {
-    e.preventDefault();
+  const removItemFn = (index) => {
+    setShowRemove(false);
     const newCart = [...cart];
     newCart.splice(index, 1);
     updateCart(newCart);
@@ -80,7 +80,7 @@ const Cart = () => {
       price: "",
       id: "",
     });
-    // navigate("/address");
+    navigate("/address");
   };
 
 
@@ -89,11 +89,9 @@ const Cart = () => {
     setEdit(true);
     setSaveindex(Number(index))
     setQuatity(cart[index]);
-    let tempQty = editQuantity.qty;
-    console.log("editQty", tempQty);
-    setQty(tempQty);
+    setQty(cart[index].qty);
+    setEditTPrice(cart[index].price);
   };
-
 
   //update edit product with price and qty in cart
   const editSavePrd = () => {
@@ -108,6 +106,25 @@ const Cart = () => {
     updateCart(newCart);
   };
 
+
+  //Control increase and decrease Quantity
+  const increaseQty = () =>{
+    setQty(qty+1);
+    setEditTPrice(editTPrice/qty*(qty+1))
+  }
+  const decreaseQty = () =>{
+    setQty(qty-1);
+    if(qty-1<1){
+      setEdit(false)
+      setShowRemove(true);
+    }
+    setEditTPrice(editTPrice/qty*(qty-1))    
+  }
+
+  //remove Edit Items
+  const removeItem =() =>{
+    removItemFn(saveindex );
+  }
 
 
   return (
@@ -228,6 +245,24 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+            {showRemove &&
+                <div className="removeCont">
+                  <div className="removeSubCon">
+                  <div className="removitemcontainer">
+                  <div className="removeheading">
+                      <h2>Remove product from cart</h2>
+                   </div>
+                   <div className="removetitle">
+                    {true && <p>{editQuantity.title}</p>}
+                   </div>
+                   <div className="RbtnContainer">
+                    <button onClick={()=>setShowRemove(false)}>CANCEL</button>
+                    <button  onClick={removeItem}>REMOVE</button>
+                   </div>
+                  </div>
+                  </div>
+                </div>
+                }
 
             {edit && (
               <div className="editContainer">
@@ -266,27 +301,9 @@ const Cart = () => {
                               Qty
                               <span>
                                 <span className="icremenSubcontainer">
-                                  <button
-                                    onClick={() => {
-                                      setQty(qty - 1),
-                                        setEditTPrice(
-                                          Number((qty - 1) * editQuantity.price)
-                                        );
-                                    }}
-                                  >
-                                    -
-                                  </button>
+                                  <button onClick={decreaseQty}> - </button>
                                   <span>{qty}</span>
-                                  <button
-                                    onClick={() => {
-                                      setQty(qty + 1),
-                                        setEditTPrice(
-                                          Number((qty + 1) * editQuantity.price)
-                                        );
-                                    }}
-                                  >
-                                    +
-                                  </button>
+                                  <button onClick={increaseQty}> + </button>
                                 </span>
                               </span>
                             </div>
@@ -297,8 +314,9 @@ const Cart = () => {
 
                     <div className="totPricecon">
                       <span>Total Price</span>
-                      <span>₹{editTPrice}</span>
+                      <span>₹{editTPrice.toFixed(2)}</span>
                     </div>
+
                     <div className="editbtncontainr">
                       <button onClick={editSavePrd}>Continue</button>
                     </div>
@@ -306,8 +324,6 @@ const Cart = () => {
                 </div>
               </div>
             )}
-
-
           </>
         ) : (
           <div>

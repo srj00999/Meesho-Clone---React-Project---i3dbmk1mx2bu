@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Address = () => {
   const initialData = {
@@ -34,10 +34,10 @@ const Address = () => {
   });
 
   const localContext = useContext(DataAppContext);
-  const { appState } = localContext;
-  const { loginStatus, id, price, totalprice } = appState;
+  const { appState , setAppState } = localContext;
+  const { loginStatus, id, price, totalprice , deliveryAdd} = appState;
   const totalProductPrice = paycart.totalPayprice;
-  const totaldiscount = (totalProductPrice / 100) * 18;
+  const totaldiscount = ((totalProductPrice / 100) * 18).toFixed(2);
 
   
 
@@ -112,6 +112,16 @@ const Address = () => {
     setClass(false);
   };
 
+
+  const selectAddFn = (index)=>{
+    setAppState({
+      ...appState,
+      deliveryAdd : address[index],
+      discount:totaldiscount,
+    })
+    navigate('/checkout');
+  }
+
   return (
     <div>
       <div className="checkout_page">
@@ -146,9 +156,7 @@ const Address = () => {
                     <p>{item.contactno}</p>
                   </div>
                   <div className="deliver_btn_container">
-                    <Link to="/checkout">
-                      <button>Deliver to this Address</button>
-                    </Link>
+                      <button onClick={()=>selectAddFn(index)}>Deliver to this Address</button>
                   </div>
                 </div>
               </div>
