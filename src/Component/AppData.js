@@ -12,7 +12,9 @@ const AppData = (props) => {
     price: "",
     totalprice: "",
     discount: "",
-    deliveryAdd:""
+    deliveryAdd:"",
+    cardDetails:"",
+    paymentType:"Cash On Delivery",
   };
 
   const [appState, setAppState] = useState(initialState);

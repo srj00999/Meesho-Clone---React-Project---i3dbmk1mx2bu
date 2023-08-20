@@ -5,17 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard} from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const CheckOut = () => {
 
+  //create initial object of form card details
   const initialData = {
     cardname: '',
     cardnumber: '',
     date: '',
     cvv: '',
 }
-
+  
+  const navigate  = useNavigate();
   const [reselling, setReselling] = useState();
   const [formdata, setFormdata] = useState(initialData);
   const [paymentStatus, setPaymentStatus] = useState(false);
@@ -23,19 +26,20 @@ const CheckOut = () => {
   const [showReselling, setShowReselling] = useState(true);
   const [formerror, setFormerror] = useState({});
   const localContext = useContext(DataAppContext);
-  const { appState } = localContext;
-  const {  totalprice,discount, loginStatus } = appState;
+  const {appState, setAppState } = localContext;
+  const {totalprice,discount, loginStatus, cardDetails, paymentType} = appState;
   const finalPrice = (totalprice - discount).toFixed(2);
 
+  //set card details in Formdata
   const updateData = (e) => {
-
     let tempObj = {};
     tempObj[e.target.id] = e.target.value.trim();
     setFormdata({
         ...formdata, ...tempObj
-    });
+    });    
 }
 
+//Before Render page Check login Status
 useEffect(() => {
   if (!loginStatus) {
 
@@ -45,26 +49,26 @@ useEffect(() => {
   }
 }, []);
 
-if (paymentStatus) {
-  setTimeout(() => {
-      navigate('/summary');
-  }
-      , 2000);
-}
 
+
+//Save card information on context api
 const payFn = () => {
-
-
   const ret = validationFn();
-
-  if (ret) {
-
-      setPaymentStatus(true);
+  if(paymentType === "Cash On Delivery"){
+    
+     navigate('/summary')
+  }else if(ret){
+     setPaymentStatus(true);
+      setAppState({
+        ...appState, ...formdata
+      });
+      
+      navigate('/summary')
   }
-}
+  }
 
 
-
+//validate card Details
 const validationFn = () => {
 
   let errorObj = {};
@@ -72,7 +76,6 @@ const validationFn = () => {
   if (formdata.cardname === '') {
       errorObj.cardname = 'Card Number is empty'
   }
-
   if (formdata.cardnumber === '') {
       errorObj.cardnumber = 'Card Number is empty'
   }
@@ -93,14 +96,23 @@ const validationFn = () => {
   }
 
 }
+
+//Show Hide card Container and select payment type
 const selectPayment=(e)=>{
   e.preventDefault();
   if(e.target.value==="COD"){
     setShowCard(false);
     setShowReselling(true);
+    setAppState({
+      ...appState,paymentType:"Cash On Delivery"
+    })
+    
   }else if(e.target.value=== "CardPayment"){
     setShowCard(true);
     setShowReselling(false);
+    setAppState({
+      ...appState,paymentType:"Debit/Credit Card Payment"
+    })
   }
 
 }

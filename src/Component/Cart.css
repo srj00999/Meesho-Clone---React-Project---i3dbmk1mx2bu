@@ -46,6 +46,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 .free_delivery_container{
     display: flex;

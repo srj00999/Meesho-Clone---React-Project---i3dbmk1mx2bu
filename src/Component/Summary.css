@@ -31,3 +31,80 @@
     color: purple;
 
 }
+.summarydelivery{
+    display: flex;
+}
+.summarydelivery span{
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 6px;
+}
+.summaryPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.confirmorder{
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    width: 70%;
+    background-color: rgb(211, 244, 234);;
+}
+.checkiconcotainer{
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+}
+.checkiconcotainer span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(2, 77, 54);
+    color: white;
+    border-radius: 5rem;
+    font-size: 15px;
+}
+.idcontainer{
+
+}
+.idcontainer p{
+    margin: 0px;
+    padding: 0px;
+}
+.idcontainer h1{
+    margin: 0px;
+    padding: 0px;
+    color:  rgb(2, 77, 54);;
+}
+.estimatedelvry span{
+    font-size: 16px;
+    margin-right: 1rem;  
+}
+.paytype{
+    font-size: 17px;
+    font-weight: 530;
+}
+.paymentmode span{
+    font-size: 15px ;
+    margin-right: 1rem;   
+}
+.paymentmode{
+    padding: 1.2rem;
+}
+.summarypayment{
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    padding: 2rem;
+    border: 1px solid rgb(234, 234, 242);
+    height: auto;
+    /* overflow-y: auto; */
+    box-sizing: border-box;
+}
