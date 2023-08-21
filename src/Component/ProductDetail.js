@@ -84,6 +84,7 @@ const ProductDetail = () => {
       ...appState,
       pquantity: tquant.length,
       totalprice: temprce,
+      buyStatus:false,
       emptyCartStatus: crtstatus,
     });
   };
@@ -92,10 +93,13 @@ const ProductDetail = () => {
 
 //Buy product without adding to cart
   const buynowFn = () => {
+    localStorage.setItem("singleorder", JSON.stringify([ product]));
     setAppState({
       ...appState,
       id: product.id,
       price: product.price,
+      buyStatus:true,
+      totalprice:product.price
     });
     navigate("/address");
   };
@@ -145,7 +149,7 @@ const ProductDetail = () => {
 
         <div className="pdDetailContainer">
           <div className="dtalbox">
-            <div className="pdTitleContainer">{product.title}</div>
+            <div className="pdTitleContainer"><p>{product.title}</p></div>
             <div className="priceContainer">₹{product.price}</div>
             <div className="freeContainer">
               <span>Free Delivery</span>

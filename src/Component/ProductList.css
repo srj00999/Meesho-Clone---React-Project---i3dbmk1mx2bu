@@ -216,21 +216,22 @@ margin: 7rem 0rem;
 }
 .prdBox{
     display: flex;
-    width: 24rem;
-    height: 40rem;
+    width: 22rem;
+    height: 38rem;
     border: 1px solid rgb(223, 220, 220);
     border-radius: 5px;
     flex-direction: column;
-    margin: 0.9rem;
+    margin: 1.2rem;
     box-sizing: border-box;
+    overflow: hidden;
     
 }
 .imgContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 24rem;
-    height: 21rem;
+    width: 21rem;
+    height: 18rem;
     object-fit:cover;
     overflow:hidden ;
 }
@@ -261,14 +262,22 @@ margin: 7rem 0rem;
 
 }
 .pdTitleContainer{
-  width: 100%;
-  font-size: 18px;
-  padding: 1.2rem 1rem;
-  color:  rgb(139, 139, 163);
-  width: 21.4rem; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;   
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem 0rem;
+    color:  rgb(139, 139, 163);
+    white-space: nowrap;
+    overflow:hidden;
+       
+}
+.pdTitleContainer p{
+    
+    margin: 0px;
+    padding: 0px;
+    text-overflow: ellipsis;  
 }
 .priceContainer{
     width: 100%;

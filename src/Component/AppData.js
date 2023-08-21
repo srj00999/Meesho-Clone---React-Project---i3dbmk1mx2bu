@@ -5,6 +5,7 @@ const AppData = (props) => {
   const initialState = {
     loginStatus: "true",
     name: "",
+    buyStatus: "false",
     pquantity: "",
     emptyCartStatus: "",
     search: "",

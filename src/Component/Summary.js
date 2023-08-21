@@ -16,19 +16,27 @@ const Summary = () => {
     const [cart, setCart] = useState();
     const localContext = useContext(DataAppContext);
     const {appState, setAppState } = localContext;
-    const { paymentType, deliveryAdd, discount, totalprice , } = appState;
+    const { paymentType, deliveryAdd, discount, totalprice , buyStatus } = appState;
 
 
     //Save order in localStorage
     useEffect(()=>{  
-      const cartData = JSON.parse(localStorage.getItem("cart")) || []; 
-      localStorage.setItem("orderproduct", JSON.stringify(cartData));
-      const orderpd = JSON.parse(localStorage.getItem("orderproduct")) || [];
-      setCart(orderpd);
-      localStorage.setItem("cart", JSON.stringify([]));
-      setAppState({
-        ...appState, pquantity:0
-      })
+      if(buyStatus){
+        const singleorder = JSON.parse(localStorage.getItem("singleorder")) || []; 
+        setCart(singleorder);
+        setAppState({
+          ...appState, buyStatus:false
+        })
+      }else{
+        const cartData = JSON.parse(localStorage.getItem("cart")) || []; 
+        localStorage.setItem("orderproduct", JSON.stringify(cartData));
+        const orderpd = JSON.parse(localStorage.getItem("orderproduct")) || [];
+        setCart(orderpd);
+        localStorage.setItem("cart", JSON.stringify([]));
+        setAppState({
+          ...appState, pquantity:0
+        })
+      } 
     },[])
 
   
@@ -115,7 +123,7 @@ const Summary = () => {
               </div>
             <div className='paytype'>Payment Mode</div>
            <div className='paymentmode'>
-            <span> <FontAwesomeIcon icon={faWallet} /></span>
+            <span> <FontAwesomeIcon icon={faWallet} className='walleticon' /></span>
             <span>{paymentType}</span>
             </div>  
           </div>

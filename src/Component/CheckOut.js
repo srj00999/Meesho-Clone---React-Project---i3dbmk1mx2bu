@@ -27,7 +27,8 @@ const CheckOut = () => {
   const [formerror, setFormerror] = useState({});
   const localContext = useContext(DataAppContext);
   const {appState, setAppState } = localContext;
-  const {totalprice,discount, loginStatus, cardDetails, paymentType} = appState;
+  const {totalprice,discount, loginStatus, cardDetails, paymentType, price , buyStatus} = appState;
+  
   const finalPrice = (totalprice - discount).toFixed(2);
 
   //set card details in Formdata
@@ -48,7 +49,6 @@ useEffect(() => {
   else {
   }
 }, []);
-
 
 
 //Save card information on context api

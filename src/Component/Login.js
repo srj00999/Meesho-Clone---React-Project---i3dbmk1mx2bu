@@ -15,9 +15,11 @@ const [loginStatus, setStatus] = useState(false);
 const localContext = useContext(DataAppContext);
 const {appState, setAppState} = localContext;
 const {pquantity, emptyCartStatus} = appState;
+const [formerror, setFormerror] = useState({});
+const [formdata, setFormData] = useState(initiaState);
 
   const navigate = useNavigate();
-  const [formdata, setFormData] = useState(initiaState);
+ 
 
   const updateData = (e) => {
     let tempObj = {};
@@ -28,8 +30,10 @@ const {pquantity, emptyCartStatus} = appState;
 
   const loginFn = (e) => {
     e.preventDefault();
-
+    const ret = validationFn();
+    if (ret) {
     let temp = JSON.parse(localStorage.getItem("users")) || [];
+    if (temp) {
     temp.map((value) => {
       if (value.email === formdata.email) {
         if (value.password === formdata.password) {
@@ -56,10 +60,38 @@ const {pquantity, emptyCartStatus} = appState;
           navigate("/");
         }
       } else {
-        console.log("");
+        setStatus(false);
+        console.log("Invalid Email/Password");
       }
+      setFormData(initiaState);
     });
-  };
+  }
+}}
+    
+const validationFn = () => {
+
+    let errorObj = {};
+
+    if (formdata.email === '') {
+        errorObj.email = 'Email is empty'
+    }
+
+    if (formdata.password === '') {
+        errorObj.password = 'Password is empty'
+    }
+
+    setFormerror(errorObj);
+
+    if (Object.keys(errorObj).length > 0) {
+        return false
+    }
+    else {
+        return true
+    }
+
+}
+
+    
 
   return (
     <div className="signup_page">
@@ -76,26 +108,19 @@ const {pquantity, emptyCartStatus} = appState;
             <form onSubmit={loginFn}>
               <div className="phone_no_input">
                 <span className="phone_no_input email">
-                  <input
-                    placeholder="Email Id"
-                    type="text"
-                    id="email"
-                    onChange={updateData}
-                    value={formdata.email}
-                  />
+                  <input placeholder="Email Id" type="text" id="email" onChange={updateData} value={formdata.email} />
                 </span>
+                
               </div>
+              <div style={{color:"red" , fontSize:"12px"}}>{formerror.email}</div>
               <div className="phone_no_input">
                 <span className="phone_no_input">
                   <input
-                    placeholder="Password"
-                    type="password"
-                    id="password"
-                    onChange={updateData}
-                    value={formdata.password}
-                  />
+                    placeholder="Password" type="password" id="password" onChange={updateData} value={formdata.password}/>
                 </span>
+               
               </div>
+              <div style={{color:"red" ,fontSize:"12px"}}>{formerror.password}</div>
               <div className="signin_container_box"><Link to='/signup'><p>Sign Up ?</p></Link></div>
               <div className="button_container">
                 <div>
@@ -121,6 +146,6 @@ const {pquantity, emptyCartStatus} = appState;
       </div>
     </div>
   );
-};
-
+}
+  
 export default Login;

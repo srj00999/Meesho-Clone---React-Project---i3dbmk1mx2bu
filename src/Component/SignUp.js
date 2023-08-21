@@ -13,6 +13,8 @@ const SignUp = () => {
 
   const navigate = useNavigate();
   const [formdata, setFormData] = useState(initialData);
+  const [formerror, setFormerror] = useState({});
+
 
   const updateData = (e) => {
     let tempObj = {};
@@ -25,13 +27,44 @@ const SignUp = () => {
 
   const RegisterFn = (e) => {
     e.preventDefault();
+    const ret = validationFn();
 
+    if (ret) {
     let temp = JSON.parse(localStorage.getItem("users")) || [];
     localStorage.setItem("users", JSON.stringify([...temp, formdata]));
     setFormData(initialData);
     navigate("/login");
+    }
   };
 
+  const validationFn = () => {
+
+    let errorObj = {};
+    if (formdata.name === '') {
+      errorObj.name = 'Name is empty'
+    }
+    if (formdata.email === '') {
+        errorObj.email = 'Email is empty'
+    }
+  
+    if (formdata.password === '') {
+        errorObj.password = 'Password is empty'
+    }
+    if (formdata.password.length < 5) {
+        errorObj.password = 'Password must be greater than 5 digit'
+    }
+  
+    setFormerror(errorObj);
+  
+    if (Object.keys(errorObj).length > 0) {
+        return false
+    }
+    else {
+        return true
+    }
+  
+  }
+  
   return (
     <div className="signup_page">
       <div className="signup_container">
@@ -55,6 +88,7 @@ const SignUp = () => {
                   />
                 </span>
               </div>
+              <div style={{color:"red" , fontSize:"12px"}}>{formerror.name}</div>
               <div className="phone_no_input">
                 <span className="phone_no_input">
                   <input
@@ -66,6 +100,7 @@ const SignUp = () => {
                   />
                 </span>
               </div>
+              <div style={{color:"red" , fontSize:"12px"}}>{formerror.email}</div>
               <div className="phone_no_input">
                 <span className="phone_no_input">
                   <input
@@ -77,6 +112,7 @@ const SignUp = () => {
                   />
                 </span>
               </div>
+              <div style={{color:"red" ,fontSize:"12px"}}>{formerror.password}</div>
               <div className="signin_container_box"><Link to='/login'><p>Log In  ?</p></Link></div>
 
               <div className="button_container">
