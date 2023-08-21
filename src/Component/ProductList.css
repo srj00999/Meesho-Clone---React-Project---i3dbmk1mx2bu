@@ -191,24 +191,20 @@ margin: 7rem 0rem;
     justify-content: center;
     flex-direction: column;
 }
-
-
-
 .homepagemaincontainer{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 .homepagesubmainContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5rem;
+    box-sizing: border-box;
+    /* margin-top: 5rem;  */
 }
 .productlistcontainer{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 .productlistSubcontainer{
     width: 85%;
@@ -243,23 +239,27 @@ margin: 7rem 0rem;
 .filtercontainer{
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    
 }
 .sortcontainer{
-    width: 29rem;
+    width: 30rem;
     height: 3.5rem;
     border: 1px solid rgb(223, 220, 220);
     border-radius: 3px;
     margin: 0.9rem;
+    
 }
 .Categorycontainer{
-    width: 29rem;
+    width: 30rem;
     height: 60rem;
     display: flex;
     border-radius: 3px;
     flex-direction: column;
     margin: 0.9rem;
     border: 1px solid rgb(223, 220, 220);
-
+    box-sizing: border-box;
+    overflow: hidden;
 }
 .pdTitleContainer{
     display: flex;
@@ -314,6 +314,7 @@ margin: 7rem 0rem;
 .prdmainConainer{
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
 }
 .ratingconainer{
     background-color: rgb(35, 187, 117);
@@ -334,6 +335,7 @@ margin: 7rem 0rem;
     width: 100%;
     border-bottom: 1px solid rgb(223, 220, 220);
     height: 5rem;
+    box-sizing: border-box;
     
 }
 .sortitm{
@@ -344,7 +346,79 @@ margin: 7rem 0rem;
     font-weight: 500;
     letter-spacing: 1px;
     color: #201c1c;
+    color: rgb(105, 99, 99);
+    overflow: hidden;
 }
+.sortselect select{
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    height: 3.7rem;
+    position: relative;
+    outline: none;
+}
+.sortselect option{
+    width: 20rem;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+}
+
+.selectoption{
+    width: 100%;
+}
+.selectoption option{
+    color: rgb(105, 99, 99);
+}
+.filterContnr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 9rem; 
+    border-bottom: 1px solid rgb(223, 220, 220); 
+}
+.cateogrycontcainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 8rem; 
+}
+.cateogrycontcainer span{
+    margin: 18px ;
+    width: 100%;
+    font-size: 18px;
+    color: rgb(8, 8, 8);
+}
+
+.filterContnr span{
+    
+    margin-left: 18px;
+    width: 100%;
+    font-size: 18px;
+    color: rgb(8, 8, 8);    
+}
+.pdplus{
+    font-size: 12px;
+    margin-left: 18px;
+    color: rgb(105, 99, 99);
+}
+.categoryitems{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 15px;
+}
+.categoryitems div{
+    padding: 14px 0px 14px 18px;
+    width: 100%;
+    border-bottom: 1px solid rgb(223, 220, 220);
+    color: rgb(105, 99, 99);
+}
+.categoryitems div:hover{
+    background-color:rgb(240, 240, 240) ;
+    color: black;
+}
+
 .sortitemscontainers button{
     font-size: 15px;
     color: rgb(133, 131, 131);
@@ -392,4 +466,16 @@ margin: 7rem 0rem;
     color: rgb(49, 47, 47);
     font-weight: 480;
     margin: 0px;
+   }
+   .prdforyoucontainer{
+    height: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .prdforyoucontainer span{
+    width: 83%;
+    font-size: 28px;
+    font-weight: 500;
+    color: #383737;
    }

@@ -2,12 +2,11 @@ import React, { useEffect, useState, } from "react";
 import { Link } from "react-router-dom";
 import home from "../images/home.png";
 import "./ProductList.css";
-import Footer from './Footer';
+import SearchItem from './SearchItem';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 const ProductList = () => {
   const [data, setData] = useState([]);
 
@@ -89,45 +88,7 @@ const ProductList = () => {
           <hr />
         </div>
       </div>
-      <div className="productlistcontainer">
-        <div className="productlistSubcontainer">
-         
-        <div className="filtercontainer">
-                <div className="sortcontainer sortitm">Sort Items</div>
-                <div className="Categorycontainer">
-                  <div className="sortitemscontainers"><button>Price (High to Low)</button></div>
-                  <div className="sortitemscontainers"><button>Price (Low to High)</button></div>
-                  <div  className="sortitemscontainers"><button>Rating</button></div>
-                  <div  className="sortitemscontainers"><button>More Items..</button></div>
-                </div>
-              </div>
-          <div className="prdmainConainer">
-            {data.map((item) => (
-              <div className="prdBox">
-                <Link to={`/pdetails/${item.id}`}>
-                <div className="imgContainer">
-                  <img src={item.image} alt="image" className="imgg" />
-                </div></Link>
-                <div className="pdTitleContainer">{item.title}</div>
-                <div className="priceContainer">₹{item.price}</div>
-                <div className="freeContainer">
-                  <span>Free Delivery</span>
-                </div>
-                <div className="reivewContainer">
-                  <span className="ratingconainer">
-                    {item.rating.rate}
-                    <FontAwesomeIcon icon={faStar} className="star" />
-                    </span>
-                  <span className="leftItmeconainer">
-                    Left Item {item.rating.count}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <Footer/>
+      <SearchItem/>
     </div>
   );
 };

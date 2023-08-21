@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./ProductList.css";
-import "./SearchItem.css";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { DataAppContext } from "./AppData";
 
+
 const SearchItem = () => {
+
+  const navigate  = useNavigate()
   const localContext = useContext(DataAppContext);
-  const { appState } = localContext;
+  const { appState , setAppState } = localContext;
   const { search } = appState;
   const [defaultapi, setDefault] = useState([]);
   const [filterdata, setfilterData] = useState([]);
@@ -31,67 +33,89 @@ const SearchItem = () => {
       );
       setfilterData(filterResult);
     }
+   
   };
 
-  const sortAccending = () => {
-    const originaldata = [...filterdata];
-    const sortdata = originaldata.sort((a, b) => a.price - b.price);
-    console.log(sortdata);
-    setfilterData(sortdata);
-  };
 
-  const sortDccending = () => {
-    const originaldata = [...filterdata];
-    const sortdata = originaldata.sort((a, b) => b.price - a.price);
-    console.log(sortdata);
-    setfilterData(sortdata);
-  };
+  const selectSort=(e)=>{
+    e.preventDefault();
+    if(e.target.value==="Relevance"){
+    
+        setfilterData(defaultapi);
+      
+    }else if(e.target.value=== "HighToLow"){     
+    
+        const originaldata = [...filterdata];
+        const sortdata = originaldata.sort((a, b) => b.price - a.price);
+        console.log(sortdata);
+        setfilterData(sortdata);
 
-  const sortRating = () => {
-    const originaldata = [...filterdata];
-    const sortdata = originaldata.sort((a, b) => b.rating.rate - a.rating.rate);
-    console.log(sortdata);
-    setfilterData(sortdata);
-  };
+    }else if(e.target.value=== "LowToHigh"){
+      
+        const originaldata = [...filterdata];
+        const sortdata = originaldata.sort((a, b) => a.price - b.price);
+        console.log(sortdata);
+        setfilterData(sortdata);
+     
+    }else if(e.target.value=== "Rating"){    
+     
+        const originaldata = [...filterdata];
+        const sortdata = originaldata.sort((a, b) => b.rating.rate - a.rating.rate);
+        console.log(sortdata);
+        setfilterData(sortdata);
+     
+    }
+  }
 
-  const sortRelevance = () => {
-    setfilterData(defaultapi);
-  };
+
+  const filterprd =(str)=>{
+    setAppState({
+      ...appState, search:str
+    })
+    navigate('/searchitem')
+  }
+
 
   useEffect(() => {
     ProductAPI();
   }, [search]);
 
+
   return (
     <div className="homepagemaincontainer">
+      <div className="prdforyoucontainer">
+       <span>Products For You</span>
+      </div>
       <div>
         {filterdata && filterdata.length > 0 && filterdata != undefined ? (
           <div className="homepagesubmainContainer">
             <div className="productlistcontainer">
               <div className="productlistSubcontainer">
                 <div className="filtercontainer">
-                  <div className="sortcontainer sortitm">Sort Items</div>
+                  <div className="sortcontainer sortitm">
+                    <span>Sort Items:</span>
+                    <span className="sortselect">
+                      <select className="selectoption" onChange={selectSort} >
+                        <option value="Relevance">Relevance</option>
+                        <option value="HighToLow">Price (High to Low)</option>
+                        <option value="LowToHigh">Price (Low to High)</option>
+                        <option value="Rating">Rating</option>
+                        </select>
+                      </span>
+                  </div>
                   <div className="Categorycontainer">
-                    <div
-                      onClick={sortDccending}
-                      className="sortitemscontainers"
-                    >
-                      <button>Price (High to Low)</button>
+                    <div className="filterContnr">
+                      <span>FILTERS</span>
+                      <div className="pdplus">1000+ Products</div>
                     </div>
-                    <div
-                      onClick={sortAccending}
-                      className="sortitemscontainers"
-                    >
-                      <button>Price (Low to High)</button>
+                    <div >
+                      <div className="cateogrycontcainer"><span>Category</span></div>
+                    <div className="categoryitems">
+                    <div onClick={()=>filterprd("men's clothing")} >men's clothing</div>
+                      <div onClick={()=>filterprd("women's clothing")}>women's clothing</div>
+                      <div onClick={()=>filterprd("jewelery")}>jewelery</div>
+                      <div onClick={()=>filterprd("electronics")}>electronics</div>
                     </div>
-                    <div onClick={sortRating} className="sortitemscontainers">
-                      <button>Rating</button>
-                    </div>
-                    <div
-                      onClick={sortRelevance}
-                      className="sortitemscontainers"
-                    >
-                      <button>More Products..</button>
                     </div>
                   </div>
                 </div>

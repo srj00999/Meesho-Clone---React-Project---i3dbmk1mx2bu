@@ -50,6 +50,10 @@ useEffect(() => {
   }
 }, []);
 
+const saveSinglePrd =()=>{
+  const cartData = JSON.parse(localStorage.getItem("singlePrdOrder")) || []; 
+      localStorage.setItem("singlePrdOrder", JSON.stringify(cartData));
+}
 
 //Save card information on context api
 const payFn = () => {

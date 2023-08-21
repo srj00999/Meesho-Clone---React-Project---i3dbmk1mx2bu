@@ -34,12 +34,6 @@ const Header = () => {
       ...formdata,
       ...tempObj,
     });
-    // setAppState({
-    //   ...appState,
-    //   ...formdata
-
-    // });
-    // navigate("/searchitem");
   };
 
   const searchFn = (e) => {
