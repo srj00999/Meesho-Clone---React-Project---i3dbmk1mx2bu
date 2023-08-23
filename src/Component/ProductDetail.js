@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { DataAppContext } from "./AppData";
-import { useParams, useNavigate, json, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import "./ProdDetails.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar";
 
 
 
@@ -24,7 +25,8 @@ const ProductDetail = () => {
     pquantity, 
     totalprice, 
     emptyCartStatus, 
-    buyNow 
+    buyNow,
+    loginStatus
   } = appState;
 
 
@@ -49,50 +51,55 @@ const ProductDetail = () => {
 
   //Add product to cart
   const addCartFn = () => {
-    let tempCart = JSON.parse(localStorage.getItem("cart")) || [];
-    var status = true;
-   
-    tempCart.map((item)=>{
-      if(item.id===product.id){
-        status = false;
-        setAllReadyInCart(true);
+    if(loginStatus){
+      let tempCart = JSON.parse(localStorage.getItem("cart")) || [];
+      var status = true;
+     
+      tempCart.map((item)=>{
+        if(item.id===product.id){
+          status = false;
+          setAllReadyInCart(true);
+          setShowbtn(true);
+          setTimeout(() => {
+            setAllReadyInCart(false);
+          }, 1500);
+        }
+      })
+      if(status){
+        localStorage.setItem("cart", JSON.stringify([...tempCart, product]));
+        setIsAlertVisible(true);
         setShowbtn(true);
         setTimeout(() => {
-          setAllReadyInCart(false);
+          setIsAlertVisible(false);
         }, 1500);
       }
-    })
-    if(status){
-      localStorage.setItem("cart", JSON.stringify([...tempCart, product]));
-      setIsAlertVisible(true);
-      setShowbtn(true);
-      setTimeout(() => {
-        setIsAlertVisible(false);
-      }, 1500);
+    
+      const tquant = JSON.parse(localStorage.getItem("cart"));
+      let temprce = 0;
+      tquant.map((tprdprice) => {
+        temprce = temprce + tprdprice.price;
+      });
+      let crtstatus = true;
+      if (temprce === 0) {
+        crtstatus = false;
+      }
+      setAppState({
+        ...appState,
+        pquantity: tquant.length,
+        totalprice: temprce,
+        buyStatus:false,
+        emptyCartStatus: crtstatus,
+      });
+    }else{
+      navigate("/login");
     }
-  
-    const tquant = JSON.parse(localStorage.getItem("cart"));
-    let temprce = 0;
-    tquant.map((tprdprice) => {
-      temprce = temprce + tprdprice.price;
-    });
-    let crtstatus = true;
-    if (temprce === 0) {
-      crtstatus = false;
-    }
-    setAppState({
-      ...appState,
-      pquantity: tquant.length,
-      totalprice: temprce,
-      buyStatus:false,
-      emptyCartStatus: crtstatus,
-    });
   };
 
 
 
 //Buy product without adding to cart
   const buynowFn = () => {
+  if(loginStatus){
     localStorage.setItem("singleorder", JSON.stringify([ product]));
     setAppState({
       ...appState,
@@ -102,11 +109,16 @@ const ProductDetail = () => {
       totalprice:product.price
     });
     navigate("/address");
+  }else{
+    navigate("/login");
+  }
   };
 
 
 
   return (
+    <>
+    <Navbar/>
     <div className="prodDetailPage">
       <div className="prodSubContainer">
         {isAlertVisible && (
@@ -175,6 +187,7 @@ const ProductDetail = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

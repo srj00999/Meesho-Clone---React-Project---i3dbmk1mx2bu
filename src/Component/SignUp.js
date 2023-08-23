@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import { DataAppContext } from "./AppData";
 import { useNavigate } from "react-router-dom";
 import signup from "../images/signup.png";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+
 
 const SignUp = () => {
   const initialData = {
@@ -12,6 +14,8 @@ const SignUp = () => {
   };
 
   const navigate = useNavigate();
+  const localContext = useContext(DataAppContext);
+  const { appState, setAppState } = localContext;
   const [formdata, setFormData] = useState(initialData);
   const [formerror, setFormerror] = useState({});
 
@@ -64,8 +68,16 @@ const SignUp = () => {
     }
   
   }
+
+  useEffect(()=>{
+    setAppState({
+      ...appState, showSearch:true,
+      showProCart:false
+    })
+  },[])
   
   return (
+   <>
     <div className="signup_page">
       <div className="signup_container">
         <div>
@@ -138,6 +150,7 @@ const SignUp = () => {
         </form>
       </div>
     </div>
+   </>
   );
 };
 

@@ -122,6 +122,13 @@ const Address = () => {
     navigate('/checkout');
   }
 
+  useEffect(()=>{
+    setAppState({
+      ...appState, showSearch:false,
+      showProCart:false
+    })
+  },[]);  
+
   return (
     <div>
       <div className="checkout_page">
@@ -134,7 +141,7 @@ const Address = () => {
               </span>
             </div>
             { address && address.length>0 && address != undefined ? address.map((item,index) => (
-              <div>
+              <div key={index}>
                 <div className="address_container">
                   <div className="nameconatiner">
                     <h2 >{item.name}</h2>

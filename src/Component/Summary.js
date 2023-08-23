@@ -21,6 +21,10 @@ const Summary = () => {
 
     //Save order in localStorage
     useEffect(()=>{  
+        setAppState({
+          ...appState, showSearch:true,
+          showProCart:true
+      });  
       if(buyStatus){
         const singleorder = JSON.parse(localStorage.getItem("singleorder")) || []; 
         setCart(singleorder);
@@ -60,7 +64,7 @@ const Summary = () => {
               <span>Estimated Delivery by Wednesday, 30th Aug</span>
             </div>
             { cart && cart.map((item)=>(
-              <div className="product_container">
+              <div className="product_container" key={item.id}>
               <div className="product_img_des_cont">
                 <div className="product_image_container">
                <span className="cartImageContainer">

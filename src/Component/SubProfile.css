@@ -1,7 +1,7 @@
 .subProfile_container{
-    top : 72px;
-    right: 90px;
     position: absolute;
+    top : 39px;
+    right: -132px;
     z-index: +1;
     display: flex;
     justify-content: center;

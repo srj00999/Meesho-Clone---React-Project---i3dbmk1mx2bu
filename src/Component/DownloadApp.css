@@ -1,7 +1,7 @@
 .downloadapp{
-        top : 72px;
-        right: 42rem;
         position: absolute;
+        top : 39px;
+        right: 5.4rem;
         z-index: +1;
         display: flex;
         justify-content: center;

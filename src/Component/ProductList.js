@@ -1,4 +1,5 @@
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import { DataAppContext } from "./AppData";
 import { Link } from "react-router-dom";
 import home from "../images/home.png";
 import "./ProductList.css";
@@ -7,8 +8,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar";
+
+
 const ProductList = () => {
   const [data, setData] = useState([]);
+  const localContext = useContext(DataAppContext);
+  const { appState, setAppState } = localContext;
+
 
   const ProductAPI = async () => {
     const res = await fetch(
@@ -21,9 +28,16 @@ const ProductList = () => {
 
   useEffect(() => {
     ProductAPI();
+    setAppState({
+      ...appState, showNav:false,
+      showSearch:true,
+      showProCart:true
+    })
   }, []);
 
   return (
+    <>
+   <Navbar/>
     <div className="homepagemaincontainer">
       <div className="homepagesubmainContainer"></div>
       <div className="addcontent">
@@ -90,6 +104,7 @@ const ProductList = () => {
       </div>
       <SearchItem/>
     </div>
+    </>
   );
 };
 

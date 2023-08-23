@@ -18,6 +18,7 @@ import Address from "./Component/Address";
 import Summary from "./Component/Summary";
 import SearchItem from "./Component/SearchItem";
 import Footer from "./Component/Footer";
+import Navbar from "./Component/Navbar";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="checkout" element={<CheckOut />} />
             <Route path="address" element={<Address />} />
             <Route path="summary" element={<Summary />} />
+            <Route path="navbar" element={<Navbar />} />
             <Route path="searchitem" element={<SearchItem />} />
             <Route path="footer" element={<Footer />} />
           </Route>

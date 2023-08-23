@@ -391,6 +391,9 @@ color: rgb(143, 136, 136);
     justify-content: space-between;
     height: 55rem;
 }
+.frminput input{
+    outline:  none;
+}
 .formName input{
      border: none;
      outline: none;

@@ -5,6 +5,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { DataAppContext } from "./AppData";
+import Navbar from "./Navbar";
 
 
 const SearchItem = () => {
@@ -12,7 +13,7 @@ const SearchItem = () => {
   const navigate  = useNavigate()
   const localContext = useContext(DataAppContext);
   const { appState , setAppState } = localContext;
-  const { search } = appState;
+  const { search, showNav } = appState;
   const [defaultapi, setDefault] = useState([]);
   const [filterdata, setfilterData] = useState([]);
 
@@ -78,17 +79,22 @@ const SearchItem = () => {
 
   useEffect(() => {
     ProductAPI();
+    setAppState({
+      ...appState,showNav:true
+    })
   }, [search]);
 
 
   return (
+    <>
+   { showNav && <Navbar/>}
     <div className="homepagemaincontainer">
-      <div className="prdforyoucontainer">
-       <span>Products For You</span>
-      </div>
-      <div>
+      <div>        
         {filterdata && filterdata.length > 0 && filterdata != undefined ? (
           <div className="homepagesubmainContainer">
+            <div className="prdforyoucontainer">
+                <span>Products For You</span>
+           </div>
             <div className="productlistcontainer">
               <div className="productlistSubcontainer">
                 <div className="filtercontainer">
@@ -121,7 +127,7 @@ const SearchItem = () => {
                 </div>
                 <div className="prdmainConainer">
                   {filterdata.map((item) => (
-                    <div className="prdBox">
+                    <div className="prdBox" key={item.id}>
                       <Link to={`/pdetails/${item.id}`}>
                         <div className="imgContainer">
                           <img src={item.image} alt="image" className="imgg" />
@@ -158,6 +164,7 @@ const SearchItem = () => {
       </div>
       <Footer/>
     </div>
+    </>
   );
 };
 

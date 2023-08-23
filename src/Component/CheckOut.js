@@ -2,7 +2,6 @@ import React, { useState,useEffect, useContext } from "react";
 import { DataAppContext } from "./AppData";
 import "./CheckOut.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -42,6 +41,10 @@ const CheckOut = () => {
 
 //Before Render page Check login Status
 useEffect(() => {
+    setAppState({
+      ...appState, showSearch:false,
+      showProCart:false
+    });
   if (!loginStatus) {
 
       navigate('/login');
@@ -143,7 +146,6 @@ const selectPayment=(e)=>{
               <select className="formcontainer" onChange={selectPayment}>
                 <option value='COD' >Cash on Delivery</option>
                 <option value='CardPayment'>Pay with Credit/Debit Card</option>
-                <FontAwesomeIcon icon={faCircleCheck} />
               </select> 
             </form>
           </div>

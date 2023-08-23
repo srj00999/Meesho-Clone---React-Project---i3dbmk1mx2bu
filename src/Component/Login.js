@@ -1,4 +1,4 @@
-import React, { useState , useContext } from "react";
+import React, { useState , useContext, useEffect } from "react";
 import {DataAppContext} from './AppData';
 import { useNavigate } from "react-router-dom";
 import signup from "../images/signup.png";
@@ -91,7 +91,12 @@ const validationFn = () => {
 
 }
 
-    
+useEffect(()=>{
+  setAppState({
+    ...appState, showSearch:true,
+    showProCart:false
+  })
+},[]);  
 
   return (
     <div className="signup_page">

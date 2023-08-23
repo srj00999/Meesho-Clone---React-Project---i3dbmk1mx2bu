@@ -36,6 +36,10 @@ const Cart = () => {
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(cartData);
+      setAppState({
+        ...appState, showSearch:false,
+        showProCart:false
+      })    
     if (!loginStatus) {
       navigate("/login");
     }
@@ -314,7 +318,7 @@ const Cart = () => {
 
                     <div className="totPricecon">
                       <span>Total Price</span>
-                      <span>₹{editTPrice.toFixed(2)}</span>
+                      <span>₹{editTPrice}</span>
                     </div>
 
                     <div className="editbtncontainr">
