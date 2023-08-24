@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { DataAppContext } from "./AppData";
 import { Link } from "react-router-dom";
 import home from "../images/home.png";
@@ -12,26 +12,26 @@ import Navbar from "./Navbar";
 
 
 const ProductList = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
 
 
-  const ProductAPI = async () => {
-    const res = await fetch(
-      "https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/"
-    );
-    const productlistdata = await res.json();
+  // const ProductAPI = async () => {
+  //   const res = await fetch(
+  //     "https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/"
+  //   );
+  //   const productlistdata = await res.json();
 
-    setData(productlistdata);
-  };
+  //   setData(productlistdata);
+  // };
 
   useEffect(() => {
-    ProductAPI();
+    // ProductAPI();
     setAppState({
       ...appState, showNav:false,
       showSearch:true,
-      showProCart:true
+      showProCart:true,
     })
   }, []);
 
@@ -102,7 +102,7 @@ const ProductList = () => {
           <hr />
         </div>
       </div>
-      <SearchItem/>
+      <SearchItem />
     </div>
     </>
   );

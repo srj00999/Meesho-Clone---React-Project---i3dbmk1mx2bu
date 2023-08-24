@@ -269,8 +269,9 @@ const Cart = () => {
                 }
 
             {edit && (
+              
               <div className="editContainer">
-                <div className="editsubcontainer">
+                <div className="editsubcontainer " >
                   <div className="quantityContainer">
                     <div className="editQuantityHeader">
                       <span>EDIT ITEM</span>

@@ -2,7 +2,6 @@ import React, { useEffect , useContext, useState} from 'react';
 import { DataAppContext } from './AppData';
 import './Summary.css';
 import "./CheckOut.css";
-import "./Address.css";
 import "./Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";

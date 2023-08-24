@@ -367,10 +367,10 @@ margin: 7rem 0rem;
 
 .selectoption{
     width: 100%;
+    position: relative;
+    
 }
-.selectoption option{
-    color: rgb(105, 99, 99);
-}
+
 .filterContnr{
     display: flex;
     flex-direction: column;
@@ -475,3 +475,4 @@ margin: 7rem 0rem;
     font-weight: 500;
     color: #383737;
    }
+  

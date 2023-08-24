@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import { DataAppContext } from "./AppData";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import "./ProdDetails.css";
@@ -12,7 +12,7 @@ import Navbar from "./Navbar";
 
 const ProductDetail = () => {
 
-  const temp = useParams();
+  const temp = useParams(); 
   const navigate = useNavigate();
   const localContext = useContext(DataAppContext);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
@@ -20,35 +20,41 @@ const ProductDetail = () => {
   const { appState, setAppState } = localContext;
   const [product, setProduct] = useState({});
   const [allreayinCart, setAllReadyInCart] = useState(false);
-
-  const { 
-    pquantity, 
-    totalprice, 
-    emptyCartStatus, 
-    buyNow,
-    loginStatus
-  } = appState;
+  const { loginStatus} = appState;
 
 
 
   //call api and set product to state adding quantity 1 by default
-  const fetchApi = async (pID) => {
+  const fetchApi = async (pID ,mounted) => {
     const res = await fetch(
       `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${pID}`
     );
     const resdata = await res.json();
-    setProduct({ ...resdata, qty: 1 }); 
+      setProduct({ ...resdata, qty: 1 }); 
+    
+ 
   };
+
+  // const fetchApi = (pID) => {
+  //   fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${pID}`)
+  //     .then(response => {
+  //       return response.json()
+  //     })
+  //     .then(data => {
+  //       setProduct({...data, qty:1})
+  //     })
+  // }
 
 
   // call api passing through product id 
   useEffect(() => {
-    fetchApi(temp.id);
+
+      fetchApi(temp.id );
+      window.scrollTo(0, 0);
+
   }, [temp.id]);
 
-
-
-
+ 
   //Add product to cart
   const addCartFn = () => {
     if(loginStatus){
@@ -60,18 +66,26 @@ const ProductDetail = () => {
           status = false;
           setAllReadyInCart(true);
           setShowbtn(true);
+          // setInterval(() => {
+          //   setShowbtn(true);
+          // }, 1500);
+
           setTimeout(() => {
             setAllReadyInCart(false);
-          }, 1500);
+          }, 1200);
         }
       })
       if(status){
         localStorage.setItem("cart", JSON.stringify([...tempCart, product]));
         setIsAlertVisible(true);
         setShowbtn(true);
+        // setInterval(() => {
+        //   setShowbtn(true);
+        // }, 1500);
+
         setTimeout(() => {
           setIsAlertVisible(false);
-        }, 1500);
+        }, 1200);
       }
     
       const tquant = JSON.parse(localStorage.getItem("cart"));
@@ -96,7 +110,6 @@ const ProductDetail = () => {
   };
 
 
-
 //Buy product without adding to cart
   const buynowFn = () => {
   if(loginStatus){
@@ -119,7 +132,7 @@ const ProductDetail = () => {
   return (
     <>
     <Navbar/>
-    <div className="prodDetailPage">
+    <div  className="prodDetailPage">
       <div className="prodSubContainer">
         {isAlertVisible && (
           <div className="alert-container">
@@ -142,7 +155,7 @@ const ProductDetail = () => {
             <div className="buyAndcartContainer">
               {showbtn ? (
                 <Link to="/cart">
-                  <button onClick={addCartFn} className="addcrtbtn">
+                  <button className="addcrtbtn">
                     <FontAwesomeIcon icon={faCartShopping} /> Go to Cart
                   </button>
                 </Link>

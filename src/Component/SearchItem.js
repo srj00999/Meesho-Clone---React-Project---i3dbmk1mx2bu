@@ -10,12 +10,14 @@ import Navbar from "./Navbar";
 
 const SearchItem = () => {
 
-  const navigate  = useNavigate()
+  const navigate  = useNavigate();
   const localContext = useContext(DataAppContext);
   const { appState , setAppState } = localContext;
   const { search, showNav } = appState;
   const [defaultapi, setDefault] = useState([]);
   const [filterdata, setfilterData] = useState([]);
+
+  
 
   const ProductAPI = async () => {
     const res = await fetch(
@@ -37,7 +39,8 @@ const SearchItem = () => {
    
   };
 
-
+  
+ 
   const selectSort=(e)=>{
     e.preventDefault();
     if(e.target.value==="Relevance"){
@@ -82,6 +85,7 @@ const SearchItem = () => {
     setAppState({
       ...appState,showNav:true
     })
+    window.scrollTo(0, 0);
   }, [search]);
 
 
@@ -101,7 +105,7 @@ const SearchItem = () => {
                   <div className="sortcontainer sortitm">
                     <span>Sort Items:</span>
                     <span className="sortselect">
-                      <select className="selectoption" onChange={selectSort} >
+                      <select className="custom-select"  style={{width:'200px'}} onChange={selectSort} >
                         <option value="Relevance">Relevance</option>
                         <option value="HighToLow">Price (High to Low)</option>
                         <option value="LowToHigh">Price (Low to High)</option>

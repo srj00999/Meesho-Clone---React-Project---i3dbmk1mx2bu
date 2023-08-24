@@ -329,16 +329,19 @@ color: rgb(143, 136, 136);
     box-sizing: border-box;
     overflow: hidden;
 }
+.slideEditContainer:hover{
+    .slideEdit{
+        width: 32.5%;
+    }
+    
+}
 .slideEdit{
     width: 0%;
     height: 100vh;
     background-color: white;
-    transition: width 7s;
+    transition: width 0.7s;
 }
 
-.slideEdit{
-    width: 32.5%;
-}
 .addAddressForm{
     display: flex;
     flex-direction: column;
@@ -434,9 +437,7 @@ color: rgb(143, 136, 136);
 .cityStatebox input{
     width: 23rem;
 }
-.cardPayCon{
-    
-}
+
 .paymentbox{
     display: flex;
     flex-direction: column;

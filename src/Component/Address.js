@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataAppContext } from "./AppData";
 import "./CheckOut.css";
-import "./Address.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
