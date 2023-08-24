@@ -1,102 +1,101 @@
 import React, { useState , useContext, useEffect } from "react";
-import {DataAppContext} from './AppData';
+import {DataAppContext} from '../AppData';
 import { useNavigate } from "react-router-dom";
-import signup from "../images/signup.png";
-import "./SignUp.css";
+import "../StyleComp/SignUp.css";
 import { Link } from "react-router-dom";
+import signup from "../images/signup.png";
 
 
 const Login = () => {
+
   const initiaState = {
     email: "",
     password: "",
   };
-const [loginStatus, setStatus] = useState(false);
-const localContext = useContext(DataAppContext);
-const {appState, setAppState} = localContext;
-const {pquantity, emptyCartStatus} = appState;
-const [formerror, setFormerror] = useState({});
-const [formdata, setFormData] = useState(initiaState);
 
   const navigate = useNavigate();
+  const [loginStatus, setStatus] = useState(false);
+  const localContext = useContext(DataAppContext);
+  const {appState, setAppState} = localContext;
+  const {pquantity, emptyCartStatus} = appState;
+  const [formerror, setFormerror] = useState({});
+  const [formdata, setFormData] = useState(initiaState);
  
-
   const updateData = (e) => {
     let tempObj = {};
     tempObj[e.target.id] = e.target.value.trim();
-
     setFormData({ ...formdata, ...tempObj });
   };
 
   const loginFn = (e) => {
-    e.preventDefault();
-    const ret = validationFn();
-    if (ret) {
-    let temp = JSON.parse(localStorage.getItem("users")) || [];
-    if (temp) {
-    temp.map((value) => {
-      if (value.email === formdata.email) {
-        if (value.password === formdata.password) {
-          setStatus(true);
-          const prdQuantity =  JSON.parse(localStorage.getItem("cart")) || [];
-          let temp = 0;
-          prdQuantity.map((pdprce)=>{
-            temp = temp + pdprce.price; 
-          })
-          let cartpagestatus = true;
-          if(temp===0){
-            cartpagestatus = false;
+      e.preventDefault();
+      const ret = validationFn();
+      if (ret) {
+      let temp = JSON.parse(localStorage.getItem("users")) || [];
+      if (temp) {
+      temp.map((value) => {
+        if (value.email === formdata.email) {
+          if (value.password === formdata.password) {
+            setStatus(true);
+            const prdQuantity =  JSON.parse(localStorage.getItem("cart")) || [];
+            let temp = 0;
+            prdQuantity.map((pdprce)=>{
+              temp = temp + pdprce.price; 
+            })
+            let cartpagestatus = true;
+            if(temp===0){
+              cartpagestatus = false;
+            }
+            let obj = {
+              ...appState,
+              loginStatus: true,
+              name: value.name,
+              pquantity:prdQuantity.length,
+              totalprice:temp,
+              emptyCartStatus:cartpagestatus
+            }
+            setAppState(obj);
+            alert("login Succesful");
+            navigate("/");
           }
-          let obj = {
-            ...appState,
-            loginStatus: true,
-            name: value.name,
-            pquantity:prdQuantity.length,
-            totalprice:temp,
-            emptyCartStatus:cartpagestatus
-          }
-          setAppState(obj);
-          alert("login Succesful");
-          navigate("/");
+        } else {
+          setStatus(false);
+          console.log("Invalid Email/Password");
         }
-      } else {
-        setStatus(false);
-        console.log("Invalid Email/Password");
-      }
-      setFormData(initiaState);
-    });
-  }
-}}
+        setFormData(initiaState);
+      });
+    }
+  }}
     
-const validationFn = () => {
+  const validationFn = () => {
 
-    let errorObj = {};
+      let errorObj = {};
 
-    if (formdata.email === '') {
-        errorObj.email = 'Email is empty'
-    }
+      if (formdata.email === '') {
+          errorObj.email = 'Email is empty'
+      }
 
-    if (formdata.password === '') {
-        errorObj.password = 'Password is empty'
-    }
+      if (formdata.password === '') {
+          errorObj.password = 'Password is empty'
+      }
 
-    setFormerror(errorObj);
+      setFormerror(errorObj);
 
-    if (Object.keys(errorObj).length > 0) {
-        return false
-    }
-    else {
-        return true
-    }
+      if (Object.keys(errorObj).length > 0) {
+          return false
+      }
+      else {
+          return true
+      }
 
-}
+  }
 
-useEffect(()=>{
-  setAppState({
-    ...appState, showSearch:true,
-    showProCart:false
-  })
-},[]);  
+  useEffect(()=>{
+    setAppState({
+      ...appState, showSearch:true,
+      showProCart:false
+    })
+  },[]);  
 
   return (
     <div className="signup_page">
@@ -123,7 +122,6 @@ useEffect(()=>{
                   <input
                     placeholder="Password" type="password" id="password" onChange={updateData} value={formdata.password}/>
                 </span>
-               
               </div>
               <div style={{color:"red" ,fontSize:"12px"}}>{formerror.password}</div>
               <div className="signin_container_box"><Link to='/signup'><p>Sign Up ?</p></Link></div>

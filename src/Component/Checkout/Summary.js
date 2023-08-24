@@ -1,14 +1,15 @@
 import React, { useEffect , useContext, useState} from 'react';
-import { DataAppContext } from './AppData';
-import './Summary.css';
-import "./CheckOut.css";
-import "./Cart.css";
+import { DataAppContext } from '../AppData';
+import '../StyleComp/Summary.css';
+import "../StyleComp/CheckOut.css";
+import "../StyleComp/Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
+
 
 const Summary = () => {
 
@@ -174,4 +175,4 @@ const Summary = () => {
   )
 }
 
-export default Summary
+export default Summary;

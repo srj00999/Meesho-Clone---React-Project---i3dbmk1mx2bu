@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { DataAppContext } from "./AppData";
-import "./CheckOut.css";
+import { DataAppContext } from "../AppData";
+import "../StyleComp/CheckOut.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
+
 const Address = () => {
+
   const initialData = {
     name: "",
     contactno: "",
@@ -20,7 +22,6 @@ const Address = () => {
   };
 
   const navigate = useNavigate();
-
   const [clss, setClass] = useState();
   const [address, setAddress] = useState([]);
   const [saveindex, setSaveindex] = useState();
@@ -38,8 +39,6 @@ const Address = () => {
   const totalProductPrice = paycart.totalPayprice;
   const totaldiscount = ((totalProductPrice / 100) * 18).toFixed(2);
 
-  
-
   const updateData = (e) => {
     let tempObj = {};
     tempObj[e.target.id] = e.target.value;
@@ -48,6 +47,7 @@ const Address = () => {
       ...tempObj,
     });
   };
+
 
   const saveAddressFn = (e) => {
     e.preventDefault();
@@ -98,15 +98,20 @@ const Address = () => {
     }
   }, [formData,editAddData]);
 
+
   const editAdress = (index) => {
     setShowedit(true);
     setSaveindex(index);
     seteditAddData(address[index]);
 
   };
+
+
   const callClass = () => {
     setClass(true);
   };
+
+
   const cancelEdit = () => {
     setClass(false);
   };
@@ -120,6 +125,7 @@ const Address = () => {
     })
     navigate('/checkout');
   }
+  
 
   useEffect(()=>{
     setAppState({
@@ -129,7 +135,7 @@ const Address = () => {
   },[]);  
 
   return (
-    <div>
+    <>
       <div className="checkout_page">
         <div className="checkoutmaincont">
           <div className="paymentContainer">
@@ -400,7 +406,7 @@ const Address = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

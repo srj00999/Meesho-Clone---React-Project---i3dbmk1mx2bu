@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
-import { DataAppContext } from "./AppData";
-import "./Cart.css";
-import { useNavigate } from "react-router-dom";
+import { DataAppContext } from "../AppData";
+import { useNavigate,Link } from "react-router-dom";
+import "../StyleComp/Cart.css";
 import cartImage from "../images/cartImage.png";
 import cartprice from "../images/cartprice.png";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
 
 
+
 const Cart = () => {
+
   const navigate = useNavigate();
   const [cart, setCart] = useState();
   const [qty, setQty] = useState(1);
@@ -21,15 +22,7 @@ const Cart = () => {
   const [saveindex, setSaveindex] = useState();
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
-  
-  const {
-     loginStatus,
-     pquantity,
-     totalprice, 
-     emptyCartStatus, 
-     price 
-    } = appState;
-
+  const { loginStatus, totalprice, emptyCartStatus, } = appState;
 
 
   //before rendering page check login status and fetch cart data from localStorage.

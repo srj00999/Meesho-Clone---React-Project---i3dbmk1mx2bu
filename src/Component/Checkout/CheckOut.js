@@ -1,6 +1,6 @@
 import React, { useState,useEffect, useContext } from "react";
-import { DataAppContext } from "./AppData";
-import "./CheckOut.css";
+import { DataAppContext } from "../AppData";
+import "../StyleComp/CheckOut.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard} from "@fortawesome/free-solid-svg-icons";
@@ -46,30 +46,21 @@ useEffect(() => {
       showProCart:false
     });
   if (!loginStatus) {
-
       navigate('/login');
-  }
-  else {
   }
 }, []);
 
-const saveSinglePrd =()=>{
-  const cartData = JSON.parse(localStorage.getItem("singlePrdOrder")) || []; 
-      localStorage.setItem("singlePrdOrder", JSON.stringify(cartData));
-}
 
 //Save card information on context api
 const payFn = () => {
   const ret = validationFn();
-  if(paymentType === "Cash On Delivery"){
-    
-     navigate('/summary')
+  if(paymentType === "Cash On Delivery"){    
+    navigate('/summary')
   }else if(ret){
-     setPaymentStatus(true);
-      setAppState({
-        ...appState, ...formdata
-      });
-      
+    setPaymentStatus(true);
+    setAppState({
+      ...appState, ...formdata
+    });    
       navigate('/summary')
   }
   }
@@ -121,7 +112,6 @@ const selectPayment=(e)=>{
       ...appState,paymentType:"Debit/Credit Card Payment"
     })
   }
-
 }
 
   return (

@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
-import { DataAppContext } from "./AppData";
-import SubProfile from "./SubProfile";
+import { DataAppContext } from "../AppData";
+import SubProfile from "../Home/SubProfile";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,6 @@ const ProfileCart = () => {
   const{appState}= localContext;
   const{pquantity , loginStatus} = appState;
 
-
   return (
     <>
       <div className="profile_line">
@@ -22,8 +21,7 @@ const ProfileCart = () => {
             <span className="profile">Profile</span>
         </div>
         <div className="hide"><SubProfile/></div>
-      </div> 
-             
+      </div>            
       <div>
         <Link to='/cart'>
             <div className="profile_container">
@@ -37,4 +35,4 @@ const ProfileCart = () => {
   )
 }
 
-export default ProfileCart
+export default ProfileCart;

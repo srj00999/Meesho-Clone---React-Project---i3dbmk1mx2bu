@@ -1,9 +1,11 @@
 import React from "react";
-import "./MyOrder.css";
+import "../StyleComp/MyOrder.css";
 import myorder from "../images/myorder.png";
 import { Link } from "react-router-dom";
 
+
 const MyOrder = () => {
+
   return (
     <div className="myorder">
       <div>

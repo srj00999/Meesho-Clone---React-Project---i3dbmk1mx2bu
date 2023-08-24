@@ -1,13 +1,13 @@
 import React,{useContext} from "react";
-import { DataAppContext } from "./AppData";
+import { DataAppContext } from "../AppData";
 import Messhologo from "../images/Meeshologo.png";
 import DownloadApp from "./DownloadApp";
 import { Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileScreen } from "@fortawesome/free-solid-svg-icons";
 import SearchComp from "./SearchComp";
-import "./Header.css";
-import ProfileCart from "./ProfileCart";
+import "../StyleComp/Header.css";
+import ProfileCart from "../Profile/ProfileCart";
 
 
 const Header = () => {

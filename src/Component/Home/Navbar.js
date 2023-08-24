@@ -1,17 +1,15 @@
 import React, {useContext} from 'react';
-import { DataAppContext } from './AppData';
-import "./Header.css";
+import { DataAppContext } from '../AppData';
+import "../StyleComp/Header.css";
 import { useNavigate } from 'react-router-dom';
 
 
-
 const Navbar = () => {
+
     const navigate = useNavigate()
     const localContext = useContext(DataAppContext);
     const{appState,setAppState}= localContext;
-    const{ search } = appState;
     
-
     const navfn = (navitm) =>{
       setAppState({
         ...appState, search:navitm
@@ -61,4 +59,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

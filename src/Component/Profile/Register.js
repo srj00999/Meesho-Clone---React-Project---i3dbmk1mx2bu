@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const Register = () => {
+
     const initialData = {
         name:'',
         email:'',
@@ -21,13 +23,11 @@ const Register = () => {
 
     const RegisterFn = (e) =>{
         e.preventDefault();
-
         let temp  =  JSON.parse(localStorage.getItem('users')) || [];
         localStorage.setItem('users', JSON.stringify([...temp , formdata]));
         setFormData(initialData);
         navigate('/login');
     }
-
 
   return (
     <div>

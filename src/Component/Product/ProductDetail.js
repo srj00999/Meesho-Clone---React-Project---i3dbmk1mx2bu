@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useContext} from "react";
-import { DataAppContext } from "./AppData";
+import { DataAppContext } from "../AppData";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import "./ProdDetails.css";
+import '../StyleComp/ProdDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./Navbar";
-
+import Navbar from "../Home/Navbar";
 
 
 const ProductDetail = () => {
@@ -23,7 +22,6 @@ const ProductDetail = () => {
   const { loginStatus} = appState;
 
 
-
   //call api and set product to state adding quantity 1 by default
   const fetchApi = async (pID ,mounted) => {
     const res = await fetch(
@@ -31,27 +29,13 @@ const ProductDetail = () => {
     );
     const resdata = await res.json();
       setProduct({ ...resdata, qty: 1 }); 
-    
- 
   };
-
-  // const fetchApi = (pID) => {
-  //   fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${pID}`)
-  //     .then(response => {
-  //       return response.json()
-  //     })
-  //     .then(data => {
-  //       setProduct({...data, qty:1})
-  //     })
-  // }
 
 
   // call api passing through product id 
   useEffect(() => {
-
       fetchApi(temp.id );
       window.scrollTo(0, 0);
-
   }, [temp.id]);
 
  
@@ -66,10 +50,6 @@ const ProductDetail = () => {
           status = false;
           setAllReadyInCart(true);
           setShowbtn(true);
-          // setInterval(() => {
-          //   setShowbtn(true);
-          // }, 1500);
-
           setTimeout(() => {
             setAllReadyInCart(false);
           }, 1200);
@@ -79,10 +59,6 @@ const ProductDetail = () => {
         localStorage.setItem("cart", JSON.stringify([...tempCart, product]));
         setIsAlertVisible(true);
         setShowbtn(true);
-        // setInterval(() => {
-        //   setShowbtn(true);
-        // }, 1500);
-
         setTimeout(() => {
           setIsAlertVisible(false);
         }, 1200);
@@ -127,12 +103,10 @@ const ProductDetail = () => {
   }
   };
 
-
-
   return (
     <>
     <Navbar/>
-    <div  className="prodDetailPage">
+    <div className="prodDetailPage">
       <div className="prodSubContainer">
         {isAlertVisible && (
           <div className="alert-container">
@@ -171,7 +145,6 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-
         <div className="pdDetailContainer">
           <div className="dtalbox">
             <div className="pdTitleContainer"><p>{product.title}</p></div>

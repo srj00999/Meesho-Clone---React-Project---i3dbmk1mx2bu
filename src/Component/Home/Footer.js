@@ -1,9 +1,9 @@
 import React from "react";
-import "./Footer.css";
-
+import "../StyleComp/Footer.css";
 
 
 export default function Footer() {
+
     return (
         <div className="footerpage">
             <div className="footercontainer">
@@ -27,6 +27,8 @@ export default function Footer() {
                 </div>
                 <div className="divcontainer">
                     <h2 className="heading">Reach out to us</h2>
+                    <span><h3>srj00999@gmail.com</h3></span>
+                    <span><h3>+919125300999</h3></span>
                 </div>
                 <div className="divcontainer">
                     <h2 className="heading">Contact Us</h2>
@@ -34,10 +36,10 @@ export default function Footer() {
                         CIN: U74900KA2015PTC082263
                         06-105-B, 06-102, (138 Wu) Vaishnavi Signature, No. 78/9, Outer Ring Road, Bellandur, Varthur Hobli, Bengaluru-560103, Karnataka, India
                         E-mail address: query@meesho.com
-                        © 2015-2022 Meesho.com</p>
+                        © 2015-2022 Meesho.com
+                    </p>
                 </div>
             </div>
         </div>
-
     )
 }

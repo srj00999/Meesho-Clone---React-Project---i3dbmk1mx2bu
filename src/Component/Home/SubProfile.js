@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import "./SubProfile.css";
+import "../StyleComp/SubProfile.css";
 import { Link, useNavigate } from "react-router-dom";
-import { DataAppContext } from "./AppData";
+import { DataAppContext } from "../AppData";
+
 
 const SubProfile = () => {
   
@@ -22,14 +23,13 @@ const SubProfile = () => {
       pquantity:'',
     })
     navigate('/');
-  
   }
 
   return (
     <div>
       {loginStatus ?
       (
-        <>
+        <div>
           <div className=" subProfile_container">
             <div className="loginsubcontainer">
               <div className="namebox">
@@ -62,7 +62,7 @@ const SubProfile = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ):
       (
         <>

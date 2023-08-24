@@ -1,14 +1,14 @@
 import React, { useEffect, useContext } from "react";
-import { DataAppContext } from "./AppData";
+import { DataAppContext } from "../AppData";
 import { Link } from "react-router-dom";
 import home from "../images/home.png";
-import "./ProductList.css";
+import "../StyleComp/ProductList.css";
 import SearchItem from './SearchItem';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./Navbar";
+import Navbar from "../Home/Navbar";
 
 
 const ProductList = () => {
@@ -102,7 +102,7 @@ const ProductList = () => {
           <hr />
         </div>
       </div>
-      <SearchItem />
+      <SearchItem  />
     </div>
     </>
   );

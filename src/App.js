@@ -1,24 +1,24 @@
 import React from "react";
-import AppData from "./Component/AppData";
-import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Component/Home";
-import ProductList from "./Component/ProductList";
-import ProductDetail from "./Component/ProductDetail";
-import CheckOut from "./Component/CheckOut";
-import Payment from "./Component/Payment";
-import Cart from "./Component/cart";
-import SignUp from "./Component/SignUp";
-import SubProfile from "./Component/SubProfile";
-import Login from "./Component/Login";
-import Register from "./Component/Register";
-import DownloadApp from "./Component/DownloadApp";
-import MyOrder from "./Component/MyOrder";
-import Address from "./Component/Address";
-import Summary from "./Component/Summary";
-import SearchItem from "./Component/SearchItem";
-import Footer from "./Component/Footer";
-import Navbar from "./Component/Navbar";
+import "./styles/App.css";
+import AppData from "./Component/AppData";
+import Home from "./Component/Home/Home";
+import ProductList from "./Component/Product/ProductList";
+import ProductDetail from "./Component/Product/ProductDetail";
+import CheckOut from "./Component/Checkout/CheckOut";
+import Payment from "./Component/Checkout/Payment";
+import Cart from "./Component/Cart/Cart";
+import SignUp from "./Component/Profile/SignUp";
+import SubProfile from "./Component/Home/SubProfile";
+import Login from "./Component/Profile/Login";
+import Register from "./Component/Profile/Register";
+import DownloadApp from "./Component/Home/DownloadApp";
+import MyOrder from "./Component/Checkout/MyOrder";
+import Address from "./Component/Profile/Address";
+import Summary from "./Component/Checkout/Summary";
+import SearchItem from "./Component/Product/SearchItem";
+import Footer from "./Component/Home/Footer";
+import Navbar from "./Component/Home/Navbar";
 
 const App = () => {
   return (

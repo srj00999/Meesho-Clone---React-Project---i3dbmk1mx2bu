@@ -1,12 +1,13 @@
 import React, { useEffect, useState,useContext } from "react";
-import { DataAppContext } from "./AppData";
+import { DataAppContext } from "../AppData";
 import { useNavigate } from "react-router-dom";
 import signup from "../images/signup.png";
-import "./SignUp.css";
+import "../StyleComp/SignUp.css";
 import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
+
   const initialData = {
     name: "",
     email: "",
@@ -66,7 +67,6 @@ const SignUp = () => {
     else {
         return true
     }
-  
   }
 
   useEffect(()=>{
