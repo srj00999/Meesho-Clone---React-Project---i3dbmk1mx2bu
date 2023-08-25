@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .summarypageh1{
     margin-top: 10rem;
     display: flex;
@@ -10,36 +11,43 @@
     align-items: center;
     flex-direction: column;
 }
+
 .summarypageh1 h2{
- font-size: 30px;
- font-weight: 100;
- font-weight: 400;
- color: purple;
+    font-size: 30px;
+    font-weight: 100;
+    font-weight: 400;
+    color: purple;
 }
+
 .summarypageh1 h1{
- font-size: 30px;
- font-weight: 100;
- font-weight: 400;
- color: purple;
+    font-size: 30px;
+    font-weight: 100;
+    font-weight: 400;
+    color: purple;
 }
+
 .similee{
     font-size: 170px;
     color: purple;
 }
+
 .summarydelivery{
     display: flex;
 }
+
 .summarydelivery span{
     font-size: 18px;
     font-weight: 500;
     margin-right: 6px;
 }
+
 .summaryPage{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 .confirmorder{
     height: 8rem;
     display: flex;
@@ -48,12 +56,14 @@
     width: 70%;
     background-color: rgb(211, 244, 234);;
 }
+
 .checkiconcotainer{
     width: 8rem;
     display: flex;
     justify-content: center;
     align-items: center;     
 }
+
 .checkiconcotainer span{
     display: flex;
     justify-content: center;
@@ -65,30 +75,37 @@
     border-radius: 5rem;
     font-size: 15px;
 }
+
 .idcontainer p{
     margin: 0px;
     padding: 0px;
 }
+
 .idcontainer h1{
     margin: 0px;
     padding: 0px;
     color:  rgb(2, 77, 54);;
 }
+
 .estimatedelvry span{
     font-size: 16px;
     margin-right: 1rem;  
 }
+
 .paytype{
     font-size: 17px;
     font-weight: 530;
 }
+
 .paymentmode span{
     font-size: 15px ;
     margin-right: 1rem;   
 }
+
 .paymentmode{
     padding: 1.2rem;
 }
+
 .summarypayment{
     display: flex;
     flex-direction: column;
@@ -99,6 +116,7 @@
     height: auto;
     box-sizing: border-box;
 }
+
 .walleticon{
     color: rgb(129, 233, 202);;
 }

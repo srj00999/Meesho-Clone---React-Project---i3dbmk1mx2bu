@@ -13,21 +13,21 @@
   .sliding-component.open {
     left: 0; /* Moves to the left side of the screen */
   }
+
 .surajbody{
     position: relative;
 }
-  .maincontainer{
+
+.maincontainer{
     position: absolute;
     top: 130px;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: rgb(146, 130, 130 , 20%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(146, 130, 130 , 20%);
   }
-  .btncontainer{
 
-  }
-  .slidecontainer{
+.slidecontainer{
     width: 0%;
     height: 100vh;
     background-color: pink;

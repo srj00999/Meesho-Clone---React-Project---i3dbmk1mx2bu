@@ -8,6 +8,7 @@
     position: relative;
     box-sizing: border-box;
 }
+
 .cartImage_container{
     display: flex;
     justify-content: center;
@@ -15,16 +16,19 @@
     flex-direction: column;
     margin-top: 10rem;
 }
+
 .empty_cart_button{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .empty_cart_button h5{
     font-size: 20px;
     font-weight: 400;
 }
+
 .empty_cart_button button{
     padding: 1.2rem;
     font-size: 15px;
@@ -36,6 +40,7 @@
 }
 
 
+
 .product_container{
     border: 1px solid rgb(234, 234, 242);
     border-radius: 8px;
@@ -45,9 +50,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
+
 .free_delivery_container{
     display: flex;
     justify-content: end;
@@ -55,32 +60,36 @@
     height: 4rem;
     width: 100%;
 }
+
 .product_img_des_cont{
-    border-bottom: 1px solid rgb(206, 206, 222) 1px; 
-    
+    border-bottom: 1px solid rgb(206, 206, 222) 1px;     
     display: flex;
     height: 13rem;
     width: 100%;
     padding: 1.3rem;
     height: 100vh;
 }
+
 .product_image_container{
-    /* background-color: gray; */
     height: 4rem;
     display: flex;
     padding: 0.8rem;
 }
+
 .product_description_cont{
     display: flex;
 }
+
 .descrp_container{
     display: flex;
     flex-direction: column;
     width: 40rem;
 }
+
 .descrp_container span{
     font-size: 15px;
 }
+
 .remove_container{
     height: 1rem;
     display: flex;   
@@ -90,10 +99,12 @@
     border: none;
     background-color: white;
 }
+
 .title_para{
     margin: 0px;
     font-weight: 500;
 }
+
 .edit_button{
     border: none;
     background-color: white;
@@ -102,18 +113,22 @@
     font-size: 15px;
     color: rgb(159, 32, 137);
 }
+
 .paraStyle{
     font-size: 15px;
 }
+
 .paraContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 1rem;
 }
+
 .cart_item_container{
     display: flex;
 }
+
 .item_container{
     display: flex;
     justify-content: center;
@@ -122,39 +137,46 @@
     padding-top: 3rem;
     padding-left: 2rem;
 }
+
 .item_container span{
     font-size: 1.5rem;
 }
+
 .h3_container{
     border-right: 1px solid black;
     height: 2rem;
 }
+
 .h3_container h3{
     margin-right: 20px;
     font-weight: 500;    
 }
+
 .count_item{
     padding-left: 20px;
 }
+
 .h3element{
     margin: 0px;
 }
+
 .cart_main_contner{
     display: flex;
 }
-.total_price_container{
 
+.total_price_container{
     margin: 1rem;
     padding: 2rem;
     padding-top: 1rem;
 }
+
 .prd{
-    border-right: 1px solid rgb(206, 206, 222);
-    
+    border-right: 1px solid rgb(206, 206, 222);    
     padding-right: 2rem;
      max-height: 55rem;
      overflow-y:auto;
 }
+
 .price_detail{
     font-size: 18px;
     color: rgb(24, 23, 23);
@@ -162,42 +184,48 @@
     font-weight: 500;
     padding-bottom: 1.2rem;
 }
+
 .total_prce p{
     font-size: 15px;
     color: rgb(97, 92, 92);
     margin: 0px;
     border-bottom: 1px dashed black;
 }
+
 .total_prce {
     font-size: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid  rgb(206, 206, 222);
-    padding-bottom: 1rem;
-    
+    padding-bottom: 1rem;   
 }
+
 .order_total{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .order_total span{
     font-size: 20px;
     padding: 1.5rem 0rem 4rem 0rem;
 }
+
 .clicking_on span{
     font-size: 13px;
     color: rgb(53, 53, 67);
     padding: 0.7rem 2rem 0.7rem 2rem ;
     background-color: rgb(245, 244, 244);
 }
+
 .clicking_on{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
+
 .continue_button button{
     width: 100%;
     height: 4.2rem;
@@ -207,6 +235,7 @@
     color: white;
     font-size: 17px;
 }
+
 .remove_button{
     margin-top: 2.5rem;
     padding-left: 0rem;
@@ -214,15 +243,18 @@
     justify-content: center;
     align-items: center;
 }
+
 .removeicon{
     margin-right: 0.5rem;
 }
+
 .ovrflowhide{
     width: 100%;
     height: 2rem;
     overflow: hidden;
     font-size: 15px;
 }
+
 .cartImageContainer img{
     border: 1px solid  rgb(206, 206, 222);
 }
@@ -239,22 +271,26 @@
     box-sizing: border-box;
     overflow: hidden;
 }
+
 .editsubcontainer{
     width: 0%;
     height: 100rem;
     background-color: white;
     transition: width 0.7s; 
 }
+
 .editContainer:hover{
      .editsubcontainer{
     width: 32.5%;
     display: flex;
     flex-wrap: wrap;
 }}
+
 .quantityContainer{
     height: 30rem;
     width: 100%;
 }
+
 .editQuantityHeader{
     display: flex;
     justify-content: space-between;
@@ -264,17 +300,20 @@
     height: 4.5rem; 
     padding: 2rem;
 }
+
 .editQuantityHeader button{
     border: none;
     background-color: white;
     font-size: 20px;
     font-weight: 600;
 }
+
 .prodQuantCont{
     height: 12rem;
     border-top: 1px solid rgb(197, 198, 201);
 
 }
+
 .totPricecon{
     display: flex;
     justify-content: space-between;
@@ -285,19 +324,21 @@
     border-bottom: 1px solid rgb(197, 198, 201); ;
    
 }
+
 .totPricecon span{
     font-size: 15px;
     color: black;
     font-weight: 500;
 }
+
 .editbtncontainr{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0rem 2rem;
     height: 5rem;
-
 }
+
 .editbtncontainr button{
     width: 100%;
     border: none;
@@ -307,15 +348,18 @@
     font-size: 14px;
     background-color: rgb(159, 32, 137);
 }
+
 .QuantpriceC{
     padding: 0.7rem 0rem;
 }
+
 .increDecCon{
     display: flex;
     justify-content: center;
     align-items:center ;
     font-size: 15px;
 }
+
 .icremenSubcontainer{
     border: 1px solid rgb(197, 196, 196) ;
     height: 2.8rem;
@@ -324,6 +368,7 @@
     align-items: center;
     margin-left: 1rem;
 }
+
 .icremenSubcontainer span{
     padding: 1.7rem;
 }
@@ -331,16 +376,14 @@
 .icremenSubcontainer button{
     border: none;
     width: 5rem;
-    height: 2.8rem;
-    
+    height: 2.8rem;    
 }
+
 .showQuantity{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-
 
 .removeCont{
     position: absolute;
@@ -353,24 +396,27 @@
     align-items: center;
     background-color: rgba(17, 12, 26, 0.8);
     box-sizing: border-box;
-    overflow: hidden;
-   
+    overflow: hidden;   
 }
+
 .removeSubCon{
     background-color: white;
     width: 60%;
     height: 20rem;
     border-radius: 1rem;
 }
+
 .removitemcontainer{
     padding: 2rem;
 }
+
 .RbtnContainer{
     display: flex;
     justify-content: end;
     align-items: center;
     height:4rem ;
 }
+
 .RbtnContainer button{
     background-color: white;
     border: none;
@@ -379,9 +425,11 @@
     font-weight: 550;
     letter-spacing: 1px;
 }
+
 .removeheading{
     height: 4rem;  
 }
+
 .removeheading h2{
     padding: 0px;
     margin: 0px;
@@ -389,16 +437,17 @@
     letter-spacing: 1px;
     font-size: 16px;
 }
+
 .removetitle{
     height: 7rem;
 }
+
 .removetitle p{
     margin: 0px;
     padding: 0px;
     font-size: 15px;
     color: rgb(80, 76, 76);
     font-weight: 500;
-
 }
 
 

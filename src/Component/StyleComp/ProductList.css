@@ -7,9 +7,7 @@
 }
 
 .each_product{
-    
     width: 25rem;
-    /* margin: 0 10px; */
     margin-bottom: 5rem;
     box-shadow: 1px 1px 6px 1px #e3e3e3;
     border-radius: 0.5rem;
@@ -36,7 +34,6 @@
     font-weight: bold;
     margin: 0  12px 9px;
     display: flex;
-   
 }
 
 .rating1{
@@ -62,16 +59,17 @@
 }
 
 .view_product{
-    
     text-decoration: none;
     color: #111;
 }
+
 .productpage{
     width: 100%;
    display: flex;
    justify-content: center;
    margin-bottom: 10rem;
 }
+
 .productcontainer{
   width: 80%;
   display: flex;
@@ -80,14 +78,13 @@
     padding-top: 5rem;
 }
 
-
-
 .addcontent{
     margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .addcontentitem{
     width: 65%;
     display: flex;
@@ -96,9 +93,9 @@
     margin-top: 2rem;
     background-color:rgb(248, 248, 255);;
     box-sizing: border-box;
-    height: 34.4rem;
-    
+    height: 34.4rem;    
 }
+
 .addtitlecontainer{
     width: 100%;
     height: auto;
@@ -106,15 +103,18 @@
     justify-content: center;
     flex-direction: column;    
 }
+
 .addheading h1{
     font-size: 35px;
     letter-spacing: 1px;
 }
+
 .addheading{
     display: flex;
     justify-content: center ;
     align-items: center;
 }
+
 .iconsContainer{ 
     width: 80%;
     display: flex;
@@ -123,22 +123,23 @@
     font-size: 12px;
     background-color: white;
     border-radius: 4px;
-    padding: 0.5rem;
-    
+    padding: 0.5rem;   
 }
+
 .iconsname{
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 500;
 }
+
 .btndownloadmessho{
     display: flex;
     justify-content: start;
     align-items: center;
-    height: 14.8rem; 
- 
+    height: 14.8rem;  
 }
+
 .btndownloadmessho button{
     width: 30rem;
     height: 4rem;
@@ -147,44 +148,51 @@
     border-radius: 4px;
     border: none;
     color: white;
-    background-color: rgb(159, 32, 137);
-    
+    background-color: rgb(159, 32, 137);    
 }
+
 .topcatContainer{
 display: flex;
 align-items: center;
 justify-content: center;
 margin: 7rem 0rem;
 }
+
 .topcatsubContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80%;
 }
+
 .topcatsubContainer hr{
     width: 20%;
 }
+
 .topheading {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
 }
+
 .topheading h1{
     font-size: 30px;
     font-weight: 500;
 }
+
 .iconscolom{
     font-size: 20px;
     padding-right: 0.4rem;
 }
+
 .row3container{
     display: flex;
     width: 100%;
     justify-content: start;
     align-items: center;
 }
+
 .row2container{
     width: 100%;
     display: flex;
@@ -192,25 +200,29 @@ margin: 7rem 0rem;
     justify-content: center;
     flex-direction: column;
 }
+
 .homepagemaincontainer{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .homepagesubmainContainer{
     box-sizing: border-box;
-    /* margin-top: 5rem;  */
 }
+
 .productlistcontainer{
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
+
 .productlistSubcontainer{
     width: 85%;
     display: flex;
 }
+
 .prdBox{
     display: flex;
     width: 22rem;
@@ -220,9 +232,9 @@ margin: 7rem 0rem;
     flex-direction: column;
     margin: 1.2rem;
     box-sizing: border-box;
-    overflow: hidden;
-    
+    overflow: hidden;    
 }
+
 .imgContainer{
     display: flex;
     justify-content: center;
@@ -232,25 +244,27 @@ margin: 7rem 0rem;
     object-fit:cover;
     overflow:hidden ;
 }
+
 .imgg{
     width: 97%;
     height: 97%;
     padding: 0.3rem;
    }
+
 .filtercontainer{
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    
+    box-sizing: border-box; 
 }
+
 .sortcontainer{
     width: 30rem;
     height: 3.5rem;
     border: 1px solid rgb(223, 220, 220);
     border-radius: 3px;
-    margin: 0.9rem;
-    
+    margin: 0.9rem;    
 }
+
 .Categorycontainer{
     width: 30rem;
     height: 60rem;
@@ -262,6 +276,7 @@ margin: 7rem 0rem;
     box-sizing: border-box;
     overflow: hidden;
 }
+
 .pdTitleContainer{
     display: flex;
     justify-content: start;
@@ -271,23 +286,23 @@ margin: 7rem 0rem;
     padding: 1rem 0rem;
     color:  rgb(139, 139, 163);
     white-space: nowrap;
-    overflow:hidden;
-       
+    overflow:hidden;       
 }
+
 .pdTitleContainer p{
-    
     margin: 0px;
     padding: 0px;
     text-overflow: ellipsis;  
 }
+
 .priceContainer{
     width: 100%;
     font-size: 23px;
     font-weight: 500;
     padding: 1rem 1rem;
-    color: rgb(49, 48, 48);   
-   
+    color: rgb(49, 48, 48);      
 }
+
 .freeContainer{
     display: flex;
     font-size: 12px;
@@ -295,12 +310,13 @@ margin: 7rem 0rem;
     font-weight: 500; 
     padding: 1rem 0.5rem 0rem 1rem;    
 }
+
 .freeContainer span{
     background-color: rgb(245, 245, 245); 
     color:  rgb(103, 103, 121);
 }
-.reivewContainer{
- 
+
+.reivewContainer{ 
     font-size: 16px;
     padding: 1rem 1rem; 
     color: rgb(49, 48, 48);
@@ -317,18 +333,20 @@ margin: 7rem 0rem;
     flex-wrap: wrap;
     box-sizing: border-box;
 }
+
 .ratingconainer{
     background-color: rgb(35, 187, 117);
     padding: 0.1rem 1rem;
     border-radius: 4rem;
-    margin-right: 1rem;
-    
+    margin-right: 1rem;    
 } 
+
 .star{
     font-size: 10px;
     padding-left: 0.2rem;
     margin-bottom: 0.3rem;
 }
+
 .sortitemscontainers{
     display: flex;
     justify-content: center;
@@ -336,9 +354,9 @@ margin: 7rem 0rem;
     width: 100%;
     border-bottom: 1px solid rgb(223, 220, 220);
     height: 5rem;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;    
 }
+
 .sortitm{
     display: flex;
     justify-content: center;
@@ -350,6 +368,7 @@ margin: 7rem 0rem;
     color: rgb(105, 99, 99);
     overflow: hidden;
 }
+
 .sortselect select{
     font-size: 15px;
     font-weight: 500;
@@ -358,6 +377,7 @@ margin: 7rem 0rem;
     position: relative;
     outline: none;
 }
+
 .sortselect option{
     width: 20rem;
     font-size: 15px;
@@ -378,12 +398,14 @@ margin: 7rem 0rem;
     height: 9rem; 
     border-bottom: 1px solid rgb(223, 220, 220); 
 }
+
 .cateogrycontcainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 8rem; 
 }
+
 .cateogrycontcainer span{
     margin: 18px ;
     width: 100%;
@@ -391,30 +413,34 @@ margin: 7rem 0rem;
     color: rgb(8, 8, 8);
 }
 
-.filterContnr span{
-    
+.filterContnr span{    
     margin-left: 18px;
     width: 100%;
     font-size: 18px;
     color: rgb(8, 8, 8);    
 }
+
 .pdplus{
     font-size: 12px;
     margin-left: 18px;
     color: rgb(105, 99, 99);
+
 }
+
 .categoryitems{
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: 15px;
 }
+
 .categoryitems div{
     padding: 14px 0px 14px 18px;
     width: 100%;
     border-bottom: 1px solid rgb(223, 220, 220);
     color: rgb(105, 99, 99);
 }
+
 .categoryitems div:hover{
     background-color:rgb(240, 240, 240) ;
     color: black;
@@ -429,6 +455,7 @@ margin: 7rem 0rem;
     height: 5rem;
     font-weight: 550;
 }
+
 .sortitemscontainers:hover{
     color: rgb(159, 32, 137);
        
@@ -439,9 +466,8 @@ margin: 7rem 0rem;
            font-weight: 500;
        }   
    }
-
-   
-   .oppscontainer{
+  
+.oppscontainer{
     display: flex;
     padding-top: 20vh;
     height: 50vh;
@@ -449,30 +475,32 @@ margin: 7rem 0rem;
     align-items: center;
     flex-direction: column;
     font-size: 13px;
-    
-   }
-   .oppscontainer h4{
+}
+
+.oppscontainer h4{
     font-weight: 12px;
     font-weight: 600;
     color: grey;
     letter-spacing: 1px;
-   }
-   .oppscontainer h1{
+}
+
+.oppscontainer h1{
     font-weight: 14px;
     color: rgb(49, 47, 47);
     font-weight: 480;
     margin: 0px;
-   }
-   .prdforyoucontainer{
+}
+
+.prdforyoucontainer{
     height: 9rem;
     display: flex;
     justify-content: center;
     align-items: center;
-   }
-   .prdforyoucontainer span{
+}
+
+.prdforyoucontainer span{
     width: 83%;
     font-size: 28px;
     font-weight: 500;
     color: #383737;
-   }
-  
+}

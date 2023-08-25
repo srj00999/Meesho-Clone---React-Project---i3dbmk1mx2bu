@@ -4,6 +4,7 @@
     width: 100%;
     height: 8rem;
 }
+
 .header_container{
     border-bottom: 0.5px solid rgb(46, 46, 139, 0.3);
     display: flex;
@@ -20,12 +21,14 @@
     display: flex;
     justify-content: space-between;
 }
+
 .logo_input_container{
      display: flex;
      justify-content: start;
      align-items: center;
      height: 7rem;
 }
+
 .input_container{
     border: 1px solid grey;
     display: flex;
@@ -33,15 +36,18 @@
     align-items: center;
     border-radius: 4px;
 }
+
 .searchitemcontainer::placeholder{
     color: grey;
     font-size: 15px;
 }
+
 .searchIcon{
     font-size: 23px;
     color: grey;
     padding: 0rem 0.4rem 0rem 1rem;
 }
+
 .input_container input[type=text] {
     border: none;
     width: 36rem;
@@ -51,41 +57,47 @@
     color: rgb(59, 57, 57);
     font-weight: 500;
     
-  }
-  .searchitemcontainer:focus{
-    border: none;
-  }
+}
 
-  .input_container input[type=text]:focus {
+.searchitemcontainer:focus{
+    border: none;
+}
+
+.input_container input[type=text]:focus {
     outline: none;
     height: 3.7rem;
-  }
- .input_container input{
+}
+
+.input_container input{
     margin: 1px;
- }
+}
+
 .links_container{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .links{
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: relative;
-    
+    position: relative;    
 }
+
 .links span{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
 }
+
 .links_border{
     border-left: 1px solid  rgb(59 130 246 / 0.5);
     border-right: 1px solid  rgb(59 130 246 / 0.5);
 }
+
 .profile_container{
     position: relative;
     display: flex;
@@ -95,27 +107,31 @@
     width: 7rem;
     height: 7.7rem;
 }
+
 .profile{
     font-size: 1.5rem;
 }
+
 .profile_line{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 7rem;
     height: 7rem;
-    /* position: relative; */
 }
 .mobileIcon{
     font-size: 20px;
     color: rgb(61, 61, 61);
 }
+
 .profileIcon{
     color: rgb(61, 61, 61);
 }
+
 .cartIcon{
     color: rgb(61, 61, 61);
 }
+
 .profile_line:hover{
  color: rgb(159, 32, 137);
     
@@ -135,8 +151,7 @@
     & a{
         color: rgb(159, 32, 137);
         font-weight: 500;
-    }
-    
+    }    
 }
 
 .nav_container{
@@ -147,11 +162,13 @@
     align-items: center;
     height: 6rem;
 }
+
 .nav{
     display: flex;
     width: 85%;
     height: 6rem;
 }
+
 .nav_items{
     display: flex;
     justify-content: space-evenly;
@@ -159,11 +176,13 @@
     width: 100%;
     height: 6ren;   
 }
+
 a{  
    text-decoration: none;
    color: black;
    font-size: 1.5rem;
 }
+
 .nav_items span{
     text-decoration: none;
     color: black;
@@ -182,6 +201,7 @@ a{
         font-weight: 500;
     }   
 }
+
 .hide{
     position: absolute;
     display: none;
@@ -190,15 +210,19 @@ a{
 .profile_container:hover + .hide{
     display: block;
 }
+
 .hide:hover{
     display: block;
 }
+
 .downloadappcontainer:hover + .hide{
     display: block;
 }
+
 .hide:hover{
     display: block;
 }
+
 .prdquantitycontainer{
     position: absolute;
     top: 0px;
@@ -216,6 +240,7 @@ a{
     margin-bottom: 5.2rem;
     margin-left: 1rem;
 }
+
 .prdquantitycontainer p{
     margin: 0px;
     padding: 0px;
