@@ -48,19 +48,19 @@ const ProductDetail = () => {
       tempCart.map((item)=>{
         if(item.id===product.id){
           status = false;
-          setAllReadyInCart(true);
-          setShowbtn(true);
+          setAllReadyInCart(true);          
           setTimeout(() => {
             setAllReadyInCart(false);
+            setShowbtn(true);
           }, 1200);
         }
       })
       if(status){
         localStorage.setItem("cart", JSON.stringify([...tempCart, product]));
-        setIsAlertVisible(true);
-        setShowbtn(true);
+        setIsAlertVisible(true);       
         setTimeout(() => {
           setIsAlertVisible(false);
+          setShowbtn(true);
         }, 1200);
       }
     

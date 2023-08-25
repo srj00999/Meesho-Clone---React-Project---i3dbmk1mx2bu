@@ -26,7 +26,7 @@ const CheckOut = () => {
   const [formerror, setFormerror] = useState({});
   const localContext = useContext(DataAppContext);
   const {appState, setAppState } = localContext;
-  const {totalprice,discount, loginStatus, cardDetails, paymentType, price , buyStatus} = appState;
+  const {totalprice,discount, loginStatus, paymentType} = appState;
   
   const finalPrice = (totalprice - discount).toFixed(2);
 
@@ -43,7 +43,7 @@ const CheckOut = () => {
 useEffect(() => {
     setAppState({
       ...appState, showSearch:false,
-      showProCart:false
+      showProCart:false, paymentType:"Cash On Delivery"
     });
   if (!loginStatus) {
       navigate('/login');
@@ -150,13 +150,13 @@ const selectPayment=(e)=>{
                             <input className="inputbox " type="text" placeholder="Name on card" id="cardname" onChange={updateData} value={formdata.cardname} />
                             <div className="errormessg">{formerror.cardname}</div>
 
-                            <input className="inputbox" type="number" placeholder="Card Number" id="cardnumber" onChange={updateData} value={formdata.cardnumber} />
+                            <input className="inputbox" type="number" placeholder="Card Number"  id="cardnumber" onChange={updateData} value={formdata.cardnumber} />
                             <div className="errormessg ">{formerror.cardnumber}</div>
 
                             <input className="inputbox" type="date" placeholder="Expiry Date" id="date" onChange={updateData} value={formdata.date} />
                             <div className="errormessg ">{formerror.date}</div>
 
-                            <input className="inputbox" type="number" placeholder="CVV" id="cvv" onChange={updateData} value={formdata.cvv} />
+                            <input className="inputbox" type="number" placeholder="CVV" id="cvv"  onChange={updateData} value={formdata.cvv} />
                             <div className="errormessg ">{formerror.cvv}</div>
                             </div>
                         </div>

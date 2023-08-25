@@ -12,27 +12,16 @@ import Navbar from "../Home/Navbar";
 
 
 const ProductList = () => {
-  // const [data, setData] = useState([]);
+  
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
 
-
-  // const ProductAPI = async () => {
-  //   const res = await fetch(
-  //     "https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/"
-  //   );
-  //   const productlistdata = await res.json();
-
-  //   setData(productlistdata);
-  // };
-
   useEffect(() => {
-    // ProductAPI();
     setAppState({
       ...appState, showNav:false,
       showSearch:true,
       showProCart:true,
-    })
+    })    
   }, []);
 
   return (

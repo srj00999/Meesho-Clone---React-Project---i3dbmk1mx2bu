@@ -3,15 +3,16 @@ import { DataAppContext } from "../AppData";
 import "../StyleComp/ProductList.css";
 import Footer from "../Home/Footer";
 import Navbar from "../Home/Navbar";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 
+
 const SearchItem = () => {
-  
 
   const navigate  = useNavigate();
+  const location  = useLocation();
   const localContext = useContext(DataAppContext);
   const { appState , setAppState } = localContext;
   const { search, showNav } = appState;
@@ -36,36 +37,36 @@ const SearchItem = () => {
       );
       setfilterData(filterResult);
     } 
+
+    if(location.pathname==="/"){   
+      setfilterData(productlistdata);
+    }
   };
 
   
   const selectSort=(e)=>{
     e.preventDefault();
     if(e.target.value==="Relevance"){
-    
-        setfilterData(defaultapi);
-      
+
+        setfilterData(defaultapi); 
+
     }else if(e.target.value=== "HighToLow"){     
     
         const originaldata = [...filterdata];
         const sortdata = originaldata.sort((a, b) => b.price - a.price);
-        console.log(sortdata);
         setfilterData(sortdata);
 
     }else if(e.target.value=== "LowToHigh"){
       
         const originaldata = [...filterdata];
         const sortdata = originaldata.sort((a, b) => a.price - b.price);
-        console.log(sortdata);
         setfilterData(sortdata);
      
     }else if(e.target.value=== "Rating"){    
      
         const originaldata = [...filterdata];
         const sortdata = originaldata.sort((a, b) => b.rating.rate - a.rating.rate);
-        console.log(sortdata);
-        setfilterData(sortdata);
-     
+        setfilterData(sortdata);    
     }
   }
 
@@ -82,8 +83,9 @@ const SearchItem = () => {
       ...appState,showNav:true,showSearch:true,
       showProCart:true
     })
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);   
   }, [search]);
+
 
   return (
     <>

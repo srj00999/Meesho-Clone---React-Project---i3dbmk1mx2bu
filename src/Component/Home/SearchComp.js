@@ -36,8 +36,7 @@ const SearchComp = () => {
           ...appState,
           ...formdata    
         });
-        if(search
-          ){
+        if(formdata != ""){
           navigate("/searchitem");
         }  
       }
@@ -49,7 +48,7 @@ const SearchComp = () => {
       <form onSubmit={searchFn}>
         <input className="searchitemcontainer"
           placeholder="Try Saree,Kurthi or Search by Product Code"
-          type="text" id="search" onChange={updateData} value={formdata.search}>
+          type="text" id="search"  required onChange={updateData} value={formdata.search}>
         </input>
       </form>
     </div>

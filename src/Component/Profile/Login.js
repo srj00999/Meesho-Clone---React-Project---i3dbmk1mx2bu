@@ -20,6 +20,7 @@ const Login = () => {
   const {pquantity, emptyCartStatus} = appState;
   const [formerror, setFormerror] = useState({});
   const [formdata, setFormData] = useState(initiaState);
+  const [showloginsucc , setloginsucc] = useState(false)
  
   const updateData = (e) => {
     let tempObj = {};
@@ -55,12 +56,18 @@ const Login = () => {
               emptyCartStatus:cartpagestatus
             }
             setAppState(obj);
-            alert("login Succesful");
-            navigate("/");
+            setloginsucc(true);
+            setTimeout(()=>{
+              setloginsucc(false);
+              navigate("/");
+            }, 2000)
+           
+          }else{
+            alert("Invalid Email/Password");
           }
         } else {
           setStatus(false);
-          console.log("Invalid Email/Password");
+          alert("Invalid Email/Password");
         }
         setFormData(initiaState);
       });
@@ -99,6 +106,9 @@ const Login = () => {
 
   return (
     <div className="signup_page">
+       {showloginsucc && <div className="alert-container">
+            <div className="alert-inner">Login Successfully</div>
+          </div>}
       <div className="signup_container">
         <div>
           <img src={signup} width="450px" height="220" />
