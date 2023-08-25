@@ -23,12 +23,12 @@ export default function Footer() {
                 <div className="divcontainer">
                     <h3>Legal and Policies</h3>
                     <h3>Meesho Tech Blog</h3>
-                    <h3>Notices and Returns</h3>
+                    <h3>Notices and Returns</h3>  
                 </div>
                 <div className="divcontainer">
                     <h2 className="heading">Reach out to us</h2>
-                    <span><h3>srj00999@gmail.com</h3></span>
-                    <span><h3>+919125300999</h3></span>
+                    <h3>srj00999@gmail.com</h3>
+                    <h3>+919125300999</h3>
                 </div>
                 <div className="divcontainer">
                     <h2 className="heading">Contact Us</h2>

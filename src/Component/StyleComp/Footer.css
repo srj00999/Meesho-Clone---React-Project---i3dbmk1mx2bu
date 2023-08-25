@@ -30,11 +30,13 @@
     width: 20%;
     padding: 0.3rem;
     margin-top: 2rem;
+    overflow: hidden;
 }
 
 .divcontainer h3{
     letter-spacing: 1px;
-    font-size: 14px;    
+    font-size: 14px;
+    
 }
 
 .divcontainer1{

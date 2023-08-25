@@ -145,7 +145,7 @@ const selectPayment=(e)=>{
                             <h1>Secure Payment Info</h1>
                             <FontAwesomeIcon icon={faCreditCard} className="cardicon" />
                             </div>
-
+                              <form>
                             <div className="inputContainers">
                             <input className="inputbox " type="text" placeholder="Name on card" id="cardname" onChange={updateData} value={formdata.cardname} />
                             <div className="errormessg">{formerror.cardname}</div>
@@ -159,6 +159,7 @@ const selectPayment=(e)=>{
                             <input className="inputbox" type="number" placeholder="CVV" id="cvv"  onChange={updateData} value={formdata.cvv} />
                             <div className="errormessg ">{formerror.cvv}</div>
                             </div>
+                            </form>
                         </div>
                     </div>}
          {showReselling && <div className="reselling_container">
