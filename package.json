@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cypress run  --headless --reporter mochawesome",
     "start": "webpack-dev-server --mode development --watch --open --hot --port=3000  ",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; gatsby build "
+    "build": "webpack --mode production "
   },
   "keywords": [],
   "author": "",
