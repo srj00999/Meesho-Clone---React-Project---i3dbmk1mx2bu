@@ -36,6 +36,7 @@ const SearchComp = () => {
           ...appState,
           ...formdata    
         });
+        setFormData(initialData);
         if(formdata != ""){
           navigate("/searchitem");
         }  

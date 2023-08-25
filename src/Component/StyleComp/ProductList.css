@@ -71,8 +71,8 @@
 }
 
 .productcontainer{
-  width: 80%;
-  display: flex;
+    width: 80%;
+    display: flex;
     align-items: center;
     margin: 0px;
     padding-top: 5rem;
@@ -105,7 +105,7 @@
 }
 
 .addheading h1{
-    font-size: 35px;
+    font-size: 3.5rem;
     letter-spacing: 1px;
 }
 
