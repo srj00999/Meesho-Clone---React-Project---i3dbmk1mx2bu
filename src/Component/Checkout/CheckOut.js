@@ -3,6 +3,7 @@ import { DataAppContext } from "../AppData";
 import "../StyleComp/CheckOut.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPercent } from "@fortawesome/free-solid-svg-icons";
+import { faCircle} from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
@@ -23,6 +24,8 @@ const CheckOut = () => {
   const [paymentStatus, setPaymentStatus] = useState(false);
   const [showCard, setShowCard] = useState();
   const [showReselling, setShowReselling] = useState(true);
+  const [hideselect, sethideselect] = useState(true);
+  const [showhideselect, setshowhideselect] = useState();
   const [formerror, setFormerror] = useState({});
   const localContext = useContext(DataAppContext);
   const {appState, setAppState } = localContext;
@@ -96,18 +99,21 @@ const validationFn = () => {
 }
 
 //Show Hide card Container and select payment type
-const selectPayment=(e)=>{
-  e.preventDefault();
-  if(e.target.value==="COD"){
+const selectPayment=(paymethods)=>{
+  if(paymethods ==="COD"){
     setShowCard(false);
     setShowReselling(true);
+    sethideselect(true)
+    setshowhideselect(false)
     setAppState({
       ...appState,paymentType:"Cash On Delivery"
     })
     
-  }else if(e.target.value=== "CardPayment"){
+  }else if(paymethods === "CardPayment"){
     setShowCard(true);
     setShowReselling(false);
+    sethideselect(false)
+    setshowhideselect(true)
     setAppState({
       ...appState,paymentType:"Debit/Credit Card Payment"
     })
@@ -132,12 +138,20 @@ const selectPayment=(e)=>{
             <div className="horizontalline"></div>
           </div>
           <div className="paymentmethod">
-            <form>
-              <select className="formcontainer" onChange={selectPayment}>
-                <option value='COD' >Cash on Delivery</option>
-                <option value='CardPayment'>Pay with Credit/Debit Card</option>
-              </select> 
-            </form>
+            <div>
+              <div className="formcontainer selectopt">
+                  <span className="iconspancontainer crcleicon" onClick={()=>selectPayment("COD")}>
+                  {hideselect  && <FontAwesomeIcon icon={faCircle}  />}
+                  </span>
+                  <span onClick={()=>selectPayment("COD")}>Cash On Delivery</span>
+              </div>
+              <div className="formcontainer ">
+                  <span className="iconspancontainer crcleicon" onClick={()=>selectPayment("CardPayment")}>
+                  {showhideselect  && <FontAwesomeIcon icon={faCircle}  />}
+                    </span>
+                  <span onClick={()=>selectPayment("CardPayment")}>Pay with Credit/Debit Card</span>
+              </div>
+            </div>
           </div>
           { showCard && <div className="paymentbox">
                         <div className="cardPayCon">
@@ -162,7 +176,7 @@ const selectPayment=(e)=>{
                             </form>
                         </div>
                     </div>}
-         {showReselling && <div className="reselling_container">
+         {showReselling && <div className="">
             <div className="reselling_order">
               <span>
                 <h2>Reselling the Order?</h2>
@@ -172,7 +186,7 @@ const selectPayment=(e)=>{
               </span>
             </div>
             <div>
-              <span className="resellingbtn">
+              <span className="resellingbtn ">
                 <button onClick={() => setReselling(false)}>No</button>
                 <button onClick={() => setReselling(true)}>Yes</button>
               </span>

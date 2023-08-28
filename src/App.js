@@ -20,7 +20,7 @@ import SearchItem from "./Component/Product/SearchItem";
 import Footer from "./Component/Home/Footer";
 import Navbar from "./Component/Home/Navbar";
 import Wishlist from "./Component/Profile/Wishlist";
-
+import PageNotFound from "./Component/Home/PageNotFound";
 const App = () => {
   return (
     <>
@@ -45,6 +45,7 @@ const App = () => {
             <Route path="navbar" element={<Navbar />} />
             <Route path="searchitem" element={<SearchItem />} />
             <Route path="footer" element={<Footer />} />
+            <Route path="*" element={<PageNotFound/>} />
           </Route>
         </Routes>
       </AppData>

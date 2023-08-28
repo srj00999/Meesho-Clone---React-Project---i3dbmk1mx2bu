@@ -1,0 +1,17 @@
+.pagenotfoundcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+.pagenotfoundcontainer div{
+    font-size: 50px;
+}
+.notfoundpageicon{
+    color: rgb(159, 32, 137);
+    font-size: 100px;
+}
+.ntfnd{
+    color: grey;
+}

@@ -17,12 +17,13 @@
 .paymentContainer{
     display: flex;
     flex-direction: column;
-    width: 55rem;
+    width: 60rem;
     padding: 2rem;
     border: 1px solid rgb(234, 234, 242);
-    height: 50rem;
+    height: 60rem;
     overflow-y: auto;
 }
+
 
 .prcedetailpage{
     display: flex;
@@ -80,6 +81,8 @@
 }
 
 .formcontainer{
+    display: flex;
+    align-items: center;
     width: 55rem;
     height: 4rem;
     border: none;
@@ -105,18 +108,45 @@
 }
 
 .reselling_order span{
-  font-size: 15px;  
+  font-size: 15px; 
+}
+
+.reselling_order{
+    margin-top: 4.5rem;
+}
+
+.iconspancontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(143, 143, 143);
+    border-width: 2px;
+    margin: 0px 10px;
+    padding: 3px;
+    border-radius: 10px;
+    font-size: 10px; 
+    width: 20px;
+    height: 20px;
+    
+}
+.crcleicon{
+    color: rgb(159, 32, 137) ;
+    border: 1px solid rgb(159, 32, 137);
+    border-width: 2px;    
 }
 
 .resellingbtn button{
+    margin-top: 2rem ;
     width: 5rem;
     height: 3rem;
     font-size: 18px;
     margin-left: 2rem;
-    border: 1px solid rgb(159, 32, 137);
-    background-color: rgb(233, 184, 240);
+    border: 1px solid rgb(233, 95, 210);
+    background-color: rgb(231, 231, 231);
     border-radius: 20px;
-    padding: 6px;
+    color:rgb(159, 32, 137) ;
+    padding: 6px; 
+    border-width: 2px;   
 }
 
 .reselling_container{
@@ -125,6 +155,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 0.5rem;
+   
 }
 
 .clickon p{
@@ -493,6 +524,7 @@
 }
 
 .paymentbox{
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     height: 30rem;
@@ -540,4 +572,8 @@
 .errormessg{
     color: red;
     font-size: 11px;
+}
+.selectopt{
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
 }
