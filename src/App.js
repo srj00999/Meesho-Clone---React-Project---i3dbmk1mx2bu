@@ -19,6 +19,7 @@ import Summary from "./Component/Checkout/Summary";
 import SearchItem from "./Component/Product/SearchItem";
 import Footer from "./Component/Home/Footer";
 import Navbar from "./Component/Home/Navbar";
+import Wishlist from "./Component/Profile/Wishlist";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="cart" element={<Cart />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="subprofile" element={<SubProfile />} />
+            <Route path="wishlist" element={<Wishlist/>} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="downloadapp" element={<DownloadApp />} />

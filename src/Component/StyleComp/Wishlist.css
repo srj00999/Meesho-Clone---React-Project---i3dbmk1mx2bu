@@ -1,0 +1,153 @@
+.wishlistcontainer{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: rgb(219, 218, 218);
+    height: 100%;
+}
+.wishlistsubcontainer{
+    display: flex;
+    width: 80%;
+    height: 100vh;
+    margin: 1rem;
+}
+.profilesection{
+    width: 35%;
+    height: 65rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+
+}
+.profilebox{
+    margin-bottom: 1rem;
+}
+.myorderbox{
+    display: flex;
+    background-color: white;
+    height: 100vh;
+}
+.myprofilebox{
+    display: flex;
+    background-color: white;
+    margin-bottom: 1rem;
+    height: 8rem;
+    align-items: center;
+}
+.wishlistconstianer{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+}
+.mywishlistheading{
+    font-size: 1.6rem;
+    padding: 2rem;
+    font-weight: 500;
+    border-bottom: 1px  solid rgb(219, 217, 217);
+
+}
+.prdimgcontainer{
+    width: 15rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prdimgcontainer img{
+   width: 75px;
+   height: 75px;
+}
+.prodcontaienr{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px  solid rgb(219, 217, 217);
+
+}
+.prdimageprice{
+    display: flex;
+}
+.pdtitleprice{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 60rem;
+}
+.wishlistpdtitle{
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
+.wishlistpdrating{
+    font-size: 13px;
+}
+.wishlistpdprice{
+    font-size: 19px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-weight: 400;
+}
+.removewishitem{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    padding-right: 3.5rem;
+    font-size: 15px;
+    color: grey;
+}
+.usericonspan{
+    border: 1px solid black;
+    margin: 2rem;
+   
+}
+.usericonspan{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 100px;
+   background-color:rgb(212, 210, 210);
+    
+}
+.userprofileiconsection{
+    padding: 1rem;
+    color:rgb(17, 17, 17);;
+}
+.profileusrname{
+    display: flex;
+    flex-direction: column;
+
+}
+.profileusrname{
+    font-size: 15px;
+}
+.namesction{
+    font-size: 20px;
+    font-weight: 600;
+}
+.ordersectonbox{
+    border-bottom: 1px solid rgb(219, 217, 217);;;
+    display: flex;
+    width: 100%;
+    height: 7rem;
+    align-items: center; 
+}
+.ordersectonbox span{
+    font-size: 18px;
+    color: rgb(80, 79, 79);
+}
+.bagiconcontainer{
+    padding-left: 2.3rem;
+    padding-right: 2rem;
+}
+.wishlistpdrating{
+    color: white;
+}
+.wishlistpdrating{
+    margin-top: 1rem;
+}
+.nopdfounddiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}

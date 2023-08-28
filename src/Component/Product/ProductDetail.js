@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Home/Navbar";
 
 
@@ -19,6 +20,9 @@ const ProductDetail = () => {
   const { appState, setAppState } = localContext;
   const [product, setProduct] = useState({});
   const [allreayinCart, setAllReadyInCart] = useState(false);
+  const [wishlist, setWishList] = useState({});
+  const [wishlistclass, setWishListclass] = useState();
+  const [addedtowishlist, setaddedtowishlist] = useState(false);
   const { loginStatus} = appState;
 
 
@@ -29,6 +33,7 @@ const ProductDetail = () => {
     );
     const resdata = await res.json();
       setProduct({ ...resdata, qty: 1 }); 
+      setWishList(resdata);
   };
 
 
@@ -103,6 +108,20 @@ const ProductDetail = () => {
   }
   };
 
+ 
+//Add product to Wishlist
+ const wishlistFn = () => {
+ if(loginStatus){
+  setWishListclass("addtowishlist");
+  setaddedtowishlist(true);
+  setTimeout(() => {
+    setaddedtowishlist(false);
+  }, 1000);
+  let tempwishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  localStorage.setItem("wishlist", JSON.stringify([...tempwishlist, wishlist]));
+ }
+  }; 
+
   return (
     <>
     <Navbar/>
@@ -116,6 +135,11 @@ const ProductDetail = () => {
         {allreayinCart && (
           <div className="alert-container">
             <div className="alert-inner">Product already in Cart</div>
+          </div>
+        )}
+        {addedtowishlist && (
+          <div className="alert-container">
+            <div className="alert-inner">Product added to wishlist</div>
           </div>
         )}
         <div className="imgAndbtnContainer">
@@ -147,6 +171,7 @@ const ProductDetail = () => {
         </div>
         <div className="pdDetailContainer">
           <div className="dtalbox">
+            <div> 
             <div className="pdTitleContainer"><p>{product.title}</p></div>
             <div className="priceContainer">₹{product.price}</div>
             <div className="freeContainer">
@@ -161,6 +186,8 @@ const ProductDetail = () => {
                 Left Item {product.rating && product.rating.count}
               </span>
             </div>
+            </div>           
+            <div className="wishlistlogo"><button onClick={wishlistFn}><span ><FontAwesomeIcon icon={faHeart} className={wishlistclass}/></span></button></div>
           </div>
           <div className="detailsSection">
             <div className="prdheading">Product Details</div>

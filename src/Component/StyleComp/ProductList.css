@@ -239,6 +239,10 @@ margin: 7rem 0rem;
         justify-content: center;
         align-items: center; 
     }
+    .img{
+        width: 12rem;
+        height: 12rem;
+    }
   }
 
 

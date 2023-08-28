@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import "../StyleComp/SubProfile.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,12 +41,12 @@ const SubProfile = () => {
               </div>
               <div className="myordersection ">
                 <span>
-                  <FontAwesomeIcon icon={faBagShopping} className="changeiconColor"/>
+                  <FontAwesomeIcon icon={faHeart} className="changeiconColor" style={{color:"red"}}/>
                 </span>
                 <span className="myordrcontainer">
-                 <Link to='myorder'>
+                 <Link to='wishlist'>
                  <span>
-                    <p className="paratag">My Orders</p>
+                    <p className="paratag">My WishList</p>
                   </span>
                  </Link>
                 </span>
