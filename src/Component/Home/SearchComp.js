@@ -26,7 +26,7 @@ const SearchComp = () => {
         setFormData({
           ...formdata,
           ...tempObj,
-        });
+        });   
       };
     
       
