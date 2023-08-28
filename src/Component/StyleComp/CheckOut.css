@@ -391,7 +391,7 @@
     z-index: 1;
     top: 0px;
     width: 100%;
-    height: auto;
+    height: 80rem;
     display: flex;
     justify-content: end;
     background-color: rgba(17, 12, 26, 0.8);
@@ -407,7 +407,7 @@
 
 .slideEdit{
     width: 0%;
-    height: 100vh;
+    height: 80rem;
     background-color: white;
     transition: width 0.7s;
 }

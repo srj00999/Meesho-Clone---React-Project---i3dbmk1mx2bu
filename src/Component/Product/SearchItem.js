@@ -132,7 +132,7 @@ const SearchItem = () => {
                       <div className="prdBox" key={item.id}>
                         <Link to={`/pdetails/${item.id}`}>
                           <div className="imgContainer">
-                            <img src={item.image} alt="image" className="imgg" />
+                            <img src={item.image} alt="image" className="imgg" style={{cursor:"pointer"}}/>
                           </div>
                         </Link>
                         <div className="pdTitleContainer">{item.title}</div>

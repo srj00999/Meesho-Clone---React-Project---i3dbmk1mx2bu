@@ -24,7 +24,7 @@ const Header = () => {
             <div className="logo_input_container">
               <div className="logo_container">
                 <Link to="/">
-                  <img src={Messhologo} width="220x" height="150" />
+                  <img src={Messhologo} width="220x" height="150"  />
                 </Link>
               </div>
               {showSearch && <SearchComp/>}
@@ -38,7 +38,7 @@ const Header = () => {
               </div>
               <div className="hide"><DownloadApp/></div>
               <div className=" links">
-                <span className="links_border">
+                <span className="links_border" style={{cursor:"pointer"}}>
                   <Link to="/">Become a supplier</Link>
                 </span>
               </div>

@@ -22,7 +22,7 @@ const SearchComp = () => {
       const updateData = (e) => {
         e.preventDefault()
         let tempObj = {};
-        tempObj[e.target.id] = e.target.value.trim();
+        tempObj[e.target.id] = e.target.value;
         setFormData({
           ...formdata,
           ...tempObj,

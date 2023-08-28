@@ -21,6 +21,8 @@ import Footer from "./Component/Home/Footer";
 import Navbar from "./Component/Home/Navbar";
 import Wishlist from "./Component/Profile/Wishlist";
 import PageNotFound from "./Component/Home/PageNotFound";
+import Loder from "./Component/Home/Loder";
+
 const App = () => {
   return (
     <>
@@ -28,6 +30,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="/" element={<ProductList />} />
+            <Route path="loder" element={<Loder />} />
             <Route path="pdetails/:id" element={<ProductDetail />} />
             <Route path="checkout" element={<CheckOut />} />
             <Route path="payment" element={<Payment />} />
