@@ -141,7 +141,8 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    height: 14.8rem;  
+    height: 14.8rem; 
+    
 }
 
 .btndownloadmessho button{
@@ -152,6 +153,7 @@
     border-radius: 4px;
     border: none;
     color: white;
+    cursor: pointer; 
     background-color: rgb(159, 32, 137);    
 }
 
@@ -405,6 +407,7 @@ margin: 7rem 0rem;
     height: 3.7rem;
     position: relative;
     outline: none;
+    cursor: pointer;
 }
 
 .sortselect option{
@@ -412,11 +415,13 @@ margin: 7rem 0rem;
     font-size: 15px;
     font-weight: 500;
     border: none;
+    cursor: pointer;
 }
 
 .selectoption{
     width: 100%;
     position: relative;
+    cursor: pointer;
     
 }
 
@@ -468,6 +473,7 @@ margin: 7rem 0rem;
     width: 100%;
     border-bottom: 1px solid rgb(223, 220, 220);
     color: rgb(105, 99, 99);
+    cursor: pointer;
 }
 
 .categoryitems div:hover{

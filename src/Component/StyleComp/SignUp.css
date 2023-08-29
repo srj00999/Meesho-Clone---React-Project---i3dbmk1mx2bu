@@ -32,6 +32,10 @@
     justify-content: center;    
 }
 
+.usernameinput{
+    text-overflow: ellipsis;   
+}
+
 .phone_no_input{
     display: flex;
     align-items: center;

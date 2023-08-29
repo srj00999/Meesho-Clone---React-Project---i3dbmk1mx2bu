@@ -24,6 +24,9 @@
     overflow-y: auto;
 }
 
+.croxbtn{
+    cursor: pointer;
+}
 
 .prcedetailpage{
     display: flex;
@@ -88,6 +91,10 @@
     border: none;
     outline: none;
     font-size: 20px;
+}
+
+.placedordercontainer button{
+    cursor: pointer;
 }
 
 .formcontainer option{
@@ -363,6 +370,7 @@
     font-size: 1.7rem;
     color: white;
     background-color: rgb(159, 32, 137);
+    cursor: pointer;
 }
 
 .addnewContaienr button{
@@ -374,6 +382,7 @@
     background-color: white;
     color:rgb(159, 32, 137) ;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
 .editbtncntainer{
@@ -383,6 +392,7 @@
      letter-spacing: 1px;
      color:rgb(159, 32, 137) ;
      font-weight: 550;
+     cursor: pointer;
 }
 
 
@@ -512,6 +522,7 @@
     background-color: rgb(159, 32, 137);
     color: white;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .cityStatebox{

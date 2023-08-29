@@ -90,9 +90,10 @@ const SignUp = () => {
                 <p>Sign Up to save your order</p>
               </div>
               <div className="phone_no_input">
-                <span className="phone_no_input">
+                <span className="phone_no_input usernameinput">
                   <input
-                    placeholder="Name"
+                    className="usernameinput"
+                    placeholder="First Name"
                     type="text"
                     id="name"
                     onChange={updateData}

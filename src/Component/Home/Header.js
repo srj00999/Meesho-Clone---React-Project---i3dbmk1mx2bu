@@ -24,7 +24,7 @@ const Header = () => {
             <div className="logo_input_container">
               <div className="logo_container">
                 <Link to="/">
-                  <img src={Messhologo} width="220x" height="150"  />
+                  <img src={Messhologo} width="220x" height="150"  className="meshologo" />
                 </Link>
               </div>
               {showSearch && <SearchComp/>}

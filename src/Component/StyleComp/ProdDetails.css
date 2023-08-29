@@ -19,6 +19,7 @@
     width: 50rem;
     height: 58rem;
     margin-bottom: 5rem;
+    cursor: pointer;
 }
 
 .smallImage{
@@ -28,11 +29,13 @@
     height: 6rem;
     overflow: hidden;
     object-fit: cover;
+   
 }
 
 .smallImage img{
     width: 95%;
-    height: 95%;    
+    height: 95%; 
+    
 }
 
 .imageContainer img{
@@ -79,12 +82,16 @@
     font-weight: 700;
     border: 1px solid rgb(159, 32, 137);
     color: rgb(159, 32, 137);
+    cursor: pointer;   
+
 }
 
 .buybtn{
     border: none;
     color: white;
     background-color: rgb(159, 32, 137);
+    cursor: pointer;   
+
 }
 
 .pdDetailContainer{
@@ -203,6 +210,7 @@
 }
 .wishlistlogo{
     display: flex;
+    cursor: pointer;   
 }
 .wishlistlogo button{
     margin: 2rem;
@@ -216,8 +224,10 @@
     align-items: center;
     border-radius: 20px;
     box-shadow: 5px 5px 20px grey ;
+    cursor: pointer;   
 }
 
 .addtowishlist{
     color: rgb(231, 64, 64);
+    cursor: pointer;   
 }

@@ -88,7 +88,7 @@ const SubProfile = () => {
                     <FontAwesomeIcon icon={faBagShopping} />
                   </span>
                   <Link to="/myorder">
-                    <span>My Order</span>
+                    <span className="myordersectn">My Order</span>
                   </Link>
                 </div>
               </div>

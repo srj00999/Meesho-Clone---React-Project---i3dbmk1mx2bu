@@ -3,6 +3,7 @@
     position: relative;  
     width: 100%;
     height: 8rem;
+    cursor: pointer;
 }
 
 .header_container{
@@ -38,6 +39,14 @@
 }
 
 .logo_container{
+    cursor: pointer;
+}
+
+.meshologo{
+    cursor: pointer;
+}
+
+.logo_container a{
     cursor: pointer;
 }
 
@@ -111,10 +120,12 @@
     flex-direction: column;
     width: 7rem;
     height: 7.7rem;
+    cursor: pointer;
 }
 
 .profile{
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .profile_line{
@@ -135,6 +146,7 @@
 
 .cartIcon{
     color: rgb(61, 61, 61);
+    cursor: pointer;
 }
 
 .profile_line:hover{
@@ -181,6 +193,10 @@
     width: 100%;
     height: 6ren;  
     cursor: pointer; 
+}
+
+.nav_items span p{
+    cursor: pointer;
 }
 
 a{  
@@ -249,6 +265,7 @@ a{
     box-shadow: 2px 2px 2px 2px rgb(219, 139, 206) ;
     margin-bottom: 5.2rem;
     margin-left: 1rem;
+    cursor: pointer;
 }
 
 .prdquantitycontainer p{

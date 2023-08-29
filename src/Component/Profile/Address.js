@@ -221,7 +221,7 @@ const Address = () => {
               <div className="add_address_cont">
                 <span>ADD ADDRESS</span>
                 <span>
-                  <button onClick={() => setClass(false)}>X</button>
+                  <button className="croxbtn" onClick={() => setClass(false)}>X</button>
                 </span>
               </div>
               <form className="addAddressForm" onSubmit={saveAddressFn}>

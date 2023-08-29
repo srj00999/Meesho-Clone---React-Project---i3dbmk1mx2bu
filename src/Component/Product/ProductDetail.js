@@ -186,8 +186,8 @@ const ProductDetail = () => {
                 Left Item {product.rating && product.rating.count}
               </span>
             </div>
-            </div>           
-            <div className="wishlistlogo"><button onClick={wishlistFn}><span ><FontAwesomeIcon icon={faHeart} className={wishlistclass}/></span></button></div>
+            </div >           
+            <div className="wishlistlogo" style={{cursor:"pointer"}}><button onClick={wishlistFn}><span ><FontAwesomeIcon icon={faHeart} className={wishlistclass} style={{cursor: "pointer"}}/></span></button></div>
           </div>
           <div className="detailsSection">
             <div className="prdheading">Product Details</div>

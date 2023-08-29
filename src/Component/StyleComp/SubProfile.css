@@ -22,6 +22,9 @@
     border-bottom:1px solid rgb(105, 105, 110); 
     padding-bottom: 2rem ;
 }
+.myordersectn{
+    cursor: pointer;
+}
 
 .helloUser h1{
     margin: 0px;
@@ -43,6 +46,7 @@
     border: none;
     border-radius: 4px;
     font-size: 1.6rem;
+    cursor: pointer;
 }
 
 .myorder_container{
@@ -82,11 +86,14 @@
 .namecontainr{
     letter-spacing: 1px;
     margin-left: 1rem;
+    text-overflow:ellipsis;
+   
 }
 
 .myordrcontainer span{
     font-size: 17px;
-    color: rgb(97, 93, 93);    
+    color: rgb(97, 93, 93);
+    cursor: pointer;    
 }
 
 .myordrcontainer{
@@ -99,22 +106,26 @@
     color:  rgb(97, 93, 93);
     border: none;
     background-color: white;
+    cursor: pointer;
 }
 
 .logoutcontainer{
     margin-left: 1rem;
+    cursor: pointer;
 }
 
 .paratag{
     font-size: 17px;
     margin: 0px;
     font-weight: 550;
+    cursor: pointer;
 }
 
 .paratagg{
     font-size: 18px;
     margin: 0px;
-    font-weight: 550; 
+    font-weight: 550;
+    cursor: pointer; 
 }
 
 .myordersection{

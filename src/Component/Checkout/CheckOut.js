@@ -36,7 +36,7 @@ const CheckOut = () => {
   //set card details in Formdata
   const updateData = (e) => {
     let tempObj = {};
-    tempObj[e.target.id] = e.target.value.trim();
+    tempObj[e.target.id] = e.target.value;
     setFormdata({
         ...formdata, ...tempObj
     });    
