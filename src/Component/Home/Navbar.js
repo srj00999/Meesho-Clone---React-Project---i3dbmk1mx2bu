@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { DataAppContext } from '../AppData';
 import "../StyleComp/Header.css";
 import { useNavigate } from 'react-router-dom';
+import SearchComp from './SearchComp';
 
 
 const Navbar = () => {
@@ -54,7 +55,9 @@ const Navbar = () => {
               </span>
             </div>
           </div>
+          
         </div>
+        <div className='searchinNav'><SearchComp/></div>
     </div>
   )
 }

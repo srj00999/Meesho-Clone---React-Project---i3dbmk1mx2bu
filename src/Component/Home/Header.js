@@ -5,9 +5,11 @@ import DownloadApp from "./DownloadApp";
 import { Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileScreen } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SearchComp from "./SearchComp";
 import "../StyleComp/Header.css";
 import ProfileCart from "../Profile/ProfileCart";
+
 
 
 const Header = () => {
@@ -21,13 +23,14 @@ const Header = () => {
       <div className="header_nav_container">
         <div className="header_container">
           <div className="header">
+            <div className="MobileNavmenuCont"><FontAwesomeIcon icon={faBars} /></div>
             <div className="logo_input_container">
               <div className="logo_container">
-                <Link to="/">
-                  <img src={Messhologo} width="220x" height="150"  className="meshologo" />
+                <Link to="/" >
+                  <img src={Messhologo}  className="meshologo" />
                 </Link>
-              </div>
-              {showSearch && <SearchComp/>}
+              </div >
+              {showSearch && <div className="hidesrchinheader"><SearchComp /> </div>}
             </div>
 
             <div className="links_container">
@@ -37,7 +40,7 @@ const Header = () => {
                 </span>
               </div>
               <div className="hide"><DownloadApp/></div>
-              <div className=" links">
+              <div className=" links bcomeSuplierContainer">
                 <span className="links_border" style={{cursor:"pointer"}}>
                   <Link to="/">Become a supplier</Link>
                 </span>

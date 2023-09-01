@@ -9,9 +9,11 @@ margin: 0;
 box-sizing: border-box;
 font-family: 'Poppins', sans-serif;
 position: relative;
+width: 100%;
 }
 
 html{
     font-size: 62.5%;
-    
+    display: flex;
+    width: 100%;
 }
