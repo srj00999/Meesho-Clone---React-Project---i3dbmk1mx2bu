@@ -260,15 +260,13 @@ margin: 7rem 0rem;
     flex-direction: column;
     margin: 1.2rem;
     box-sizing: border-box;
-    overflow: hidden;  
-   
+    overflow: hidden;    
 }
 
 .imgContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 21rem;
     height: 18rem;
     object-fit:cover;
     overflow:hidden ;
@@ -311,18 +309,20 @@ margin: 7rem 0rem;
     display: flex;
     justify-content: start;
     align-items: center;
-    box-sizing: border-box;
-    width: 100%;
     padding: 1rem 0rem;
     color:  rgb(139, 139, 163);
-    white-space: nowrap;
-    overflow:hidden;       
+    overflow:hidden;   
+    text-overflow: ellipsis;  
+
 }
 
-.pdTitleContainer p{
+.pdTitleContainer span{
+    display: flex;
     margin: 0px;
     padding: 0px;
-    text-overflow: ellipsis;  
+    width: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .priceContainer{
@@ -330,7 +330,8 @@ margin: 7rem 0rem;
     font-size: 23px;
     font-weight: 500;
     padding: 1rem 1rem;
-    color: rgb(49, 48, 48);      
+    color: rgb(49, 48, 48);  
+     
 }
 
 .freeContainer{
@@ -599,6 +600,25 @@ margin: 7rem 0rem;
     .prdBox{
         margin: 0px; 
         border-radius: 0px;    
+    }
+    .prdBox{
+        display: flex;
+        width: 18.7rem;
+        height: 36rem;
+        border: 1px solid rgb(223, 220, 220);
+        flex-direction: column;
+        box-sizing: border-box;
+        overflow: hidden;  
+       
+    }
+  
+    .imgg{
+        width: 90%;
+        height: 92%;
+       }
+  
+       .pdTitleContainer span{
+        width: 83%;
     }
  
   }

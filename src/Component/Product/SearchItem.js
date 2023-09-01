@@ -135,7 +135,7 @@ const SearchItem = () => {
                             <img src={item.image} alt="image" className="imgg" style={{cursor:"pointer"}}/>
                           </div>
                         </Link>
-                        <div className="pdTitleContainer">{item.title}</div>
+                        <div className="pdTitleContainer"><span>{item.title}</span>...</div>
                         <div className="priceContainer">₹{item.price}</div>
                         <div className="freeContainer">
                           <span>Free Delivery</span>

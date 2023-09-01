@@ -43,6 +43,7 @@
     cursor: pointer;
     width: 55%;
     height: 100%;
+    max-width: 23rem;
 }
 
 .meshologo{
