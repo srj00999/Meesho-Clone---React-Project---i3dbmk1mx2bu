@@ -11,7 +11,7 @@ import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Home/Navbar";
 
 
-const ProductList = () => {
+const ProductList = () => { 
   
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
@@ -77,7 +77,7 @@ const ProductList = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="homeimagehide">
             <img src={home} />
           </div>
         </div>

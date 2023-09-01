@@ -551,3 +551,54 @@ margin: 7rem 0rem;
     }
   }
   
+  @media only screen and (max-width: 991px)  {
+    .homeimagehide{
+        display: none;
+    }
+    .addheading h1{
+        padding-left: 2.2rem;  
+    }
+    .topheading{
+        display: none;
+    }
+    .topcatsubContainer hr{
+        width: 100%;
+    }
+    
+    .productlistSubcontainer{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+    }
+ 
+    .prdforyoucontainer span{
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+ 
+    }
+    .productlistcontainer{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+    }
+    .productlistSubcontainer{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+    }
+    .prdmainConainer{
+        padding: 0px;
+        margin: 0px; 
+    }
+    .prdBox{
+        margin: 0px; 
+        border-radius: 0px;    
+    }
+ 
+  }
