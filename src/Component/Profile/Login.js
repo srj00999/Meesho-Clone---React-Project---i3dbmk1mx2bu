@@ -17,7 +17,7 @@ const Login = () => {
   const [loginStatus, setStatus] = useState(false);
   const localContext = useContext(DataAppContext);
   const {appState, setAppState} = localContext;
-  const {pquantity, emptyCartStatus} = appState;
+  const {pquantity, emptyCartStatus, name} = appState;
   const [formerror, setFormerror] = useState({});
   const [formdata, setFormData] = useState(initiaState);
   const [showloginsucc , setloginsucc] = useState(false)
@@ -28,16 +28,15 @@ const Login = () => {
     setFormData({ ...formdata, ...tempObj });
   };
 
-  const loginFn = (e) => {
+  const loginFn =  (e) => {
       e.preventDefault();
       const ret = validationFn();
       if (ret) {
-      let temp = JSON.parse(localStorage.getItem("users")) || [];
-      if (temp) {
-      temp.map((value) => {
-        if (value.email === formdata.email) {
-          if (value.password === formdata.password) {
-            setStatus(true);
+      var temp = JSON.parse(localStorage.getItem("users")) || [];
+      // if (temp) {
+      for(let i =0 ; i < temp.length; i++){
+        if (temp[i].email === formdata.email && temp[i].password === formdata.password) {
+          var getname = JSON.parse(localStorage.getItem("users")) || [];
             const prdQuantity =  JSON.parse(localStorage.getItem("cart")) || [];
             let temp = 0;
             prdQuantity.map((pdprce)=>{
@@ -50,7 +49,7 @@ const Login = () => {
             let obj = {
               ...appState,
               loginStatus: true,
-              name: value.name,
+              name: getname[i].name,
               pquantity:prdQuantity.length,
               totalprice:temp,
               emptyCartStatus:cartpagestatus
@@ -60,18 +59,18 @@ const Login = () => {
             setTimeout(()=>{
               setloginsucc(false);
               navigate("/");
-            }, 2000)
-           
-          }else{
-            alert("Invalid Email/Password");
-          }
+            }, 2000);
+           break;
         } else {
-          setStatus(false);
+
+          setStatus(false);  
+          setFormData(initiaState);
           alert("Invalid Email/Password");
+          break;
         }
-        setFormData(initiaState);
-      });
-    }
+        
+      };
+    // }
   }}
     
   const validationFn = () => {

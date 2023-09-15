@@ -73,18 +73,35 @@ const payFn = () => {
 const validationFn = () => {
 
   let errorObj = {};
-
   if (formdata.cardname === '') {
       errorObj.cardname = 'Card Number is empty'
   }
   if (formdata.cardnumber === '') {
       errorObj.cardnumber = 'Card Number is empty'
   }
+  if (formdata.cardnumber.length < 12) {
+      errorObj.cardnumber = 'Card Number should be 12 digits'
+  }
+  if (formdata.cardnumber.length > 12) {
+      errorObj.cardnumber = 'Card Number should be 12 digits'
+  }
   if (formdata.date === '') {
-      errorObj.date = 'Date is empty'
+      errorObj.date = 'Expiry is empty'
+  }
+  if (formdata.date.length <5) {
+      errorObj.date = 'Invalid MM/YY'
+  }
+  if (formdata.date.length >5) {
+      errorObj.date = 'Invalid MM/YY'
   }
   if (formdata.cvv === '') {
       errorObj.cvv = 'CVV is empty'
+  }
+  if (formdata.cvv.length < 3) {
+      errorObj.cvv = 'CVV is should be 3 digits'
+  }
+  if (formdata.cvv.length > 3) {
+      errorObj.cvv = 'CVV is should be 3 digits'
   }
 
   setFormerror(errorObj);
@@ -161,16 +178,16 @@ const selectPayment=(paymethods)=>{
                             </div>
                               <form>
                             <div className="inputContainers">
-                            <input className="inputbox " type="text" placeholder="Name on card" id="cardname" onChange={updateData} value={formdata.cardname} />
+                            <input className="inputbox " type="text" placeholder="Name" id="cardname" onChange={updateData} value={formdata.cardname} />
                             <div className="errormessg">{formerror.cardname}</div>
 
-                            <input className="inputbox" type="number" placeholder="Card Number"  id="cardnumber" onChange={updateData} value={formdata.cardnumber} />
+                            <input className="inputbox" type="tel" placeholder="Card Number"  id="cardnumber" onChange={updateData} value={formdata.cardnumber} />
                             <div className="errormessg ">{formerror.cardnumber}</div>
 
-                            <input className="inputbox" type="date" placeholder="Expiry Date" id="date" onChange={updateData} value={formdata.date} />
+                            <input className="inputbox" type="text" placeholder="MM/YY Expiry " id="date" onChange={updateData} value={formdata.date} />
                             <div className="errormessg ">{formerror.date}</div>
 
-                            <input className="inputbox" type="number" placeholder="CVV" id="cvv"  onChange={updateData} value={formdata.cvv} />
+                            <input className="inputbox" type="tel" placeholder="CVV" id="cvv"  onChange={updateData} value={formdata.cvv} />
                             <div className="errormessg ">{formerror.cvv}</div>
                             </div>
                             </form>

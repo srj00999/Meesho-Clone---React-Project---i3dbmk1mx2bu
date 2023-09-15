@@ -235,6 +235,7 @@ const Address = () => {
                     placeholder="Name"
                     type="text"
                     id="name"
+                    required
                     onChange={updateData}
                     value={formData.name}
                   />
@@ -242,6 +243,7 @@ const Address = () => {
                     placeholder="Contact Number"
                     type="number"
                     id="contactno"
+                    required
                     onChange={updateData}
                     value={formData.contactno}
                   />
@@ -256,6 +258,7 @@ const Address = () => {
                     placeholder="House no /Building Name"
                     type="text"
                     id="house"
+                    required
                     onChange={updateData}
                     value={formData.house}
                   />
@@ -263,6 +266,7 @@ const Address = () => {
                     placeholder="Road Name / Area / Colony"
                     type="text"
                     id="area"
+                    required
                     onChange={updateData}
                     value={formData.area}
                   />
@@ -270,6 +274,7 @@ const Address = () => {
                     placeholder="Pincode"
                     type="number"
                     id="pincode"
+                    required
                     onChange={updateData}
                     value={formData.pincode}
                   />
@@ -278,6 +283,7 @@ const Address = () => {
                       placeholder="City"
                       type="text"
                       id="city"
+                      required
                       onChange={updateData}
                       value={formData.city}
                     />{" "}
@@ -285,6 +291,7 @@ const Address = () => {
                       placeholder="state"
                       type="text"
                       id="state"
+                      required
                       onChange={updateData}
                       value={formData.state}
                     />

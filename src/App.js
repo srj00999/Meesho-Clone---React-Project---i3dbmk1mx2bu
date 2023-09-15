@@ -11,7 +11,6 @@ import Cart from "./Component/Cart/Cart";
 import SignUp from "./Component/Profile/SignUp";
 import SubProfile from "./Component/Home/SubProfile";
 import Login from "./Component/Profile/Login";
-import Register from "./Component/Profile/Register";
 import DownloadApp from "./Component/Home/DownloadApp";
 import MyOrder from "./Component/Checkout/MyOrder";
 import Address from "./Component/Profile/Address";
@@ -39,7 +38,6 @@ const App = () => {
             <Route path="subprofile" element={<SubProfile />} />
             <Route path="wishlist" element={<Wishlist/>} />
             <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
             <Route path="downloadapp" element={<DownloadApp />} />
             <Route path="myorder" element={<MyOrder />} />
             <Route path="checkout" element={<CheckOut />} />

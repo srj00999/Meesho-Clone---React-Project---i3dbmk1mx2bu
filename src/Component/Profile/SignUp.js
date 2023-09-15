@@ -55,7 +55,7 @@ const SignUp = () => {
     if (formdata.password === '') {
         errorObj.password = 'Password is empty'
     }
-    if (formdata.password.length < 5) {
+    if (formdata.password.length < 6) {
         errorObj.password = 'Password must be greater than 5 digit'
     }
   

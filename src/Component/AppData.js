@@ -3,7 +3,7 @@ export const DataAppContext = React.createContext();
 
 const AppData = (props) => {
   const initialState = {
-    loginStatus: "true",
+    loginStatus: "",
     name: "",
     showNav:"",
     showSearch:'',
