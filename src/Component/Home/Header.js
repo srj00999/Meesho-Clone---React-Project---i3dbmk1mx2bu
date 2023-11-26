@@ -9,7 +9,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SearchComp from "./SearchComp";
 import "../StyleComp/Header.css";
 import ProfileCart from "../Profile/ProfileCart";
-
+ 
 
 
 const Header = () => {

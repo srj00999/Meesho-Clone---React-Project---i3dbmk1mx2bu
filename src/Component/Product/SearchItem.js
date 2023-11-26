@@ -6,6 +6,11 @@ import Navbar from "../Home/Navbar";
 import { Link,useNavigate,useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faShirt } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -164,7 +169,31 @@ const SearchItem = () => {
             </div>
           )}
         </div>
-        <Footer/>
+        <div className="footermobileview"><Footer/></div>
+        <div className="mobilemenushow">
+          <div className="mobilemenu">
+            <div className="menuicon">
+              <span><FontAwesomeIcon icon={faHouse} /></span>
+              <span>Home</span>
+            </div>
+            <div className="menuicon">
+              <span><FontAwesomeIcon icon={faShirt} /></span>
+              <span>Category</span>
+            </div>
+            <div className="menuicon">
+              <span><FontAwesomeIcon icon={faBagShopping} /></span>
+              <span>My Order</span>
+            </div>
+            <div className="menuicon">
+              <span><FontAwesomeIcon icon={faCircleQuestion} /></span>
+              <span>Help</span>
+            </div>
+            <div className="menuicon">
+              <span><FontAwesomeIcon icon={faUserTie} /></span>
+              <span>Account</span>
+            </div>
+          </div>
+        </div>
       </div>
       </>
   );

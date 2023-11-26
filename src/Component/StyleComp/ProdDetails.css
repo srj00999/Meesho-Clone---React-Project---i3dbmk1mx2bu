@@ -231,3 +231,11 @@
     color: rgb(231, 64, 64);
     cursor: pointer;   
 }
+
+
+@media only screen and (max-width: 690px) {
+    .prodSubContainer{
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -20,9 +20,9 @@ const Navbar = () => {
 
   return (
     <div>
-         <div className="nav_container">
-          <div className="nav">
-            <div className="nav_items">
+         <div className="nav_container mobilenav">
+          <div className="nav mobilenavdiv">
+            <div className="nav_items mobilenavitem">
               <span>
                 <p onClick={()=>navfn('')} >View All</p>
               </span>

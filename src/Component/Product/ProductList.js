@@ -8,10 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Home/Navbar";
 
 
-const ProductList = () => { 
+const ProductList = () => {  
   
   const localContext = useContext(DataAppContext);
   const { appState, setAppState } = localContext;
@@ -28,7 +30,15 @@ const ProductList = () => {
     <>
    <Navbar/>
     <div className="homepagemaincontainer">
-      <div className="homepagesubmainContainer"></div>
+      <div className="homepagesubmainContainer">
+      <div>
+        <div className="adddeliverylocation" >
+          <span className=" loctinicon loctioncolor"><FontAwesomeIcon icon={faLocationDot} /></span>
+          <span>Add delivery location to check extra discount</span>
+          <span className=" loctinicon"><FontAwesomeIcon icon={faAnglesRight} /></span>
+        </div>
+      </div>
+      </div>
       <div className="addcontent">
         <div className="addcontentitem">
           <div className="addtitlecontainer">
@@ -91,6 +101,7 @@ const ProductList = () => {
           <hr />
         </div>
       </div>
+     
       <SearchItem  />
     </div>
     </>
