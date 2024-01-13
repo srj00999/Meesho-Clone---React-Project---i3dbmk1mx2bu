@@ -48,7 +48,7 @@ const SearchComp = () => {
       <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon"/>
       <form onSubmit={searchFn}>
         <input className="searchitemcontainer"
-          placeholder="Try Saree,Kurthi or Search by Product Code"
+          placeholder="Try Saree,Kurthi or Search by Product..."
           type="text" id="search"  required onChange={updateData} value={formdata.search}>
         </input>
       </form>

@@ -274,7 +274,7 @@
 
 .editsubcontainer{
     width: 0%;
-    height: 100rem;
+    height: 100%;
     background-color: white;
     transition: width 0.7s; 
 }
@@ -287,6 +287,7 @@
 }}
 
 .quantityContainer{
+    margin-top: 5rem;
     height: 30rem;
     width: 100%;
 }

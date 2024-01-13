@@ -14,7 +14,7 @@
 .footercontainer{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     height: 30rem;
     justify-content:center; 
     margin: 0px;

@@ -89,7 +89,7 @@
 }
 
 .addcontentitem{
-    width: 65%;
+    width: auto;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -107,7 +107,8 @@
     height: auto;
     display: flex;
     justify-content: center;
-    flex-direction: column;    
+    flex-direction: column; 
+    padding: 2rem;   
 }
 
 .addheading h1{
@@ -183,7 +184,7 @@ margin: 7rem 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: auto;
 }
 
 .topheading h1{
@@ -684,3 +685,5 @@ margin: 7rem 0rem;
     }
  
   }
+
+  

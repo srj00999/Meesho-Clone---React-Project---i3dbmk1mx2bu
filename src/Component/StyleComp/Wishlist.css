@@ -3,12 +3,11 @@
     justify-content:center;
     align-items: center;
     background-color: rgb(219, 218, 218);
-    height: 100%;
+    height: auto;
 }
 .wishlistsubcontainer{
     display: flex;
     width: 80%;
-    height: 100vh;
     margin: 1rem;
 }
 .profilesection{
