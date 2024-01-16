@@ -81,7 +81,7 @@ const SignUp = () => {
     <div className="signup_page">
       <div className="signup_container">
         <div>
-          <img src={signup} width="450px" height="220" />
+          <img src={signup} width="450px" height="220" loading="lazy" />
         </div>
         <form onSubmit={RegisterFn}>
           <div className="signup_input_container">

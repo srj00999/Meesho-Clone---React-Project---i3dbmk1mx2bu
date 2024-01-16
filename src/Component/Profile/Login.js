@@ -110,7 +110,7 @@ const Login = () => {
           </div>}
       <div className="signup_container">
         <div>
-          <img src={signup} width="450px" height="220" />
+          <img src={signup} width="450px" height="220"  loading="lazy"/>
         </div>
         <div className="signup_input_container">
           <div className="signup_input_container_box">
